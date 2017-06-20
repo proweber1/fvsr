@@ -36,5 +36,13 @@
             <version>3.0.0.RELEASE</version>
         </dependency>
         <!-- End thymeleaf dependencies -->
+
+        <!-- Spring dev tools for auto reloading templates and
+            static resources -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 </project>
