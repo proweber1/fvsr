@@ -1,4 +1,5 @@
-<aside id="sidebar_left" class="nano nano-light affix">
+<aside id="sidebar_left" class="nano nano-light affix"
+       xmlns:th="http://www.w3.org/1999/xhtml">
 
     <!--Navbar Branding-->
     <div class="navbar-branding">
@@ -43,15 +44,15 @@
         <!-- Start: Sidebar Menu-->
         <ul class="nav sidebar-menu">
             <li class="sidebar-label pt30">Меню</li>
-            <li class="active">
+            <li class="active" th:classappend="${module == 'index' ? 'active' : ''}">
                 <a href="/" th:href="@{/}">
                     <span class="fa fa-home" aria-hidden="true"></span>
                     <span class="sidebar-title">Личный кабинет</span>
                 </a>
             </li>
-            <li>
-                <a href="pages/profile.html" th:href="@{pages/profile}">
-                    <span class="fa fa-home" aria-hidden="true"></span>
+            <li th:classappend="${module == 'profile' ? 'active' : ''}">
+                <a href="/profile.html" th:href="@{/profile}">
+                    <span class="fa fa-user" aria-hidden="true"></span>
                     <span class="sidebar-title">Профиль</span>
                 </a>
             </li>
