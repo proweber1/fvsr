@@ -1,4 +1,4 @@
-package pro.metrus.fvsr.controller;
+package pro.metrus.fvsr.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
