@@ -1,11 +1,11 @@
 package pro.metrus.fvsr.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import pro.metrus.fvsr.domains.Group;
+import pro.metrus.fvsr.repositories.custom.DefaultOrderableByIdRepository;
 
 /**
  * Repository which work with groups entity
  */
 public interface GroupsRepository
-        extends JpaRepository<Group, Short> {
+        extends DefaultOrderableByIdRepository<Group, Short> {
 }
