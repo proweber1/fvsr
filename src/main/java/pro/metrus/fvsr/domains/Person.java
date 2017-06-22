@@ -67,7 +67,7 @@ public class Person {
     @Column(name = "team_member")
     private boolean teamMember;
 
-    @Column(name = "other_Role")
+    @Column(name = "other_role")
     private boolean otherRole;
 
     @Column(name = "old_id")
