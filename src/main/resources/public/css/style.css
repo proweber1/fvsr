@@ -11347,6 +11347,200 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tfoot > tr:last-child > td {
     border-bottom: 0; } }
 
+/*===============================================
+  H. Max Width Helpers
+================================================= */
+.fluid-width {
+  width: 100% !important; }
+
+.mw10 {
+  max-width: 10px !important; }
+
+.mw20 {
+  max-width: 20px !important; }
+
+.mw30 {
+  max-width: 30px !important; }
+
+.mw35 {
+  max-width: 35px !important; }
+
+.mw40 {
+  max-width: 40px !important; }
+
+.mw45 {
+  max-width: 45px !important; }
+
+.mw50 {
+  max-width: 50px !important; }
+
+.mw60 {
+  max-width: 60px !important; }
+
+.mw80 {
+  max-width: 80px !important; }
+
+.mw100 {
+  max-width: 100px !important; }
+
+.mw140 {
+  max-width: 140px !important; }
+
+.mw160 {
+  max-width: 160px !important; }
+
+.mw180 {
+  max-width: 180px !important; }
+
+.mw200 {
+  max-width: 200px !important; }
+
+.mw240 {
+  max-width: 240px !important; }
+
+.mw280 {
+  max-width: 280px !important; }
+
+.mw300 {
+  max-width: 300px !important; }
+
+.mw320 {
+  max-width: 320px !important; }
+
+.mw400 {
+  max-width: 400px !important; }
+
+.mw450 {
+  max-width: 450px !important; }
+
+.mw500 {
+  max-width: 500px !important; }
+
+.mw600 {
+  max-width: 600px !important; }
+
+.mw700 {
+  max-width: 700px !important; }
+
+.mw800 {
+  max-width: 800px !important; }
+
+.mw900 {
+  max-width: 900px !important; }
+
+.mw1000 {
+  max-width: 1000px !important; }
+
+.mw1100 {
+  max-width: 1100px !important; }
+
+.mw1200 {
+  max-width: 1200px !important; }
+
+/*Regular Width Helpers. Primarily used
+on tables, feel free to add more*/
+.w20 {
+  width: 20px !important; }
+
+.w30 {
+  width: 30px !important; }
+
+.w40 {
+  width: 40px !important; }
+
+.w50 {
+  width: 50px !important; }
+
+.w75 {
+  width: 75px !important; }
+
+.w100 {
+  width: 100px !important; }
+
+.w125 {
+  width: 125px !important; }
+
+.w150 {
+  width: 150px !important; }
+
+.w175 {
+  width: 175px !important; }
+
+.w200 {
+  width: 200px !important; }
+
+.w225 {
+  width: 225px !important; }
+
+.w250 {
+  width: 250px !important; }
+
+.w275 {
+  width: 275px !important; }
+
+.w300 {
+  width: 300px !important; }
+
+.w320 {
+  width: 320px !important; }
+
+.w350 {
+  width: 350px !important; }
+
+.w375 {
+  width: 375px !important; }
+
+.w400 {
+  width: 400px !important; }
+
+.w450 {
+  width: 450px !important; }
+
+.mnw20 {
+  min-width: 20px !important; }
+
+.mnw30 {
+  min-width: 30px !important; }
+
+.mnw40 {
+  min-width: 40px !important; }
+
+.mnw50 {
+  min-width: 50px !important; }
+
+.mnw75 {
+  min-width: 75px !important; }
+
+.mnw100 {
+  min-width: 100px !important; }
+
+.mnw125 {
+  min-width: 125px !important; }
+
+.mnw150 {
+  min-width: 150px !important; }
+
+.mnw175 {
+  min-width: 175px !important; }
+
+.mnw200 {
+  min-width: 200px !important; }
+
+.mnw250 {
+  min-width: 250px !important; }
+
+.mnw300 {
+  min-width: 300px !important; }
+
+.mnw500 {
+  min-width: 500px !important; }
+
+.mnw700 {
+  min-width: 700px !important; }
+
+.mnw1000 {
+  min-width: 1000px !important; }
+
 /* ==============================================
    LEFT SIDEBAR
     A. Sidebar Default/Open State
@@ -13169,7 +13363,7 @@ body.sb-l-m #content-footer.affix {
     transition: width 0.2s ease; }
   .sidebar-header {
     display: none; }
-  #content_wrapper, #content-footer.affix {
+  #content_wrapper, #content-footer {
     margin-left: 60px;
     -webkit-transition: margin 0.2s ease;
     transition: margin 0.2s ease; }

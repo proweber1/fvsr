@@ -3,13 +3,13 @@
        xmlns:th="http://www.thymeleaf.org">
     <thead>
     <tr>
-        <th>Id</th>
+        <th th:class="w50">Id</th>
         <th>Название</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="dict : ${dicts}">
-        <td th:text="${dict.id}"></td>
+        <td th:text="${dict.id}" th:class="w50"></td>
         <td th:text="${dict.name}"></td>
     </tr>
     <tr th:if="${#lists.isEmpty(dicts)}">
