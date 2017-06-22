@@ -44,19 +44,19 @@
         <!-- Start: Sidebar Menu-->
         <ul class="nav sidebar-menu">
             <li class="sidebar-label pt30">Меню</li>
-            <li class="active" th:classappend="${module == 'index' ? 'active' : ''}">
+            <li th:classappend="${#httpServletRequest.requestURI == '/' ? 'active' : ''}">
                 <a href="/" th:href="@{/}">
                     <span class="fa fa-home" aria-hidden="true"></span>
                     <span class="sidebar-title">Личный кабинет</span>
                 </a>
             </li>
-            <li th:classappend="${module == 'dictionaries' ? 'active' : ''}">
+            <li th:classappend="${#httpServletRequest.requestURI == '/dictionaries' ? 'active' : ''}">
                 <a href="#" th:href="@{/dictionaries}">
                     <span class="fa fa-book" aria-hidden="true"></span>
                     <span class="sidebar-title">Справочники</span>
                 </a>
             </li>
-            <li th:classappend="${module == 'people' ? 'active' : ''}">
+            <li th:classappend="${#httpServletRequest.requestURI == '/people' ? 'active' : ''}">
                 <a href="#" th:href="@{/people}">
                     <span class="fa fa-users" aria-hidden="true"></span>
                     <span class="sidebar-title">Люди</span>
