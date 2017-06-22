@@ -1,15 +1,3 @@
--- Import rf_fo
-INSERT INTO public.rf_fo (id, name) VALUES (2, 'ЮФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (3, 'СЗФО      ');
-INSERT INTO public.rf_fo (id, name) VALUES (4, 'ДФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (5, 'СФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (6, 'УФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (7, 'ПФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (8, 'СКФО      ');
-INSERT INTO public.rf_fo (id, name) VALUES (9, 'КФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (1, 'ЦФО       ');
-
--- Import rf_subjects
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (77, 'Москва                                                                                              ', 1);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (83, 'Ненецкий автономный округ                                                                           ', 3);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (46, 'Курская область                                                                                     ', 1);
@@ -95,27 +83,3 @@ INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (91, 'Республ�
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (76, 'Ярославская область                                                                                 ', 1);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (18, 'Удмуртская республика                                                                               ', 7);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (87, 'Чукотский автономный округ                                                                          ', 4);
-
--- import teams
-INSERT INTO public.teams (id, name) VALUES (1, 'Caja-Rural                                                                                          ');
-INSERT INTO public.teams (id, name) VALUES (2, 'Format-Udmurtia                                                                                     ');
-INSERT INTO public.teams (id, name) VALUES (3, 'GM Europa Ovini                                                                                     ');
-INSERT INTO public.teams (id, name) VALUES (4, 'Minsk cycling club                                                                                  ');
-INSERT INTO public.teams (id, name) VALUES (5, 'M?bel M?rki MTB Pro Team                                                                            ');
-INSERT INTO public.teams (id, name) VALUES (6, 'Tusnad                                                                                              ');
-INSERT INTO public.teams (id, name) VALUES (7, 'Катюша                                                                                              ');
-INSERT INTO public.teams (id, name) VALUES (8, 'Локосфинкс                                                                                          ');
-INSERT INTO public.teams (id, name) VALUES (9, 'РусВело                                                                                             ');
-
--- import titles
-INSERT INTO public.titles (id, name) VALUES (1, 'ЗМС                                                                                                 ');
-INSERT INTO public.titles (id, name) VALUES (2, 'МСМК                                                                                                ');
-INSERT INTO public.titles (id, name) VALUES (3, 'МС                                                                                                  ');
-INSERT INTO public.titles (id, name) VALUES (4, 'КМС                                                                                                 ');
-INSERT INTO public.titles (id, name) VALUES (5, '1 сп.р.                                                                                             ');
-INSERT INTO public.titles (id, name) VALUES (6, '2 сп.                                                                                               ');
-INSERT INTO public.titles (id, name) VALUES (7, '3 сп.                                                                                               ');
-INSERT INTO public.titles (id, name) VALUES (8, '1 юн.                                                                                               ');
-INSERT INTO public.titles (id, name) VALUES (9, '2 юн.                                                                                               ');
-INSERT INTO public.titles (id, name) VALUES (10, 'нет                                                                                                 ');
-INSERT INTO public.titles (id, name) VALUES (21, 'ЗТР                                                                                                 ');

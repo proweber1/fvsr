@@ -71,11 +71,11 @@ public class DictionariesController {
      */
     @GetMapping
     public String dictionaries(final Model ui) {
-        ui.addAttribute("federalDistricts", federalDistrictRepository.findAll());
-        ui.addAttribute("federalSubjects", federalSubjectRepository.findAll());
-        ui.addAttribute("groups", groupsRepository.findAll());
-        ui.addAttribute("teams", teamRepository.findAll());
-        ui.addAttribute("titles", titleRepository.findAll());
+        ui.addAttribute("federalDistricts", federalDistrictRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("federalSubjects", federalSubjectRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("groups", groupsRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("teams", teamRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("titles", titleRepository.findAllByOrderByIdAsc());
 
         return "dictionaries";
     }
