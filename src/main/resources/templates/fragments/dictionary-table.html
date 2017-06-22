@@ -1,0 +1,19 @@
+<table class="table table-striped"
+       th:fragment="table (dicts)"
+       xmlns:th="http://www.thymeleaf.org">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Название</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="dict : ${dicts}">
+        <td th:text="${dict.id}"></td>
+        <td th:text="${dict.name}"></td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(dicts)}">
+        <td colspan="2">Список пуст</td>
+    </tr>
+    </tbody>
+</table>
