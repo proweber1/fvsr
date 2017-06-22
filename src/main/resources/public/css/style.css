@@ -13345,6 +13345,17 @@ body.sb-l-m #content-footer.affix {
   body.sb-l-m #content-footer.affix {
     margin-left: 45px; } }
 
+.table__refact th, .table__refact td {
+  white-space: nowrap;
+  text-align: center; }
+  .table__refact th:first-child, .table__refact td:first-child {
+    text-align: left; }
+  .table__refact th:last-child, .table__refact td:last-child {
+    text-align: right; }
+
+.over-x-auto {
+  overflow-x: auto; }
+
 @media (max-width: 1200px) {
   #sidebar_left {
     width: 60px;

@@ -4,7 +4,7 @@
     <!--Navbar Branding-->
     <div class="navbar-branding">
         <a href="dashboard.html" class="navbar-brand">
-            <span class="text-white">flgr</span> results
+            <span class="text-white">ФВСР</span>
         </a>
         <i class="fa fa-bars" id="toggle_sidemenu_l" aria-hidden="true"></i>
     </div>
@@ -52,8 +52,14 @@
             </li>
             <li th:classappend="${module == 'dictionaries' ? 'active' : ''}">
                 <a href="#" th:href="@{/dictionaries}">
-                    <span class="fa fa-user" aria-hidden="true"></span>
+                    <span class="fa fa-book" aria-hidden="true"></span>
                     <span class="sidebar-title">Справочники</span>
+                </a>
+            </li>
+            <li th:classappend="${module == 'people' ? 'active' : ''}">
+                <a href="#" th:href="@{/people}">
+                    <span class="fa fa-users" aria-hidden="true"></span>
+                    <span class="sidebar-title">Люди</span>
                 </a>
             </li>
         </ul>
