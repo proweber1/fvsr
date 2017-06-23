@@ -14418,6 +14418,83 @@ body.sb-l-m #content-footer.affix {
   -webkit-transition: margin 0.2s ease;
   transition: margin 0.2s ease; }
 
+/*===============================================
+  L. Error Pages - 404, 500 (plus alt pages)
+================================================= */
+#main:before {
+  background: #F5F5F5; }
+
+#return-arrow {
+  top: 75px;
+  padding-top: 0; }
+
+.error-title {
+  font-size: 110px;
+  font-weight: 800;
+  color: #e27d7f;
+  text-align: center;
+  padding-top: 60px;
+  margin-bottom: 20px;
+  line-height: 120px; }
+
+.error-subtitle {
+  font-weight: 400;
+  text-align: center;
+  font-size: 40px;
+  color: #AAA;
+  margin-bottom: 40px; }
+
+.error-message {
+  font-weight: 400;
+  text-align: center;
+  font-size: 30px;
+  color: #AAA;
+  margin-bottom: 80px; }
+
+.mid-section {
+  position: relative;
+  width: 100%;
+  height: 215px;
+  background: #FFF;
+  border-top: 1px solid #E6E6E6;
+  border-bottom: 1px solid #E6E6E6; }
+
+.mid-content {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 50px 20px 35px; }
+
+.mid-content input {
+  color: #AAA;
+  height: 55px;
+  -webkit-border-radius: 1px;
+          border-radius: 1px;
+  padding: 10px 20px;
+  border: 0;
+  font-size: 16px;
+  border: 1px solid #EEE;
+  border-left: 5px solid #e27d7f;
+  background: #FBFBFB; }
+
+.error-page.alt .error-title {
+  padding-top: 110px; }
+
+#search-widget {
+  background: #f1f1f1; }
+
+.error-icon {
+  font-size: 80px;
+  position: relative;
+  top: -10px; }
+
+.error-text {
+  font-size: 120px;
+  text-align: center;
+  text-shadow: 0 2px #FFF;
+  color: #888;
+  width: 100%; }
+
 @media (max-width: 1200px) {
   #sidebar_left {
     width: 60px;
