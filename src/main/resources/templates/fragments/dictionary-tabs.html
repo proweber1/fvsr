@@ -1,0 +1,55 @@
+<div th:fragment="tabs"
+     xmlns:th="http://www.thymeleaf.org">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="#tabs-1" data-toggle="tab" aria-expanded="true">Названия</a>
+        </li>
+        <li>
+            <a href="#tabs-2" data-toggle="tab" aria-expanded="false">Команды</a>
+        </li>
+        <li>
+            <a href="#tabs-3" data-toggle="tab" aria-expanded="false">Группы</a>
+        </li>
+        <li>
+            <a href="#tabs-4" data-toggle="tab" aria-expanded="false">Федеральные округи</a>
+        </li>
+        <li>
+            <a href="#tabs-5" data-toggle="tab" aria-expanded="false">Федеральные субъекты</a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tabs-1">
+            <table th:replace="~{fragments/dictionary-table :: table (dicts = ${titles})}"></table>
+        </div>
+        <div class="tab-pane" id="tabs-2">
+            <table th:replace="~{fragments/dictionary-table :: table (dicts = ${teams})}"></table>
+        </div>
+        <div class="tab-pane" id="tabs-3">
+            <table th:replace="~{fragments/dictionary-table :: table (dicts = ${groups})}"></table>
+        </div>
+        <div class="tab-pane" id="tabs-4">
+            <table th:replace="~{fragments/dictionary-table :: table (dicts = ${federalDistricts})}"></table>
+        </div>
+        <div class="tab-pane" id="tabs-5">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Название</th>
+                    <th>Федеральный округ</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="federalSubject : ${federalSubjects}">
+                    <td th:text="${federalSubject.id}"></td>
+                    <td th:text="${federalSubject.name}"></td>
+                    <td th:text="${federalSubject.federalDistrict?.name}"></td>
+                </tr>
+                <tr th:if="${#lists.isEmpty(federalSubjects)}">
+                    <td colspan="3">Список пуст</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

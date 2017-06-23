@@ -1,0 +1,32 @@
+<div class="row"
+     th:fragment="pagination (pages)"
+     xmlns:th="http://www.thymeleaf.org">
+
+    <div th:if="${pages.totalPages != 1}" class="form-group col-md-11 pagination-centered">
+
+        <ul class="pagination">
+            <li th:class="${pages.number == 0} ? disabled">
+                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=0)}">&laquo;</a>
+            </li>
+            <li th:class="${pages.number == 0} ? disabled">
+                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.number - 1})}">&larr;</a>
+            </li>
+
+            <li>
+                <span class="pageLink text-dark" th:text="${pages.number}"></span>
+            </li>
+                <!--<li th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}"-->
+                    <!--th:class="${pages.number == (page - 1)} ? 'active pointer-disabled'">-->
+                    <!--<a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${page})}" th:text="${page}"></a>-->
+                <!--</li>-->
+
+            <li th:class="${pages.number + 1 == pages.totalPages} ? disabled">
+                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.number + 1})}">&rarr;</a>
+            </li>
+            <li th:class="${pages.number + 1 == pages.totalPages} ? disabled">
+                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.totalPages})}">&raquo;</a>
+            </li>
+        </ul>
+
+    </div>
+</div>

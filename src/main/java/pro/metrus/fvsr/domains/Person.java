@@ -2,6 +2,7 @@ package pro.metrus.fvsr.domains;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 @Table(name = "people")
 @Getter
 @Setter
+@ToString
 public class Person {
 
     @Id

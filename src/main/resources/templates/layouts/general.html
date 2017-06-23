@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head}"></head>
+<body class="dashboard-page">
+<!-- Start: Main-->
+<div id="main">
+    <!-- Fragment Sidebar-->
+    <aside th:replace="~{fragments/aside}"></aside>
+    <!-- Start: Content-Wrapper-->
+    <section id="content_wrapper">
+        <!-- Fragment Header -->
+        <header th:replace="~{fragments/header}"></header>
+        <!-- Begin: Content-->
+        <section id="content" class="table-layout animated fadeIn">
+            <div class="tray tray-center">
+                <!-- Content -->
+                <div class="admin-panels" layout:fragment="content"></div>
+            </div>
+        </section>
+        <!-- Fragment Footer-->
+        <footer th:replace="~{fragments/footer}"></footer>
+    </section>
+</div>
+<script type="text/javascript"
+        th:src="@{//cdnjs.cloudflare.com/ajax/libs/bootstrap.native/2.0.10/bootstrap-native.min.js}"></script>
+<script type="text/javascript"
+        th:src="@{js/scripts.js}"></script>
+</body>
+</html>

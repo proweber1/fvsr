@@ -77,6 +77,6 @@ public class DictionariesController {
         ui.addAttribute("teams", teamRepository.findAllByOrderByIdAsc());
         ui.addAttribute("titles", titleRepository.findAllByOrderByIdAsc());
 
-        return "pages/dictionary";
+        return "dictionaries";
     }
 }
