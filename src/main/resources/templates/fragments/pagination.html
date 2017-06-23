@@ -6,19 +6,22 @@
 
         <ul class="pagination">
             <li th:class="${pages.number == 0} ? disabled">
-                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=1)}">&laquo;</a>
+                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=0)}">&laquo;</a>
             </li>
             <li th:class="${pages.number == 0} ? disabled">
-                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.number})}">&larr;</a>
+                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.number - 1})}">&larr;</a>
             </li>
 
+            <li>
+                <span class="pageLink text-dark" th:text="${pages.number}"></span>
+            </li>
                 <!--<li th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}"-->
                     <!--th:class="${pages.number == (page - 1)} ? 'active pointer-disabled'">-->
                     <!--<a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${page})}" th:text="${page}"></a>-->
                 <!--</li>-->
 
             <li th:class="${pages.number + 1 == pages.totalPages} ? disabled">
-                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.number + 2})}">&rarr;</a>
+                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.number + 1})}">&rarr;</a>
             </li>
             <li th:class="${pages.number + 1 == pages.totalPages} ? disabled">
                 <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.totalPages})}">&raquo;</a>

@@ -17,6 +17,9 @@
                     <span class="panel-title">Люди</span>
                 </div>
                 <div class="panel-body pn">
+                    <div th:class="search-filter">
+                        <div th:replace="~{fragments/people-search}"></div>
+                    </div>
                     <table th:replace="~{fragments/people-table}"></table>
                     <div th:replace="~{fragments/pagination :: pagination (pages = ${people})}"></div>
                 </div>
