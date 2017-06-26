@@ -13,31 +13,31 @@
                 <div class="form-group">
                     <div class="col-sm-6">
                         <label>Id</label>
-                        <input class="form-control input-sm" type="text" name="id">
+                        <input class="form-control input-sm" type="text" name="id" th:field="*{id}">
                     </div>
                     <div class="col-sm-6">
                         <label>Старый Id</label>
-                        <input class="form-control input-sm" type="text" name="old_id">
+                        <input class="form-control input-sm" type="text" name="old_id" th:field="*{oldId}">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
                         <label>Фамилия</label>
-                        <input class="form-control input-sm" type="text" name="lastname">
+                        <input class="form-control input-sm" type="text" name="lastname" th:field="*{surname}">
                     </div>
                     <div class="col-sm-6">
                         <label>Имя</label>
-                        <input class="form-control input-sm" type="text" name="firstname">
+                        <input class="form-control input-sm" type="text" name="firstname" th:field="*{firstname}">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-6">
                         <label>Фамилия (rus)</label>
-                        <input class="form-control input-sm" type="text" name="lastname_rus">
+                        <input class="form-control input-sm" type="text" name="lastname_rus" th:field="*{surnameRus}">
                     </div>
                     <div class="col-sm-6">
                         <label>Имя (rus)</label>
-                        <input class="form-control input-sm" type="text" name="firstname_rus">
+                        <input class="form-control input-sm" type="text" name="firstname_rus" th:field="*{firstnameRus}">
                     </div>
                 </div>
                 <div class="form-group">
@@ -73,6 +73,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <div class="col-sm-6">
                         <label>Объект</label>
@@ -98,6 +99,7 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <div class="col-sm-6">
                         <div class="app-checkbox">

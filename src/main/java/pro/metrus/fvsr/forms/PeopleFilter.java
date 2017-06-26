@@ -66,4 +66,34 @@ public class PeopleFilter {
      * BMX
      */
     private boolean bmx;
+
+    /**
+     * ID спорстмена
+     */
+    private String id;
+
+    /**
+     * Старый ID спортсмена
+     */
+    private String oldId;
+
+    /**
+     * Фамилия на английском
+     */
+    private String surname;
+
+    /**
+     * Имя на английском
+     */
+    private String firstname;
+
+    /**
+     * Фамилия на русском
+     */
+    private String surnameRus;
+
+    /**
+     * Имя на русском
+     */
+    private String firstnameRus;
 }

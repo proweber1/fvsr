@@ -39,7 +39,6 @@
         </thead>
         <tbody>
         <tr th:each="person : ${people}">
-            <td th:text="${people}"></td>
             <td th:text="${person.id}" th:class="w50"></td>
             <td th:text="${person.federationNum}"></td>
             <td th:text="${person.lastname}"></td>
@@ -89,8 +88,8 @@
             <td th:text="${person.lastnameRus}"></td>
             <td th:text="${person.firstnameRus}"></td>
             <td th:text="${person.patronymicRus}"></td>
-            <td th:text="${person.group}"></td>
-            <td th:text="${person.federalSubject}"></td>
+            <td th:text="${person.group?.name}"></td>
+            <td th:text="${person.federalSubject?.name}"></td>
             <td th:text="${person.team}"></td>
             <td>
                 <i class="fa fa-check text-success" aria-hidden="true" th:if="${person.road}"></i>
@@ -110,7 +109,7 @@
             </td>
             <td th:text="${person.title}"></td>
         </tr>
-        <tr th:if="${not #lists.isEmpty(people)}">
+        <tr th:if="${#lists.isEmpty(people.content)}">
             <td colspan="33" style="text-align:left">Список пуст</td>
         </tr>
         </tbody>
