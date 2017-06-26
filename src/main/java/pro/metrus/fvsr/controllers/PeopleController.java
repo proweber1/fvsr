@@ -69,11 +69,8 @@ public class PeopleController {
      * @return people page name
      */
     @GetMapping
-    public String index(
-            final Model ui,
-            final Pageable pageable,
-            @Valid final PeopleFilter filter
-    ) {
+    public String index(final Model ui, final Pageable pageable, @Valid final PeopleFilter filter) {
+
         final PeopleFilterSpecification peopleFilterSpecification = new PeopleFilterSpecification(filter);
         final Specifications<Person> spec = peopleFilterSpecification.withAllSpecifications();
 
