@@ -13,7 +13,7 @@
             </li>
 
             <li>
-                <span class="pageLink text-dark" th:text="${pages.number}"></span>
+                <span class="pageLink text-dark" th:text="${pages.number + 1}"></span>
             </li>
                 <!--<li th:each="page : ${#numbers.sequence(pager.startPage, pager.endPage)}"-->
                     <!--th:class="${pages.number == (page - 1)} ? 'active pointer-disabled'">-->
@@ -24,7 +24,7 @@
                 <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.number + 1})}">&rarr;</a>
             </li>
             <li th:class="${pages.number + 1 == pages.totalPages} ? disabled">
-                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.totalPages})}">&raquo;</a>
+                <a class="pageLink" th:href="@{${#httpServletRequest.requestURI}(pageSize=${selectedPageSize}, page=${pages.totalPages - 1})}">&raquo;</a>
             </li>
         </ul>
 

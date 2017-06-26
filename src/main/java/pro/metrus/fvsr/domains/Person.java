@@ -61,8 +61,8 @@ public class Person {
 
     private boolean classifier;
 
-    @Column(name = "techincal_delegate")
-    private boolean techincalDelegate;
+    @Column(name = "technical_delegate")
+    private boolean technicalDelegate;
 
     private boolean federation;
 
