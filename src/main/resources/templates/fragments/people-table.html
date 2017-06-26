@@ -39,7 +39,6 @@
         </thead>
         <tbody>
         <tr th:each="person : ${people}">
-            <td th:text="${people}"></td>
             <td th:text="${person.id}" th:class="w50"></td>
             <td th:text="${person.federationNum}"></td>
             <td th:text="${person.lastname}"></td>
