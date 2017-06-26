@@ -8,7 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pro.metrus.fvsr.domains.Person;
+import pro.metrus.fvsr.forms.PeopleFilter;
+import pro.metrus.fvsr.repositories.FederalSubjectRepository;
 import pro.metrus.fvsr.repositories.PeopleRepository;
+import pro.metrus.fvsr.repositories.TeamRepository;
+import pro.metrus.fvsr.repositories.TitleRepository;
+
+import javax.validation.Valid;
 
 /**
  *
@@ -23,11 +29,34 @@ public class PeopleController {
     private final PeopleRepository peopleRepository;
 
     /**
+     *
+     */
+    private final TeamRepository teamRepository;
+
+    /**
+     *
+     */
+    private final TitleRepository titleRepository;
+
+    /**
+     *
+     */
+    private final FederalSubjectRepository federalSubjectRepository;
+
+    /**
      * @param peopleRepository Repository for work with people
      */
     @Autowired
-    public PeopleController(final PeopleRepository peopleRepository) {
+    public PeopleController(
+            final PeopleRepository peopleRepository,
+            final TeamRepository teamRepository,
+            final TitleRepository titleRepository,
+            final FederalSubjectRepository federalSubjectRepository
+    ) {
         this.peopleRepository = peopleRepository;
+        this.teamRepository = teamRepository;
+        this.titleRepository = titleRepository;
+        this.federalSubjectRepository = federalSubjectRepository;
     }
 
     /**
@@ -38,8 +67,16 @@ public class PeopleController {
      * @return people page name
      */
     @GetMapping
-    public String index(final Model ui, final Pageable pageable) {
+    public String index(
+            final Model ui,
+            final Pageable pageable,
+            @Valid final PeopleFilter filter
+    ) {
         ui.addAttribute("people", peopleRepository.findAll(pageable));
+        ui.addAttribute("filter", filter);
+        ui.addAttribute("teams", teamRepository.findAll());
+        ui.addAttribute("titles", titleRepository.findAll());
+        ui.addAttribute("federalSubjects", federalSubjectRepository.findAll());
 
         return "people";
     }
