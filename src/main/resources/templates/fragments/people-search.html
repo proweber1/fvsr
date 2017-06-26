@@ -79,7 +79,7 @@
                         <label>Объект</label>
                         <select class="form-control input-sm"
                                 name="subject_id" type="text" th:field="*{federalSubjectId}">
-                            <option value="1" disabled selected>Объект не выбран</option>
+                            <option value="" selected>Объект не выбран</option>
                             <option th:each="subject : ${federalSubjects}" th:text="${subject.name}"
                                     th:value="${subject.id}"></option>
                         </select>

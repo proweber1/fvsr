@@ -1,5 +1,7 @@
 package pro.metrus.fvsr.specifications;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.Specifications;
 import pro.metrus.fvsr.domains.Person;
@@ -14,6 +16,11 @@ import static java.util.Objects.requireNonNull;
 public class PeopleFilterSpecification {
 
     /**
+     * This is database like mode, it's same "%STRING%"
+     */
+    private static final String LIKE_SEARCH_PATTERN="%%%s%%";
+
+    /**
      * Return all people specifications
      *
      * @return Specifications
@@ -21,6 +28,9 @@ public class PeopleFilterSpecification {
     public static Specifications<Person> withAllSpecifications(final PeopleFilter filter) {
         requireNonNull(filter, "Filter must be not null! Given null!");
 
+        /*
+        TODO: Refactor to meta models
+         */
         return Specifications
                 .where(booleanPredicate("bmx", filter.isBmx()))
                 .and(booleanPredicate("mb", filter.isMb()))
@@ -51,7 +61,9 @@ public class PeopleFilterSpecification {
      * @param value Column value
      * @return Specification
      */
-    private static Specification<Person> booleanPredicate(final String columnName, boolean value) {
+    @NotNull
+    @Contract(pure = true)
+    private static Specification<Person> booleanPredicate(String columnName, boolean value) {
         return (root, cq, cb) -> value ? cb.equal(root.get(columnName), true) : null;
     }
 
@@ -63,6 +75,8 @@ public class PeopleFilterSpecification {
      * @param value Number value
      * @return Specification impl
      */
+    @NotNull
+    @Contract(pure = true)
     private static Specification<Person> numberIsNotNull(String columnWithNumber, String value) {
         return (root, cq, cb) -> Objects.isNull(value) || value.isEmpty()
                 ? null : cb.equal(root.get(columnWithNumber), value);
@@ -75,13 +89,15 @@ public class PeopleFilterSpecification {
      * @param value Column value
      * @return specification
      */
+    @NotNull
+    @Contract(pure = true)
     private static Specification<Person> likeCondition(String columnName, String value) {
         return (root, cq, cb) -> {
             if (Objects.isNull(value) || value.isEmpty()) {
                 return null;
             }
 
-            final String pattern = String.format("%%%s%%", value.toUpperCase());
+            final String pattern = String.format(LIKE_SEARCH_PATTERN, value.toUpperCase());
             return cb.like(cb.upper(root.get(columnName)), pattern);
         };
     }
@@ -93,6 +109,8 @@ public class PeopleFilterSpecification {
      * @param id Relation id
      * @return specification
      */
+    @NotNull
+    @Contract(pure = true)
     private static Specification<Person> personRelationById(String relationName, Integer id) {
         return (root, cq, cb) -> Objects.isNull(id) || id < 1 ? null : cb.equal(root.get(relationName).get("id"), id);
     }
