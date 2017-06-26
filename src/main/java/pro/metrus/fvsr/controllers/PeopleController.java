@@ -71,10 +71,9 @@ public class PeopleController {
     @GetMapping
     public String index(final Model ui, final Pageable pageable, @Valid final PeopleFilter filter) {
 
-        final PeopleFilterSpecification peopleFilterSpecification = new PeopleFilterSpecification(filter);
-        final Specifications<Person> spec = peopleFilterSpecification.withAllSpecifications();
+        final Specifications<Person> specifications = PeopleFilterSpecification.withAllSpecifications(filter);
 
-        ui.addAttribute("people", peopleRepository.findAll(spec, pageable));
+        ui.addAttribute("people", peopleRepository.findAll(specifications, pageable));
         ui.addAttribute("filter", filter);
         ui.addAttribute("teams", teamRepository.findAll());
         ui.addAttribute("titles", titleRepository.findAll());
