@@ -110,8 +110,8 @@
             </td>
             <td th:text="${person.title}"></td>
         </tr>
-        <tr th:if="${#lists.isEmpty(people)}">
-            <td colspan="33">Список пуст</td>
+        <tr th:if="${not #lists.isEmpty(people)}">
+            <td colspan="33" style="text-align:left">Список пуст</td>
         </tr>
         </tbody>
     </table>
