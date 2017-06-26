@@ -7,9 +7,9 @@
     </a>
 
     <div class="search__container">
-        <div class="toggle__block" id="search__block">
-            <h4>Поиск:</h4>
-            <form method="get" class="form-horizontal" role="form">
+        <form th:object="${filter}" method="get" class="form-horizontal" role="form">
+            <div class="toggle__block" id="search__block">
+                <h4>Поиск:</h4>
                 <div class="form-group">
                     <div class="col-sm-6">
                         <label>Id</label>
@@ -47,11 +47,9 @@
                         </button>
                     </div>
                 </div>
-            </form>
-        </div>
-        <div class="toggle__block" id="filter__block">
-            <h4>Фильтр:</h4>
-            <form th:object="${filter}" method="get" class="form-horizontal" role="form">
+            </div>
+            <div class="toggle__block" id="filter__block">
+                <h4>Фильтр:</h4>
                 <div class="form-group">
                     <div class="col-sm-6">
                         <label>Пол</label>
@@ -173,7 +171,7 @@
                         </button>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
 </div>
