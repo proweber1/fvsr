@@ -37,7 +37,7 @@ public class PeopleFilterSpecification {
                 .and(booleanPredicate("otherRole", filter.isOther()))
                 .and(booleanPredicate("commissaire", filter.isCommissaire()))
                 .and(booleanPredicate("federation", filter.isFederation()))
-                .and(booleanPredicate("gender", filter.isGender()))
+                .and(gender(filter))
                 .and(booleanPredicate("rider", filter.isRider()))
                 .and(booleanPredicate("road", filter.isRoad()))
                 .and(booleanPredicate("teamMember", filter.isTeamMember()))
@@ -113,5 +113,17 @@ public class PeopleFilterSpecification {
     @Contract(pure = true)
     private static Specification<Person> personRelationById(String relationName, Integer id) {
         return (root, cq, cb) -> Objects.isNull(id) || id < 1 ? null : cb.equal(root.get(relationName).get("id"), id);
+    }
+
+    /**
+     * Gender specification
+     *
+     * @param filter People filter
+     * @return specification
+     */
+    @NotNull
+    @Contract(pure = true)
+    private static Specification<Person> gender(final PeopleFilter filter) {
+        return (root, cq, cb) -> cb.equal(root.get("gender"), filter.isGender());
     }
 }
