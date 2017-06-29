@@ -14,6 +14,8 @@ import javax.persistence.MappedSuperclass;
  * и имя (поле name)
  */
 @MappedSuperclass
+@Getter
+@Setter
 class AbstractDictionary {
 
     /**
@@ -21,14 +23,10 @@ class AbstractDictionary {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
     private short id;
 
     /**
      * Название в справочнике
      */
-    @Getter
-    @Setter
     private String name;
 }

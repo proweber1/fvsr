@@ -78,19 +78,19 @@
                     <div class="col-sm-6">
                         <label>Объект</label>
                         <select class="form-control input-sm"
-                                name="subject_id" type="text">
-                            <option value="1" disabled selected>Объект не выбран</option>
+                                name="subject_id" type="text" th:field="*{federalSubjectId}">
+                            <option value="" selected>Объект не выбран</option>
                             <option th:each="subject : ${federalSubjects}" th:text="${subject.name}"
-                                    th:value="${subject.name}"></option>
+                                    th:value="${subject.id}"></option>
                         </select>
                     </div>
                     <div class="col-sm-6">
                         <label>Команда</label>
                         <select class="form-control input-sm"
-                                name="teams_id" type="text">TeamRepository
+                                name="teams_id" type="text" th:field="*{teamId}">
                             <option value="" selected>Команда не выбрана</option>
                             <option th:each="team : ${teams}" th:text="${team.name}"
-                                    th:value="${team.name}"></option>
+                                    th:value="${team.id}"></option>
                         </select>
                     </div>
                 </div>
@@ -98,10 +98,10 @@
                     <div class="col-sm-6">
                         <label>Заголовок</label>
                         <select class="form-control input-sm"
-                                name="titles_id" type="text">
+                                name="titles_id" type="text" th:field="*{titleId}">
                             <option value="" selected>Заголовок не выбран</option>
                             <option th:each="title : ${titles}" th:text="${title.name}"
-                                    th:value="${title.name}"></option>
+                                    th:value="${title.id}"></option>
                         </select>
                     </div>
                 </div>

@@ -90,7 +90,7 @@
             <td th:text="${person.patronymicRus}"></td>
             <td th:text="${person.group?.name}"></td>
             <td th:text="${person.federalSubject?.name}"></td>
-            <td th:text="${person.team}"></td>
+            <td th:text="${person.team?.name}"></td>
             <td>
                 <i class="fa fa-check text-success" aria-hidden="true" th:if="${person.road}"></i>
                 <i class="fa fa-times text-primary" aria-hidden="true" th:if="${!person.road}"></i>
