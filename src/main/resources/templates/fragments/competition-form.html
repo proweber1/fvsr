@@ -1,0 +1,78 @@
+<div  xmlns:th="http://www.thymeleaf.org">
+    <form  method="get" class="form-horizontal" th:object="${form}" role="form">
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input class="form-control input-sm" type="hidden"
+                    name="id" th:field="*{id}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <label>Название</label>
+                <input class="form-control input-sm" type="text"
+                       name="name" th:field="*{name}">
+            </div>
+            <div class="col-sm-6">
+                <label>Место</label>
+                <input class="form-control input-sm" type="text"
+                       name="place" th:field="*{place}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <label>Дата начала</label>
+                <input class="form-control input-sm" type="date"
+                       name="dateBegin" th:field="*{dateBegin}">
+            </div>
+            <div class="col-sm-6">
+                <label>Дата окончания</label>
+                <input class="form-control input-sm" type="date"
+                       name="dateEnd" th:field="*{dateEnd}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <label>Страна</label>
+                <select class="form-control input-sm" type="text"
+                        name="country" th:field="*{country}">
+                    <option value="" selected>Выберите страну</option>
+                    <option th:each="country : ${countries}"
+                            th:value="${country.id}"
+                            th:text="${country.nameRus}"></option>
+                </select>
+            </div>
+            <div class="col-sm-6">
+                <label>Вид</label>
+                <select class="form-control input-sm" type="text"
+                        name="vid" th:field="*{vid}">
+                    <option value="" selected>Выберите вид</option>
+                    <option th:each="vid : ${vids}"
+                            th:value="${vid.id}"
+                            th:text="${vid.name}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <label>Субъект</label>
+                <select class="form-control input-sm" type="text"
+                        name="subject" th:field="*{subject}">
+                    <option value="" selected>Выберите субъект</option>
+                    <option th:each="subject : ${federalSubjects}"
+                            th:value="${subject.id}"
+                            th:text="${subject.name}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Создать
+                </button>
+                <button type="reset" class="btn btn-warning">
+                    <i class="fa fa-eraser" aria-hidden="true"></i> Очистить
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -3,7 +3,7 @@
 
     <!--Navbar Branding-->
     <div class="navbar-branding">
-        <a href="dashboard.html" class="navbar-brand">
+        <a href="/" th:href="@{/}" class="navbar-brand">
             <span class="text-white">ФВСР</span>
         </a>
         <i class="fa fa-bars" id="toggle_sidemenu_l" aria-hidden="true"></i>
@@ -17,8 +17,8 @@
             <!-- Sidebar Widget - Author-->
             <div class="sidebar-widget author-widget">
                 <div class="media">
-                    <a href="#" class="media-left">
-                        <img th:src="@{image/3.jpg}" class="img-responsive">
+                    <a href="/" th:href="@{/}" class="media-left">
+                        <img th:src="@{/image/3.jpg}" class="img-responsive">
                     </a>
                     <div class="media-body">
                         <div class="media-links"></div>
@@ -26,7 +26,7 @@
                         <a href="#" class="mr10">
                             <i class="fa fa-user" aria-hidden="true"></i> Профиль
                         </a>
-                        <a href="pages_login(alt).html">
+                        <a href="#">
                             <i class="fa fa-fw fa-sign-out"></i> Выйти
                         </a>
                     </div>
@@ -60,6 +60,12 @@
                 <a href="#" th:href="@{/people}">
                     <span class="fa fa-users" aria-hidden="true"></span>
                     <span class="sidebar-title">Люди</span>
+                </a>
+            </li>
+            <li th:classappend="${#httpServletRequest.requestURI == '/competitions' ? 'active' : ''}">
+                <a href="#" th:href="@{/competitions}">
+                    <span class="fa fa-bicycle" aria-hidden="true"></span>
+                    <span class="sidebar-title">Соревнования</span>
                 </a>
             </li>
         </ul>
