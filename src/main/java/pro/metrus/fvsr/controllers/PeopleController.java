@@ -70,8 +70,8 @@ public class PeopleController {
      */
     @GetMapping
     public String index(final Model ui, final Pageable pageable, @Valid final PeopleFilter filter) {
-
-        final Specifications<Person> specifications = PeopleFilterSpecification.withAllSpecifications(filter);
+        final Specifications<Person> specifications
+                = PeopleFilterSpecification.withAllSpecifications(filter);
 
         ui.addAttribute("people", peopleRepository.findAll(specifications, pageable));
         ui.addAttribute("filter", filter);
