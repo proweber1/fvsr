@@ -3,10 +3,10 @@ package pro.metrus.fvsr.repositories;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import pro.metrus.fvsr.domains.Completion;
+import pro.metrus.fvsr.domains.Competitions;
 
-public interface CompletionsRepository
-    extends JpaRepository<Completion, Long> {
+public interface CompetitionsRepository
+    extends JpaRepository<Competitions, Long> {
 
     /**
      * Найти все записи соревнований и разбить их по странично, а так
@@ -15,5 +15,5 @@ public interface CompletionsRepository
      * @param pagination Модуль пагинации
      * @return Страница
      */
-    Page<Completion> findAllByOrderByIdAsc(Pageable pagination);
+    Page<Competitions> findAllByOrderByIdAsc(Pageable pagination);
 }

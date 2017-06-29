@@ -7,10 +7,10 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "completions")
+@Table(name = "competitions")
 @Getter
 @Setter
-public class Completion {
+public class Competitions {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

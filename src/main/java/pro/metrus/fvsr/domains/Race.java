@@ -32,5 +32,5 @@ public class Race {
 
     @OneToOne
     @JoinColumn(name = "id_completion")
-    private Completion completion;
+    private Competitions competitions;
 }
