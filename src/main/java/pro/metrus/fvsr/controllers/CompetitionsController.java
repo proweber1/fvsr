@@ -5,11 +5,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.*;
 import pro.metrus.fvsr.domains.Competitions;
 import pro.metrus.fvsr.domains.Country;
 import pro.metrus.fvsr.domains.FederalSubject;
@@ -18,7 +14,6 @@ import pro.metrus.fvsr.repositories.CompetitionsRepository;
 import pro.metrus.fvsr.repositories.CountryRepository;
 import pro.metrus.fvsr.repositories.FederalSubjectRepository;
 import pro.metrus.fvsr.repositories.VidRepository;
-import pro.metrus.fvsr.utils.BindingResultUtil;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -138,15 +133,27 @@ public class CompetitionsController {
      */
     @GetMapping("/create")
     public String create(final Model ui) {
-        if (!ui.containsAttribute(FORM_ATTR)) {
-            ui.addAttribute(FORM_ATTR, new Competitions());
-        }
+        ui.addAttribute(FORM_ATTR, new Competitions());
 
         return "competition-create";
     }
 
     /**
-     * Processing creation new competition
+     * This method load competition entity by id and return it to
+     * template for edit
+     *
+     * @param ui Spring ui model
+     * @return Edit template name
+     */
+    @GetMapping("/{id}/update")
+    public String update(final Model ui, @PathVariable final long id) {
+        ui.addAttribute(FORM_ATTR, competitionsRepository.findOne(1L));
+
+        return "competition-update";
+    }
+
+    /**
+     * Processing creation or update competition
      * <p>
      * This method process request which create new competition in
      * system and redirect after save to competitions list
@@ -156,17 +163,12 @@ public class CompetitionsController {
      * @return Redirect to create competition page with validation errors
      * or redirect to competition list if competition successful created
      */
-    @PostMapping("/create")
+    @PostMapping("/save")
     public String create(@Valid @ModelAttribute(FORM_ATTR) final Competitions form,
-                         final BindingResult validationResult,
-                         final RedirectAttributes redirectAttributes) {
+                         final BindingResult validationResult) {
         if (validationResult.hasErrors()) {
-            // redirect to create competition page with errors
-            redirectAttributes.addFlashAttribute(
-                    BindingResultUtil.attributeName(FORM_ATTR), validationResult);
-            redirectAttributes.addFlashAttribute(FORM_ATTR, form);
-
-            return "redirect:/competitions/create";
+            // Render page with errors
+            return form.getId() > 0 ? "competition-update" : "competition-create";
         }
 
         competitionsRepository.save(form);
