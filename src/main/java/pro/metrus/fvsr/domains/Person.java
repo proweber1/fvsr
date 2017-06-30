@@ -108,4 +108,7 @@ public class Person {
     @OneToOne
     @JoinColumn(name = "titles_id")
     private Title title;
+
+    @Column(name = "old_id_uci")
+    private String oldIdUci;
 }
