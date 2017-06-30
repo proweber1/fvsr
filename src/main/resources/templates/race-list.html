@@ -18,6 +18,7 @@
                 </div>
                 <div class="panel-body pn">
                     <table th:replace="~{fragments/race-table}"></table>
+                    <div th:replace="~{fragments/pagination :: pagination (pages = ${items})}"></div>
                 </div>
             </div>
         </div>
