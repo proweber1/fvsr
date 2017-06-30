@@ -147,7 +147,7 @@ public class CompetitionsController {
      */
     @GetMapping("/{id}/update")
     public String update(final Model ui, @PathVariable final long id) {
-        ui.addAttribute(FORM_ATTR, competitionsRepository.findOne(1L));
+        ui.addAttribute(FORM_ATTR, competitionsRepository.findOne(id));
 
         return "competition-update";
     }

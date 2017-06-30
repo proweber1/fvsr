@@ -1,5 +1,5 @@
 <div  xmlns:th="http://www.thymeleaf.org">
-    <form  method="get" class="form-horizontal" th:object="${form}" th:method="post" role="form">
+    <form  method="get" class="form-horizontal" th:action="@{/competitions/save}" th:object="${form}" th:method="post" role="form">
         <div class="form-group">
             <div class="col-sm-12">
                 <input class="form-control input-sm" type="hidden"
