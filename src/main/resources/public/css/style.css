@@ -11820,6 +11820,77 @@ input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%; }
 
+#login {
+  height: 100%; }
+
+#login #content_wrapper {
+  height: 100%;
+  margin-left: 0;
+  overflow-y: auto; }
+
+#login #content {
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+#login .content__wrapper {
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 50px; }
+
+#login .admin-form {
+  margin: auto;
+  padding: 20px; }
+
+#login .panel {
+  padding: 20px;
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+
+#login h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 0; }
+
+#login label {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  display: block; }
+
+#login .form-control {
+  background: transparent;
+  color: white; }
+
+#login .btn-login {
+  background: #e27d7f;
+  color: #fff;
+  border: 0;
+  height: 42px;
+  line-height: 42px;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0 18px;
+  text-align: center;
+  display: inline-block;
+  -webkit-user-drag: none;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.2);
+  -webkit-border-radius: 3px;
+  border-radius: 3px; }
+
+.body-clear {
+  min-height: auto; }
+
+.bg-gradient-1 {
+  background: #9c6473 !important;
+  background: -webkit-gradient(radial, center bottom, 0px, center center, 100%, color-stop(0%, #9c6473), color-stop(100%, #4a3c4f)) !important;
+  background: -webkit-radial-gradient(bottom, ellipse cover, #9c6473 0%, #4a3c4f 100%) !important;
+  background: -webkit-radial-gradient(bottom ellipse, #9c6473 0%, #4a3c4f 100%) !important;
+  background: radial-gradient(ellipse at bottom, #9c6473 0%, #4a3c4f 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9c6473', endColorstr='#4a3c4f', GradientType=1) !important; }
+
 label {
   font-weight: 400; }
 
@@ -14201,6 +14272,10 @@ body.sb-l-m #content-footer.affix {
 
 .error_page h4 {
   margin: 20px 0 0 0; }
+
+.error-field {
+  margin-top: 2px;
+  display: block; }
 
 .label__sidebar {
   margin: 0;

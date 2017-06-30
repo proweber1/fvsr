@@ -15,3 +15,6 @@ btns.forEach((btn) => {
 			block.previousElementSibling.classList.remove('active');
 	};
 });
+
+document.getElementById('toggle_sidemenu_l')
+		.onclick = () => document.body.classList.toggle('active');
