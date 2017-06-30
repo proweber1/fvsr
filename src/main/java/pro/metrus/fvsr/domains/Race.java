@@ -31,6 +31,6 @@ public class Race {
     private String distance;
 
     @OneToOne
-    @JoinColumn(name = "id_completion")
+    @JoinColumn(name = "id_competition")
     private Competitions competitions;
 }
