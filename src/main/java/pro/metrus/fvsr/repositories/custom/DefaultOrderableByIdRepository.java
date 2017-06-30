@@ -1,5 +1,7 @@
 package pro.metrus.fvsr.repositories.custom;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
@@ -16,4 +18,12 @@ public interface DefaultOrderableByIdRepository<T, ID extends Serializable>
      * @return List of all T entities
      */
     List<T> findAllByOrderByIdAsc();
+
+    /**
+     * Find all items with sort by id and pagination
+     *
+     * @param page Pageable spring bean
+     * @return Data page
+     */
+    Page<T> findAllByOrderByIdAsc(final Pageable page);
 }
