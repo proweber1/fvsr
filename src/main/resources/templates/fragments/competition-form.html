@@ -11,9 +11,9 @@
                 <label>Название</label>
                 <input class="form-control input-sm" type="text"
                        name="name" th:field="*{name}">
-                <ul>
-                    <li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
-                </ul>
+                <small th:each="err : ${#fields.errors('name')}"
+                       th:text="${err}"
+                       class="error-field text-danger"></small>
             </div>
             <div class="col-sm-6">
                 <label>Место</label>
@@ -43,9 +43,9 @@
                             th:value="${country.id}"
                             th:text="${country.nameRus}"></option>
                 </select>
-                <ul>
-                    <li th:each="err : ${#fields.errors('country')}" th:text="${err}"></li>
-                </ul>
+                <small th:each="err : ${#fields.errors('country')}"
+                       th:text="${err}"
+                       class="error-field text-danger"></small>
             </div>
             <div class="col-sm-6">
                 <label>Вид</label>
@@ -56,9 +56,9 @@
                             th:value="${vid.id}"
                             th:text="${vid.name}"></option>
                 </select>
-                <ul>
-                    <li th:each="err : ${#fields.errors('vid')}" th:text="${err}"></li>
-                </ul>
+                <small th:each="err : ${#fields.errors('vid')}"
+                      th:text="${err}"
+                      class="error-field text-danger"></small>
             </div>
         </div>
         <div class="form-group">
@@ -71,9 +71,9 @@
                             th:value="${subject.id}"
                             th:text="${subject.name}"></option>
                 </select>
-                <ul>
-                    <li th:each="err : ${#fields.errors('subject')}" th:text="${err}"></li>
-                </ul>
+                <small th:each="err : ${#fields.errors('subject')}"
+                       th:text="${err}"
+                       class="error-field text-danger"></small>
             </div>
         </div>
         <div class="form-group">

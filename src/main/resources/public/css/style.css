@@ -14273,6 +14273,10 @@ body.sb-l-m #content-footer.affix {
 .error_page h4 {
   margin: 20px 0 0 0; }
 
+.error-field {
+  margin-top: 2px;
+  display: block; }
+
 .label__sidebar {
   margin: 0;
   padding: 0;
