@@ -1,11 +1,7 @@
 <div  xmlns:th="http://www.thymeleaf.org">
     <form  method="get" class="form-horizontal" th:action="@{/competitions/save}" th:object="${form}" th:method="post" role="form">
-        <div class="form-group">
-            <div class="col-sm-12">
-                <input class="form-control input-sm" type="hidden"
-                    name="id" th:field="*{id}">
-            </div>
-        </div>
+        <input class="form-control input-sm" type="hidden"
+               name="id" th:field="*{id}">
         <div class="form-group">
             <div class="col-sm-6">
                 <label>Название</label>

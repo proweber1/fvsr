@@ -1,0 +1,65 @@
+<div  xmlns:th="http://www.thymeleaf.org">
+    <form  method="get" class="form-horizontal" th:action="@{/races/save}" th:object="${form}" th:method="post" role="form">
+        <input class="form-control input-sm" type="hidden"
+               name="id" th:field="*{id}">
+        <div class="form-group">
+            <div class="col-sm-6">
+                <label>Тип</label>
+                <select class="form-control input-sm" type="text"
+                       name="raceType" th:field="*{raceType}">
+                    <option value="" selected>Выберите тип</option>
+                    <option th:each="raceType : ${raceTypes}"
+                            th:value="${raceType.id}"
+                            th:text="${raceType.name}"></option>
+                </select>
+                <small th:each="err : ${#fields.errors('raceType')}"
+                       th:text="${err}"
+                       class="error-field text-danger"></small>
+            </div>
+            <div class="col-sm-6">
+                <label>Категория</label>
+                <select class="form-control input-sm" type="text"
+                        name="category" th:field="*{category}">
+                    <option value="" selected>Выберите категорию</option>
+                    <option th:each="category : ${categories}"
+                            th:value="${category.id}"
+                            th:text="${category.name}"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <label>Место</label>
+                <input class="form-control input-sm" type="text"
+                       name="raceType" th:field="*{place}">
+            </div>
+            <div class="col-sm-6">
+                <label>Время</label>
+                <input class="form-control input-sm" type="text"
+                       name="category" th:field="*{dateTime}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-6">
+                <label>Дистанция</label>
+                <input class="form-control input-sm" type="text"
+                       name="raceType" th:field="*{distance}">
+            </div>
+            <div class="col-sm-6">
+                <label>Соревнование</label>
+                <input class="form-control input-sm" type="text"
+                       name="category" th:field="*{competitions}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Создать
+                </button>
+                <button type="reset" class="btn btn-warning">
+                    <i class="fa fa-eraser" aria-hidden="true"></i> Очистить
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

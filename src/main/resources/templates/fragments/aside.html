@@ -64,8 +64,14 @@
             </li>
             <li th:classappend="${#httpServletRequest.requestURI == '/competitions' ? 'active' : ''}">
                 <a href="#" th:href="@{/competitions}">
-                    <span class="fa fa-bicycle" aria-hidden="true"></span>
+                    <span class="fa fa-futbol-o" aria-hidden="true"></span>
                     <span class="sidebar-title">Соревнования</span>
+                </a>
+            </li>
+            <li th:classappend="${#httpServletRequest.requestURI == '/races' ? 'active' : ''}">
+                <a href="#" th:href="@{/races}">
+                    <span class="fa fa-bicycle" aria-hidden="true"></span>
+                    <span class="sidebar-title">Список заездов</span>
                 </a>
             </li>
         </ul>
