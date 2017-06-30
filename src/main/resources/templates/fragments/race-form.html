@@ -35,7 +35,7 @@
             </div>
             <div class="col-sm-6">
                 <label>Время</label>
-                <input class="form-control input-sm" type="text"
+                <input class="form-control input-sm datetimepicker" type="text"
                        name="dateTime" th:field="*{dateTime}">
                 <small th:each="err : ${#fields.errors('dateTime')}"
                        th:text="${err}"

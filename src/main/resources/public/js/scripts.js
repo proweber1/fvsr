@@ -7,7 +7,7 @@ btns.forEach((btn) => {
 		e.preventDefault();
 		let attr = e.target.getAttribute('href'),
 			block = document.querySelector(attr);
-
+		console.log(block);
 		block.classList.toggle('active');
 
 		attr === '#search__block' ?
@@ -27,7 +27,13 @@ document.getElementById('toggle_sidemenu_l')
 		}
 };
 
-
+$.datetimepicker.setLocale('ru');
 $( document ).ready(function() {
-	$('#dateTime').datetimepicker();
+	$('.datetimepicker').datetimepicker({
+		format:'Y-m-d H:i:s',
+		lang:'ru',
+		dayOfWeekStart: 1,
+		scrollTime: true,
+		step: 15
+	});
 });
