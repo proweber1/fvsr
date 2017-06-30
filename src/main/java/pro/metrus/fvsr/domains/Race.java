@@ -27,7 +27,7 @@ public class Race {
     private String place;
 
     @Column(name = "date_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd H:i:s")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd H:i:s")
     private LocalDateTime dateTime;
 
     private String distance;

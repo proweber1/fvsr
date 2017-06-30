@@ -19,9 +19,9 @@
                 <div class="panel-body pn">
                     <dl>
                         <dt>Тип:</dt>
-                        <dd th:text="${race.raceType}"></dd>
+                        <dd th:text="${race.raceType?.name}"></dd>
                         <dt>Категория:</dt>
-                        <dd th:text="${race.category}"></dd>
+                        <dd th:text="${race.category?.name}"></dd>
                         <dt>Место:</dt>
                         <dd th:text="${race.place}"></dd>
                         <dt>Время:</dt>
@@ -29,7 +29,7 @@
                         <dt>Дистанция:</dt>
                         <dd th:text="${race.distance}"></dd>
                         <dt>Соревнование:</dt>
-                        <dd th:text="${race.competitions}"></dd>
+                        <dd th:text="${race.competitions?.name}"></dd>
                     </dl>
                 </div>
             </div>
