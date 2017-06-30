@@ -6,10 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pro.metrus.fvsr.domains.Competitions;
 import pro.metrus.fvsr.domains.Country;
 import pro.metrus.fvsr.domains.FederalSubject;
 import pro.metrus.fvsr.domains.Vid;
+import pro.metrus.fvsr.exceptions.NotFoundException;
 import pro.metrus.fvsr.repositories.CompetitionsRepository;
 import pro.metrus.fvsr.repositories.CountryRepository;
 import pro.metrus.fvsr.repositories.FederalSubjectRepository;
@@ -25,7 +27,20 @@ import java.util.List;
 @RequestMapping("/competitions")
 public class CompetitionsController {
 
+    /**
+     * Name attribute which contains competition form {@link Competitions}
+     */
     private static final String FORM_ATTR = "form";
+
+    /**
+     * Attribute name which contains success flash message
+     */
+    private static final String SUCCESS_FLASH_ATTR = "competitionSuccess";
+
+    /**
+     * Attribute name which contains successful save entity message
+     */
+    private static final String SAVE_ENTITY_SUCCESS = "Соревнование было успешно сохранено";
 
     /**
      * Репозиторий для работы с соревнованиями
@@ -147,9 +162,23 @@ public class CompetitionsController {
      */
     @GetMapping("/{id}/update")
     public String update(final Model ui, @PathVariable final long id) {
-        ui.addAttribute(FORM_ATTR, competitionsRepository.findOne(id));
+        ui.addAttribute(FORM_ATTR, loadCompetitionOrException(id));
 
         return "competition-update";
+    }
+
+    /**
+     * This method load one competition for showing it
+     *
+     * @param ui Spring ui model
+     * @param id Competition id
+     * @return Competition view page name
+     */
+    @GetMapping("/{id}")
+    public String view(final Model ui, @PathVariable final long id) {
+        ui.addAttribute("competition", loadCompetitionOrException(id));
+
+        return "competition-view";
     }
 
     /**
@@ -165,13 +194,28 @@ public class CompetitionsController {
      */
     @PostMapping("/save")
     public String create(@Valid @ModelAttribute(FORM_ATTR) final Competitions form,
-                         final BindingResult validationResult) {
+                         final BindingResult validationResult,
+                         final RedirectAttributes redirectAttributes) {
         if (validationResult.hasErrors()) {
             // Render page with errors
             return form.getId() > 0 ? "competition-update" : "competition-create";
         }
 
         competitionsRepository.save(form);
-        return "redirect:/competitions";
+        redirectAttributes.addFlashAttribute(SUCCESS_FLASH_ATTR, SAVE_ENTITY_SUCCESS);
+
+        return "redirect:/competitions/" + form.getId();
+    }
+
+    /**
+     * This method try find competition by id, if competition not found
+     * will throw {@link NotFoundException}
+     *
+     * @param competitionId Id's competition
+     * @return Competition entity {@link Competitions}
+     */
+    private Competitions loadCompetitionOrException(final long competitionId) {
+        return competitionsRepository.findOne(competitionId)
+                .orElseThrow(NotFoundException::new);
     }
 }
