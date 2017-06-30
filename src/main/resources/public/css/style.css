@@ -14278,6 +14278,41 @@ body.sb-l-m #content-footer.affix {
   margin-top: 2px;
   display: block; }
 
+.table-double {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+.interaction {
+  margin-left: 20px; }
+
+.interaction__group {
+  white-space: nowrap;
+  padding: 3px 0 4px 0;
+  overflow: hidden; }
+
+.interaction__group a {
+  float: right; }
+
+.interaction__group a:first-child {
+  float: left; }
+
+.interaction__title {
+  height: 37px;
+  font-weight: 700;
+  padding: 8px;
+  display: block; }
+
+dt {
+  margin-top: 10px; }
+
+dt:first-child {
+  margin-top: 0; }
+
+dd {
+  padding-left: 10px; }
+
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)
 ================================================= */

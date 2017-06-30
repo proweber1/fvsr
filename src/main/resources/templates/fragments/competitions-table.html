@@ -1,38 +1,50 @@
-<div class="over-x-auto" xmlns:th="http://www.thymeleaf.org">
+<div xmlns:th="http://www.thymeleaf.org">
     <a href="#" th:href="@{/competitions/create}" class="btn btn-info">
         <i class="fa fa-plus" aria-hidden="true"></i>
         <span class="sidebar-title">Добавить соревнование</span>
     </a>
-    <table class="table table-striped table__refact">
-        <thead>
-            <tr th:class="ws-no">
-                <th th:class="w50">Id</th>
-                <th>Название</th>
-                <th>Субъект</th>
-                <th>Место</th>
-                <th>Дата начала</th>
-                <th>Дата окончания</th>
-                <th>Страна</th>
-                <th>Вид</th>
-                <th>Действия</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="competition : ${competitions}">
-                <td th:text="${competition.id}" th:class="w50"></td>
-                <td th:text="${competition.name}"></td>
-                <td th:text="${competition.subject?.name}"></td>
-                <td th:text="${competition.place}"></td>
-                <td th:text="${competition.dateBegin}"></td>
-                <td th:text="${competition.dateEnd}"></td>
-                <td th:text="${competition.country?.name}"></td>
-                <td th:text="${competition.vid?.name}"></td>
-                <td>
-                    <a href="#"
-                       th:href="@{/competitions/{id}/update(id=${competition.id})}"
-                       th:text="Редактировать"></a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-double">
+        <div class="over-x-auto">
+            <table class="table table-striped table__refact">
+                <thead>
+                    <tr th:class="ws-no">
+                        <th th:class="w50">Id</th>
+                        <th>Название</th>
+                        <th>Субъект</th>
+                        <th>Место</th>
+                        <th>Дата начала</th>
+                        <th>Дата окончания</th>
+                        <th>Страна</th>
+                        <th>Вид</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="competition : ${competitions}">
+                        <td th:text="${competition.id}" th:class="w50"></td>
+                        <td th:text="${competition.name}"></td>
+                        <td th:text="${competition.subject?.name}"></td>
+                        <td th:text="${competition.place}"></td>
+                        <td th:text="${competition.dateBegin}"></td>
+                        <td th:text="${competition.dateEnd}"></td>
+                        <td th:text="${competition.country?.name}"></td>
+                        <td th:text="${competition.vid?.name}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="interaction">
+            <span class="interaction__title">Действие</span>
+            <div class="interaction__group" th:each="competition : ${competitions}">
+                <a href="#" class="btn btn-info mw40" title="Информация о соревновании"
+                   th:href="@{/competitions/{id}(id=${competition.id})}">
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                </a>
+
+                <a href="#" class="btn btn-info mw40" title="Изменить"
+                   th:href="@{/competitions/{id}/update(id=${competition.id})}">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
