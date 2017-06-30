@@ -18,7 +18,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="race : ${races}">
+                <tr th:each="race : ${items}">
                     <td th:text="${race.id}" th:class="w50"></td>
                     <td th:text="${race.raceType?.name}"></td>
                     <td th:text="${race.category?.name}"></td>
@@ -32,7 +32,7 @@
         </div>
         <div class="interaction">
             <span class="interaction__title">Действие</span>
-            <div class="interaction__group" th:each="race : ${races}">
+            <div class="interaction__group" th:each="race : ${items}">
                 <a href="#" class="btn btn-info mw40" title="Информация о соревновании"
                    th:href="@{/races/{id}(id=${race.id})}">
                     <i class="fa fa-info" aria-hidden="true"></i>

@@ -35,8 +35,11 @@
             </div>
             <div class="col-sm-6">
                 <label>Время</label>
-                <input class="form-control input-sm" readonly type="text"
-                       name="dateTime" id="dateTime" th:field="*{dateTime}">
+                <input class="form-control input-sm" type="text"
+                       name="dateTime" th:field="*{dateTime}">
+                <small th:each="err : ${#fields.errors('dateTime')}"
+                       th:text="${err}"
+                       class="error-field text-danger"></small>
             </div>
         </div>
         <div class="form-group">
@@ -47,8 +50,14 @@
             </div>
             <div class="col-sm-6">
                 <label>Соревнование</label>
-                <input class="form-control input-sm" type="text"
-                       name="competitions" th:field="*{competitions}">
+                <select name="competition"
+                        class="form-control input-sm"
+                        th:field="*{competitions}">
+                    <option value="">Выберите соревнование</option>
+                    <option th:each="competition : ${competitions}"
+                            th:value="${competition.id}"
+                            th:text="${competition.name}"></option>
+                </select>
             </div>
         </div>
         <div class="form-group">

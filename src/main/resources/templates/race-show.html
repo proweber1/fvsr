@@ -19,17 +19,17 @@
                 <div class="panel-body pn">
                     <dl>
                         <dt>Тип:</dt>
-                        <dd th:text="${race.raceType?.name}"></dd>
+                        <dd th:text="${entity.raceType?.name}"></dd>
                         <dt>Категория:</dt>
-                        <dd th:text="${race.category?.name}"></dd>
+                        <dd th:text="${entity.category?.name}"></dd>
                         <dt>Место:</dt>
-                        <dd th:text="${race.place}"></dd>
+                        <dd th:text="${entity.place}"></dd>
                         <dt>Время:</dt>
-                        <dd th:text="${race.dateTime}"></dd>
+                        <dd th:text="${entity.dateTime}"></dd>
                         <dt>Дистанция:</dt>
-                        <dd th:text="${race.distance}"></dd>
+                        <dd th:text="${entity.distance}"></dd>
                         <dt>Соревнование:</dt>
-                        <dd th:text="${race.competitions?.name}"></dd>
+                        <dd th:text="${entity.competitions?.name}"></dd>
                     </dl>
                 </div>
             </div>
