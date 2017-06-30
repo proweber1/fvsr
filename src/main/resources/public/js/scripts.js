@@ -27,8 +27,7 @@ document.getElementById('toggle_sidemenu_l')
 		}
 };
 
-$(function() {
 
-	$('[name="dateTime"]').datetimepicker();
-
+$( document ).ready(function() {
+	$('#dateTime').datetimepicker();
 });
