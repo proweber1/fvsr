@@ -12443,6 +12443,7 @@ on tables, feel free to add more*/
   padding-top: 60px;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  z-index: 15;
   padding-bottom: 40px; }
 
 /* Sidebar Content Container */
@@ -14277,49 +14278,6 @@ body.sb-l-m #content-footer.affix {
   margin-top: 2px;
   display: block; }
 
-.label__sidebar {
-  margin: 0;
-  padding: 0;
-  max-width: active;
-  width: 0;
-  height: 0; }
-
-.toggle__sidebar {
-  position: absolute;
-  opacity: 0;
-  left: -1000px;
-  top: -1000px; }
-
-.toggle__sidebar:checked ~ #sidebar_left {
-  width: 60px; }
-
-.toggle__sidebar:checked ~ #sidebar_left .navbar-brand,
-.toggle__sidebar:checked ~ #sidebar_left .sidebar-menu > li:first-child {
-  display: none; }
-
-.toggle__sidebar:checked ~ #sidebar_left #toggle_sidemenu_l,
-.toggle__sidebar:checked ~ #sidebar_left #toggle_sidemenu_t {
-  right: auto;
-  -webkit-transition: width 0.2s ease;
-  transition: width 0.2s ease; }
-
-.toggle__sidebar:checked ~ #sidebar_left .navbar-branding {
-  width: 60px;
-  -webkit-transition: width 0.2s ease;
-  transition: width 0.2s ease; }
-
-.toggle__sidebar:checked ~ #sidebar_left .sidebar-header {
-  display: none; }
-
-.toggle__sidebar:checked ~ #sidebar_left .sidebar-menu > li > a > span:nth-child(1) {
-  padding-left: 0; }
-
-.toggle__sidebar:checked ~ #content_wrapper,
-.toggle__sidebar:checked ~ #content_wrapper #content-footer {
-  margin-left: 60px;
-  -webkit-transition: margin 0.2s ease;
-  transition: margin 0.2s ease; }
-
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)
 ================================================= */
@@ -14397,6 +14355,31 @@ body.sb-l-m #content-footer.affix {
   color: #888;
   width: 100%; }
 
+@media (min-width: 1200px) {
+  .toggle-close #sidebar_left {
+    width: 60px; }
+  .toggle-close #sidebar_left .navbar-brand,
+  .toggle-close #sidebar_left .sidebar-menu > li:first-child {
+    display: none; }
+  .toggle-close #sidebar_left #toggle_sidemenu_l,
+  .toggle-close #sidebar_left #toggle_sidemenu_t {
+    right: auto;
+    -webkit-transition: width 0.2s ease;
+    transition: width 0.2s ease; }
+  .toggle-close #sidebar_left .navbar-branding {
+    width: 60px;
+    -webkit-transition: width 0.2s ease;
+    transition: width 0.2s ease; }
+  .toggle-close #sidebar_left .sidebar-header {
+    display: none; }
+  .toggle-close #sidebar_left .sidebar-menu > li > a > span:nth-child(1) {
+    padding-left: 0; }
+  .toggle-close #content_wrapper,
+  .toggle-close #content_wrapper #content-footer {
+    margin-left: 60px;
+    -webkit-transition: margin 0.2s ease;
+    transition: margin 0.2s ease; } }
+
 @media (max-width: 1200px) {
   #sidebar_left {
     width: 60px;
@@ -14420,4 +14403,23 @@ body.sb-l-m #content-footer.affix {
     -webkit-transition: margin 0.2s ease;
     transition: margin 0.2s ease; }
   .sidebar-menu > li > a > span:nth-child(1) {
-    padding-left: 0; } }
+    padding-left: 0; }
+  /* =====  */
+  .toggle-open #sidebar_left {
+    width: 320px; }
+  .toggle-open #sidebar_left .navbar-brand,
+  .toggle-open #sidebar_left .sidebar-menu > li:first-child {
+    display: block; }
+  .toggle-open #sidebar_left #toggle_sidemenu_l,
+  .toggle-open #sidebar_left #toggle_sidemenu_t {
+    right: -220px;
+    -webkit-transition: width 0.2s ease;
+    transition: width 0.2s ease; }
+  .toggle-open #sidebar_left .navbar-branding {
+    width: 320px;
+    -webkit-transition: width 0.2s ease;
+    transition: width 0.2s ease; }
+  .toggle-open #sidebar_left .sidebar-header {
+    display: block; }
+  .toggle-open #sidebar_left .sidebar-menu > li > a > span:nth-child(1) {
+    padding-left: 13px; } }
