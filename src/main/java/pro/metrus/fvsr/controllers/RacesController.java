@@ -121,6 +121,20 @@ public class RacesController {
     }
 
     /**
+     * Update specify race by id
+     *
+     * @param ui Spring model ui
+     * @param id Race id
+     * @return Template name
+     */
+    @GetMapping("/{id}/update")
+    public String update(final Model ui, @PathVariable("id") final long id) {
+        ui.addAttribute("form", racesRepository.findOne(id));
+
+        return "race-update";
+    }
+
+    /**
      * This method persist race form, it maybe new race or exist race
      * just for update
      *
