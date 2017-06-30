@@ -13,7 +13,7 @@ import java.time.LocalDate;
  * Эта сущность представляет одного спорстмена в системе
  */
 @Entity
-@Table(name = "peoples")
+@Table(name = "people")
 @Getter
 @Setter
 @ToString
