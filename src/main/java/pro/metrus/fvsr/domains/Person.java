@@ -72,9 +72,6 @@ public class Person {
     @Column(name = "other_role")
     private boolean otherRole;
 
-    @Column(name = "old_id")
-    private String oldId;
-
     @Column(name = "lastname_rus")
     private String lastnameRus;
 
