@@ -26,3 +26,9 @@ document.getElementById('toggle_sidemenu_l')
 			document.body.classList.remove('toggle-close');
 		}
 };
+
+$(function() {
+
+	$('[name="dateTime"]').datetimepicker();
+
+});

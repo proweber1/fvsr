@@ -11951,9 +11951,6 @@ label {
   padding: 3px 5px;
   margin-bottom: 3px; }
 
-.form-control[readonly] {
-  color: #7F8FA4; }
-
 .form-control[disabled] {
   opacity: 0.5; }
 
@@ -14312,6 +14309,9 @@ dt:first-child {
 
 dd {
   padding-left: 10px; }
+
+.form-control[readonly] {
+  background: transparent; }
 
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)

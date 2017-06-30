@@ -152,13 +152,13 @@ public abstract class AbstractCrudController<T, ID extends Number> {
 
         if (bindingResult.hasErrors()) {
             // Render page with errors
-            return getIdFromEntity(form).intValue() > 0
+            return getEntityId(form) > 0
                     ? getTemplateName(UPDATE_TEMPLATE_NAME)
                     : getTemplateName(CREATE_TEMPLATE_NAME);
         }
 
         repository.save(form);
-        return "redirect:" + getIdFromEntity(form).intValue();
+        return "redirect:" + getEntityId(form);
     }
 
     /**
@@ -171,11 +171,11 @@ public abstract class AbstractCrudController<T, ID extends Number> {
      * @throws IllegalAccessException    Не удалось вызвать метод
      */
     @SuppressWarnings("unchecked")
-    private ID getIdFromEntity(final T entity)
+    private long getEntityId(final T entity)
             throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
 
         final Method getIdMethod = entity.getClass().getDeclaredMethod(GET_ID_METHOD_NAME);
-        return (ID) getIdMethod.invoke(entity);
+        return ((ID) getIdMethod.invoke(entity)).longValue();
     }
 
     /**
