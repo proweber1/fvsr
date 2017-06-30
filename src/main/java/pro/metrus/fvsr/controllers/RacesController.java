@@ -1,19 +1,19 @@
 package pro.metrus.fvsr.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import pro.metrus.fvsr.core.AbstractCrudController;
 import pro.metrus.fvsr.domains.Category;
+import pro.metrus.fvsr.domains.Competitions;
 import pro.metrus.fvsr.domains.Race;
 import pro.metrus.fvsr.domains.RaceType;
 import pro.metrus.fvsr.repositories.CategoriesRepository;
+import pro.metrus.fvsr.repositories.CompetitionsRepository;
 import pro.metrus.fvsr.repositories.RaceTypesRepository;
 import pro.metrus.fvsr.repositories.RacesRepository;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -21,12 +21,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/races")
-public class RacesController {
-
-    /**
-     * Repository which work with races
-     */
-    private final RacesRepository racesRepository;
+public class RacesController extends AbstractCrudController<Race, Long> {
 
     /**
      * Repository which work with race types
@@ -37,6 +32,7 @@ public class RacesController {
      * Repository which work with categories
      */
     private final CategoriesRepository categoriesRepository;
+    private final CompetitionsRepository competitionsRepository;
 
     /**
      * Dependency injection constructor
@@ -50,11 +46,14 @@ public class RacesController {
     public RacesController(
             final RacesRepository racesRepository,
             final RaceTypesRepository raceTypesRepository,
-            final CategoriesRepository categoriesRepository
+            final CategoriesRepository categoriesRepository,
+            final CompetitionsRepository competitionsRepository
     ) {
-        this.racesRepository = racesRepository;
+        super(Race.class, racesRepository);
+
         this.raceTypesRepository = raceTypesRepository;
         this.categoriesRepository = categoriesRepository;
+        this.competitionsRepository = competitionsRepository;
     }
 
     /**
@@ -79,78 +78,13 @@ public class RacesController {
     }
 
     /**
-     * This method load all races with pagination and return they to
-     * page
+     * This method load all competitions to tempalte for rendering
+     * special select
      *
-     * @param ui       Spring ui model
-     * @param pageable Spring pagination bean
-     * @return Races template name
+     * @return Competitions list
      */
-    @GetMapping
-    public String list(final Model ui, final Pageable pageable) {
-        ui.addAttribute("races", racesRepository.findAllByOrderByIdAsc(pageable));
-
-        return "races";
-    }
-
-    /**
-     * Page for create new races
-     *
-     * @param ui Spring model ui
-     * @return Page for create new races
-     */
-    @GetMapping("/create")
-    public String create(final Model ui) {
-        ui.addAttribute("form", new Race());
-
-        return "race-create";
-    }
-
-    /**
-     * This method load special race for showing on page
-     *
-     * @param ui Spring ui model
-     * @param id Race id
-     * @return Template for rendering
-     */
-    @GetMapping("/{id}")
-    public String show(final Model ui, @PathVariable("id") final long id) {
-        ui.addAttribute("race", racesRepository.findOne(id));
-
-        return "race-show";
-    }
-
-    /**
-     * Update specify race by id
-     *
-     * @param ui Spring model ui
-     * @param id Race id
-     * @return Template name
-     */
-    @GetMapping("/{id}/update")
-    public String update(final Model ui, @PathVariable("id") final long id) {
-        ui.addAttribute("form", racesRepository.findOne(id));
-
-        return "race-update";
-    }
-
-    /**
-     * This method persist race form, it maybe new race or exist race
-     * just for update
-     *
-     * @param form          Race form
-     * @param bindingResult Race form validation result
-     * @return Redirect or page for view race
-     */
-    @PostMapping("/save")
-    public String process(@Valid @ModelAttribute("form") final Race form,
-                          final BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            // return errors to page
-            return form.getId() > 0 ? "race-create" : "race-update";
-        }
-
-        racesRepository.save(form);
-        return "redirect:/races";
+    @ModelAttribute("competitions")
+    public List<Competitions> competitions() {
+        return competitionsRepository.findAll();
     }
 }
