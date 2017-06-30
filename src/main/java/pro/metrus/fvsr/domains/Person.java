@@ -13,7 +13,7 @@ import java.time.LocalDate;
  * Эта сущность представляет одного спорстмена в системе
  */
 @Entity
-@Table(name = "people")
+@Table(name = "peoples")
 @Getter
 @Setter
 @ToString
@@ -21,6 +21,7 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_uci")
     private long id;
 
     @Column(name = "federation_num")
