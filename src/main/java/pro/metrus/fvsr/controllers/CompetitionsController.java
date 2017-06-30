@@ -4,18 +4,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pro.metrus.fvsr.domains.*;
-import pro.metrus.fvsr.repositories.CountryRepository;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pro.metrus.fvsr.domains.Competitions;
+import pro.metrus.fvsr.domains.Country;
+import pro.metrus.fvsr.domains.FederalSubject;
+import pro.metrus.fvsr.domains.Vid;
 import pro.metrus.fvsr.repositories.CompetitionsRepository;
+import pro.metrus.fvsr.repositories.CountryRepository;
 import pro.metrus.fvsr.repositories.FederalSubjectRepository;
 import pro.metrus.fvsr.repositories.VidRepository;
+import pro.metrus.fvsr.utils.BindingResultUtil;
 
+import javax.validation.Valid;
 import java.util.List;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * Контроллер для работы с соревнованиями, стандартный CRUD
@@ -24,19 +30,37 @@ import static java.util.Objects.requireNonNull;
 @RequestMapping("/competitions")
 public class CompetitionsController {
 
+    private static final String FORM_ATTR = "form";
+
     /**
      * Репозиторий для работы с соревнованиями
      */
     private final CompetitionsRepository competitionsRepository;
+
+    /**
+     * Repository for work with federal subjects
+     */
     private final FederalSubjectRepository federalSubjectRepository;
+
+    /**
+     * Repository for work with countries
+     */
     private final CountryRepository countryRepository;
+
+    /**
+     * Repository for work with "Вид"
+     */
     private final VidRepository vidRepository;
 
     /**
      * Конструктор для внедрения зависимостей
      *
-     * @param competitionsRepository Репозиторий для работы с соревнованиями, не должен
-     *                               быть null, иначе будет выброшено NPE
+     * @param competitionsRepository   Репозиторий для работы с соревнованиями, не должен
+     *                                 быть null, иначе будет выброшено NPE
+     * @param federalSubjectRepository Repository for work with federal subjects, must be
+     *                                 not null
+     * @param countryRepository        Repository for work with countries, must be not null
+     * @param vidRepository            Repository for work with "Виды", must be not null
      */
     @Autowired
     public CompetitionsController(
@@ -44,23 +68,48 @@ public class CompetitionsController {
             final FederalSubjectRepository federalSubjectRepository,
             final CountryRepository countryRepository,
             final VidRepository vidRepository
-            ) {
+    ) {
         this.competitionsRepository = competitionsRepository;
         this.federalSubjectRepository = federalSubjectRepository;
         this.countryRepository = countryRepository;
         this.vidRepository = vidRepository;
     }
 
+    /**
+     * Load all federal subjects to template
+     * <p>
+     * Load federal subjects to template for render select which
+     * contains all federal subjects, it will inject to {@link Competitions}
+     * entity
+     *
+     * @return Federal subjects list
+     */
     @ModelAttribute("federalSubjects")
     public List<FederalSubject> federalSubjects() {
         return federalSubjectRepository.findAll();
     }
 
+    /**
+     * Load all countries to template
+     * <p>
+     * This method load all countries for rendering select in template for
+     * selecting specify country and inject it to {@link Competitions}
+     *
+     * @return Countries list
+     */
     @ModelAttribute("countries")
     public List<Country> countries() {
         return countryRepository.findAll();
     }
 
+    /**
+     * Load all vids to template
+     * <p>
+     * This method load all vids to template for rendering special select
+     * and inject selected value to {@link Competitions}
+     *
+     * @return Vids list
+     */
     @ModelAttribute("vids")
     public List<Vid> vids() {
         return vidRepository.findAll();
@@ -80,10 +129,47 @@ public class CompetitionsController {
         return "competitions";
     }
 
+    /**
+     * This page uses for create new competitions, it contains
+     * special form
+     *
+     * @param ui Spring ui model
+     * @return template for rendering
+     */
     @GetMapping("/create")
     public String create(final Model ui) {
-        ui.addAttribute("form", new Competitions());
+        if (!ui.containsAttribute(FORM_ATTR)) {
+            ui.addAttribute(FORM_ATTR, new Competitions());
+        }
 
         return "competition-create";
+    }
+
+    /**
+     * Processing creation new competition
+     * <p>
+     * This method process request which create new competition in
+     * system and redirect after save to competitions list
+     *
+     * @param form             New competition form
+     * @param validationResult Result of validation new competition
+     * @return Redirect to create competition page with validation errors
+     * or redirect to competition list if competition successful created
+     */
+    @PostMapping("/create")
+    public String create(@Valid @ModelAttribute(FORM_ATTR) final Competitions form,
+                         final BindingResult validationResult,
+                         final RedirectAttributes redirectAttributes) {
+        if (validationResult.hasErrors()) {
+            // redirect to create competition page with errors
+            redirectAttributes.addFlashAttribute(
+                    BindingResultUtil.attributeName(FORM_ATTR), validationResult);
+            redirectAttributes.addFlashAttribute(FORM_ATTR, form);
+
+            return "redirect:/competitions/create";
+        }
+
+        competitionsRepository.save(form);
+        return "redirect:/competitions";
     }
 }
