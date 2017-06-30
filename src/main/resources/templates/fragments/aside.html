@@ -68,6 +68,12 @@
                     <span class="sidebar-title">Соревнования</span>
                 </a>
             </li>
+            <li th:classappend="${#httpServletRequest.requestURI == '/races' ? 'active' : ''}">
+                <a href="#" th:href="@{/races}">
+                    <span class="fa fa-bicycle" aria-hidden="true"></span>
+                    <span class="sidebar-title">Список заездов</span>
+                </a>
+            </li>
         </ul>
     </div>
 
