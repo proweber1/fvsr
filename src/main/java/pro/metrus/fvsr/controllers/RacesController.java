@@ -4,9 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import pro.metrus.fvsr.domains.Category;
 import pro.metrus.fvsr.domains.Race;
 import pro.metrus.fvsr.domains.RaceType;
@@ -14,6 +13,7 @@ import pro.metrus.fvsr.repositories.CategoriesRepository;
 import pro.metrus.fvsr.repositories.RaceTypesRepository;
 import pro.metrus.fvsr.repositories.RacesRepository;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -104,5 +104,53 @@ public class RacesController {
         ui.addAttribute("form", new Race());
 
         return "race-create";
+    }
+
+    /**
+     * This method load special race for showing on page
+     *
+     * @param ui Spring ui model
+     * @param id Race id
+     * @return Template for rendering
+     */
+    @GetMapping("/{id}")
+    public String show(final Model ui, @PathVariable("id") final long id) {
+        ui.addAttribute("race", racesRepository.findOne(id));
+
+        return "race-show";
+    }
+
+    /**
+     * Update specify race by id
+     *
+     * @param ui Spring model ui
+     * @param id Race id
+     * @return Template name
+     */
+    @GetMapping("/{id}/update")
+    public String update(final Model ui, @PathVariable("id") final long id) {
+        ui.addAttribute("form", racesRepository.findOne(id));
+
+        return "race-update";
+    }
+
+    /**
+     * This method persist race form, it maybe new race or exist race
+     * just for update
+     *
+     * @param form          Race form
+     * @param bindingResult Race form validation result
+     * @return Redirect or page for view race
+     */
+    @PostMapping("/save")
+    public String process(@Valid @ModelAttribute("form") final Race form,
+                          final BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            // return errors to page
+            return form.getId() > 0 ? "race-create" : "race-update";
+        }
+
+        racesRepository.save(form);
+        return "redirect:/races";
     }
 }

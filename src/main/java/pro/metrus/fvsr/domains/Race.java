@@ -2,6 +2,7 @@ package pro.metrus.fvsr.domains;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -26,6 +27,7 @@ public class Race {
     private String place;
 
     @Column(name = "date_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd H:i:s")
     private LocalDateTime dateTime;
 
     private String distance;
