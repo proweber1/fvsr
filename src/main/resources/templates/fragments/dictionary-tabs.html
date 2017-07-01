@@ -34,14 +34,14 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>№</th>
                     <th>Название</th>
                     <th>Федеральный округ</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="federalSubject : ${federalSubjects}">
-                    <td th:text="${federalSubject.id}"></td>
+                <tr th:each="federalSubject, stat : ${federalSubjects}">
+                    <td th:text="${stat.index + 1}"></td>
                     <td th:text="${federalSubject.name}"></td>
                     <td th:text="${federalSubject.federalDistrict?.name}"></td>
                 </tr>

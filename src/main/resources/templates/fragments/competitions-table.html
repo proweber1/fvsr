@@ -5,29 +5,27 @@
     </a>
     <div class="table-double">
         <div class="over-x-auto">
-            <table class="table table-striped table__refact">
+            <table class="table table-striped table__refact text-left">
                 <thead>
                     <tr th:class="ws-no">
-                        <th th:class="w50">Id</th>
-                        <th>Название</th>
-                        <th>Субъект</th>
-                        <th>Место</th>
-                        <th>Дата начала</th>
-                        <th>Дата окончания</th>
-                        <th>Страна</th>
+                        <th th:class="w50">№</th>
+                        <th>Дата</th>
                         <th>Вид</th>
+                        <th>Название</th>
+                        <th>Место</th>
+                        <th>Субъект</th>
+                        <th>Страна</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="competition : ${competitions}">
-                        <td th:text="${competition.id}" th:class="w50"></td>
-                        <td th:text="${competition.name}"></td>
-                        <td th:text="${competition.subject?.name}"></td>
-                        <td th:text="${competition.place}"></td>
-                        <td th:text="${competition.dateBegin}"></td>
-                        <td th:text="${competition.dateEnd}"></td>
-                        <td th:text="${competition.country?.name}"></td>
+                    <tr th:each="competition, status : ${competitions}">
+                        <td th:text="${status.index + 1}" th:class="w50"></td>
+                        <th>-</th>
                         <td th:text="${competition.vid?.name}"></td>
+                        <td th:text="${competition.name}"></td>
+                        <td th:text="${competition.place}"></td>
+                        <td th:text="${competition.subject?.name}"></td>
+                        <td th:text="${competition.country?.nameRus}"></td>
                     </tr>
                 </tbody>
             </table>

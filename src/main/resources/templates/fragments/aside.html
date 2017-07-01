@@ -74,12 +74,6 @@
                     <span class="sidebar-title">Список заездов</span>
                 </a>
             </li>
-            <li th:classappend="${#httpServletRequest.requestURI == '/results' ? 'active' : ''}">
-                <a href="#" th:href="@{/results}">
-                    <span class="fa fa-bicycle" aria-hidden="true"></span>
-                    <span class="sidebar-title">Результаты</span>
-                </a>
-            </li>
         </ul>
     </div>
 
