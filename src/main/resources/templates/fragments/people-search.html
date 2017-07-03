@@ -7,9 +7,10 @@
     </a>
 
     <div class="search__container">
-        <form th:object="${filter}" method="get" class="form-horizontal" role="form">
-            <div  th:replace="~{fragments/people-search-block}"></div>
-            <div  th:replace="~{fragments/people-filter-block}"></div>
+        <form th:object="${filter}" method="get"
+              class="form-horizontal" role="form">
+            <div th:replace="~{fragments/people-search-block}"></div>
+            <div th:replace="~{fragments/people-filter-block}"></div>
         </form>
     </div>
 </div>

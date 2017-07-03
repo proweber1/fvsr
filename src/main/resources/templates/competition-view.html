@@ -17,16 +17,16 @@
                     <span class="panel-title">Информация о соревновании</span>
                 </div>
                 <div class="panel-body pn">
-                    <div id="w1" class="index-calendar">Тут будет мега календарь</div>
+                    <div class="calendar">Тут будет мега календарь</div>
                     <dl>
                         <dt>Название:</dt>
                             <dd th:text="${competition.name}" class="text__calendar"></dd>
                         <dt>Место:</dt>
                             <dd th:text="${competition.place}"></dd>
                         <dt>Дата начала:</dt>
-                            <dd th:text="${competition.dateBegin}"></dd>
+                            <dd th:text="${competition.dateBegin}" class="dateBegin"></dd>
                         <dt>Дата окончания:</dt>
-                            <dd th:text="${competition.dateEnd}"></dd>
+                            <dd th:text="${competition.dateEnd}" class="dateEnd"></dd>
                         <dt>Страна:</dt>
                             <dd th:text="${competition.country?.nameRus}"></dd>
                         <dt>Вид:</dt>

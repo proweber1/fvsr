@@ -1,0 +1,10 @@
+INSERT INTO public.participant (id, name) VALUES (1, 'Мужчины                                           ');
+INSERT INTO public.participant (id, name) VALUES (2, 'Женщины                                           ');
+INSERT INTO public.participant (id, name) VALUES (3, 'Юниоры 19-22                                      ');
+INSERT INTO public.participant (id, name) VALUES (4, 'Юниорки 19-22                                     ');
+INSERT INTO public.participant (id, name) VALUES (5, 'Юниоры 17-18                                      ');
+INSERT INTO public.participant (id, name) VALUES (6, 'Юниорки 17-18                                     ');
+INSERT INTO public.participant (id, name) VALUES (7, 'Юноши 15-16                                       ');
+INSERT INTO public.participant (id, name) VALUES (8, 'Девушки 15-16                                     ');
+INSERT INTO public.participant (id, name) VALUES (9, 'Юноши 13-14                                       ');
+INSERT INTO public.participant (id, name) VALUES (10, 'Девушки 13-14                                     ');

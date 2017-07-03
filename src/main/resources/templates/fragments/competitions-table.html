@@ -1,38 +1,34 @@
 <div xmlns:th="http://www.thymeleaf.org">
-    <a href="#" th:href="@{/competitions/create}" class="btn btn-info">
+    <a href="#" th:href="@{/competitions/create}" class="btn btn-info mb10">
         <i class="fa fa-plus" aria-hidden="true"></i>
         <span class="sidebar-title">Добавить соревнование</span>
     </a>
     <div class="table-double">
         <div class="over-x-auto">
-            <table class="table table-striped table__refact">
+            <table class="table table-striped table__refact text-left">
                 <thead>
                     <tr th:class="ws-no">
-                        <th th:class="w50">Id</th>
-                        <th>Название</th>
-                        <th>Субъект</th>
-                        <th>Место</th>
-                        <th>Дата начала</th>
-                        <th>Дата окончания</th>
-                        <th>Страна</th>
+                        <th class="date">Дата</th>
                         <th>Вид</th>
+                        <th>Название</th>
+                        <th>Место</th>
+                        <th>Субъект</th>
+                        <th>Страна</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="competition : ${competitions}">
-                        <td th:text="${competition.id}" th:class="w50"></td>
-                        <td th:text="${competition.name}"></td>
-                        <td th:text="${competition.subject?.name}"></td>
-                        <td th:text="${competition.place}"></td>
-                        <td th:text="${competition.dateBegin}"></td>
-                        <td th:text="${competition.dateEnd}"></td>
-                        <td th:text="${competition.country?.name}"></td>
+                    <tr th:each="competition, status : ${competitions}">
+                        <td class="date">-</td>
                         <td th:text="${competition.vid?.name}"></td>
+                        <td th:text="${competition.name}"></td>
+                        <td th:text="${competition.place}"></td>
+                        <td th:text="${competition.subject?.name}"></td>
+                        <td th:text="${competition.country?.nameRus}"></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="interaction">
+        <div class="interaction" th:if="${!#lists.isEmpty(competitions.content)}">
             <span class="interaction__title">Действие</span>
             <div class="interaction__group" th:each="competition : ${competitions}">
                 <a href="#" class="btn btn-info mw40" title="Информация о соревновании"

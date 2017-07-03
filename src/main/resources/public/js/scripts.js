@@ -29,15 +29,10 @@ document.getElementById('toggle_sidemenu_l')
 $.datetimepicker.setLocale('ru');
 $( document ).ready(function() {
 	$('.datetimepicker').datetimepicker({
-		format:'Y-m-d H:i:s',
+		format:'d.m.Y H:i:s',
 		lang:'ru',
 		dayOfWeekStart: 1,
 		scrollTime: true,
 		step: 15
 	});
 });
-
-let competitionText = document.querySelector('.text__calendar').textContent;
-let competitionYear = competitionText.match(/[0-9]{4}/);
-let competitionPeriod = competitionText.match(/[0-9]{1,2}\-[0-9]{1,2}/g);
-let competitionDate = competitionText.match(/[0-9]{1,2}/g);

@@ -29,11 +29,11 @@ public class Competitions {
 
     private String place;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     @Column(name = "date_begin")
     private LocalDate dateBegin;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "dd.MM.yyyy")
     @Column(name = "date_end")
     private LocalDate dateEnd;
 

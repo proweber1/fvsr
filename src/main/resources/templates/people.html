@@ -17,7 +17,7 @@
                     <span class="panel-title">Люди</span>
                 </div>
                 <div class="panel-body pn">
-                    <div th:class="search-filter">
+                    <div class="search-filter">
                         <div th:replace="~{fragments/people-search :: filter (filterForm=${filter})}"></div>
                     </div>
                     <table th:replace="~{fragments/people-table}"></table>

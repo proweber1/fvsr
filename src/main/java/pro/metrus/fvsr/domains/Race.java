@@ -32,7 +32,7 @@ public class Race {
     private String place;
 
     @Column(name = "date_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd H:mm:ss")
+    @DateTimeFormat(pattern = "dd-MM-yyyy H:mm:ss")
     private LocalDateTime dateTime = LocalDateTime.now();
 
     private String distance;

@@ -2,12 +2,30 @@
     <table class="table table-striped" th:classappend="table__refact">
         <thead>
         <tr th:class="ws-no">
-            <th th:class="w50">Id</th>
-            <th>Номер Федерации</th>
+            <th th:class="w50">UCI</th>
+            <th>Старый UCI</th>
+            <th>№ фед.</th>
+            <th>Фамилия (Rus)</th>
+            <th>Имя (Rus)</th>
+            <th>Отчество (Rus)</th>
             <th>Фамилия</th>
             <th>Имя</th>
-            <th>Пол</th>
             <th>Дата рождения</th>
+            <th>Пол</th>
+            <th>Субъект РФ</th>
+            <th>Команда</th>
+            <th>Велосипедист</th>
+            <th>Комиссар</th>
+            <th>Классификатор</th>
+            <th>Технический делегат</th>
+            <th>Федерация</th>
+            <th>Участник команды</th>
+            <th>Другая роль</th>
+            <th>Группа</th>
+            <th>Путь</th>
+            <th>Дорожка</th>
+            <th>mb</th>
+            <th>bmx</th>
             <th>Адрес №1</th>
             <th>Адрес №2</th>
             <th>zip</th>
@@ -16,46 +34,26 @@
             <th>Тел. домашний</th>
             <th>Тел. сотовый</th>
             <th>E-mail</th>
-            <th>Велосипедист</th>
-            <th>Комиссар</th>
-            <th>Классификатор</th>
-            <th>Технический делегат</th>
-            <th>Федерация</th>
-            <th>Участник команды</th>
-            <th>Другая роль</th>
-            <th>Старый Id</th>
-            <th>Фамилия (Rus)</th>
-            <th>Имя (Rus)</th>
-            <th>Отчество (Rus)</th>
-            <th>Группа</th>
-            <th>Федеральный субъект</th>
-            <th>Команда</th>
-            <th>Путь</th>
-            <th>Дорожка</th>
-            <th>mb</th>
-            <th>bmx</th>
-            <th>Заголовок</th>
+            <th>Звание</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="person : ${people}">
             <td th:text="${person.id}" th:class="w50"></td>
+            <td th:text="${person.oldIdUci}" th:class="w50"></td>
             <td th:text="${person.federationNum}"></td>
+            <td th:text="${person.lastnameRus}"></td>
+            <td th:text="${person.firstnameRus}"></td>
+            <td th:text="${person.patronymicRus}"></td>
             <td th:text="${person.lastname}"></td>
             <td th:text="${person.firstname}"></td>
+            <td th:text="${person.birthdate}"></td>
             <td>
                 <span th:if="${person.gender}">Муж.</span>
                 <span th:if="${!person.gender}">Жен.</span>
             </td>
-            <td th:text="${person.birthdate}"></td>
-            <td th:text="${person.address1}"></td>
-            <td th:text="${person.address2}"></td>
-            <td th:text="${person.zip}"></td>
-            <td th:text="${person.town}"></td>
-            <td th:text="${person.country}"></td>
-            <td th:text="${person.phone}"></td>
-            <td th:text="${person.mobile}"></td>
-            <td th:text="${person.email}"></td>
+            <td th:text="${person.federalSubject?.name}"></td>
+            <td th:text="${person.team?.name}"></td>
             <td>
                 <i class="fa fa-check text-success" aria-hidden="true" th:if="${person.rider}"></i>
                 <i class="fa fa-times text-primary" aria-hidden="true" th:if="${!person.rider}"></i>
@@ -84,13 +82,7 @@
                 <i class="fa fa-check text-success" aria-hidden="true" th:if="${person.otherRole}"></i>
                 <i class="fa fa-times text-primary" aria-hidden="true" th:if="${!person.otherRole}"></i>
             </td>
-            <td th:text="${person.oldId}"></td>
-            <td th:text="${person.lastnameRus}"></td>
-            <td th:text="${person.firstnameRus}"></td>
-            <td th:text="${person.patronymicRus}"></td>
             <td th:text="${person.group?.name}"></td>
-            <td th:text="${person.federalSubject?.name}"></td>
-            <td th:text="${person.team?.name}"></td>
             <td>
                 <i class="fa fa-check text-success" aria-hidden="true" th:if="${person.road}"></i>
                 <i class="fa fa-times text-primary" aria-hidden="true" th:if="${!person.road}"></i>
@@ -107,6 +99,15 @@
                 <i class="fa fa-check text-success" aria-hidden="true" th:if="${person.bmx}"></i>
                 <i class="fa fa-times text-primary" aria-hidden="true" th:if="${!person.bmx}"></i>
             </td>
+
+            <td th:text="${person.address1}"></td>
+            <td th:text="${person.address2}"></td>
+            <td th:text="${person.zip}"></td>
+            <td th:text="${person.town}"></td>
+            <td th:text="${person.country}"></td>
+            <td th:text="${person.phone}"></td>
+            <td th:text="${person.mobile}"></td>
+            <td th:text="${person.email}"></td>
             <td th:text="${person.title}"></td>
         </tr>
         <tr th:if="${#lists.isEmpty(people.content)}">

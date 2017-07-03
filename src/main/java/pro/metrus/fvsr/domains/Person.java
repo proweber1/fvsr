@@ -20,7 +20,7 @@ import java.time.LocalDate;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_uci")
     private long id;
 
     @Column(name = "federation_num")
@@ -72,9 +72,6 @@ public class Person {
     @Column(name = "other_role")
     private boolean otherRole;
 
-    @Column(name = "old_id")
-    private String oldId;
-
     @Column(name = "lastname_rus")
     private String lastnameRus;
 
@@ -107,4 +104,7 @@ public class Person {
     @OneToOne
     @JoinColumn(name = "titles_id")
     private Title title;
+
+    @Column(name = "old_id_uci")
+    private String oldIdUci;
 }
