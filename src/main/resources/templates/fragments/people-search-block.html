@@ -1,0 +1,41 @@
+<div class="toggle__block" id="search__block"
+     xmlns:th="http://www.thymeleaf.org">
+    <h4>Поиск:</h4>
+    <div class="form-group">
+        <div class="col-sm-6">
+            <label>Id</label>
+            <input class="form-control input-sm" type="text" name="id" th:field="*{id}">
+        </div>
+        <div class="col-sm-6">
+            <label>Старый Id</label>
+            <input class="form-control input-sm" type="text" name="old_id" th:field="*{oldId}">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6">
+            <label>Фамилия</label>
+            <input class="form-control input-sm" type="text" name="lastname" th:field="*{surname}">
+        </div>
+        <div class="col-sm-6">
+            <label>Имя</label>
+            <input class="form-control input-sm" type="text" name="firstname" th:field="*{firstname}">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-6">
+            <label>Фамилия (rus)</label>
+            <input class="form-control input-sm" type="text" name="lastname_rus" th:field="*{surnameRus}">
+        </div>
+        <div class="col-sm-6">
+            <label>Имя (rus)</label>
+            <input class="form-control input-sm" type="text" name="firstname_rus" th:field="*{firstnameRus}">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <button type="submit" class="btn btn-success">
+                <i class="fa fa-search" aria-hidden="true"></i> Найти
+            </button>
+        </div>
+    </div>
+</div>

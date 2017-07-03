@@ -7,8 +7,7 @@ btns.forEach((btn) => {
 		e.preventDefault();
 		let attr = e.target.getAttribute('href'),
 			block = document.querySelector(attr);
-		console.log(block);
-		block.classList.toggle('active');
+			block.classList.toggle('active');
 
 		attr === '#search__block' ?
 			block.nextElementSibling.classList.remove('active') :
@@ -37,3 +36,8 @@ $( document ).ready(function() {
 		step: 15
 	});
 });
+
+let competitionText = document.querySelector('.text__calendar').textContent;
+let competitionYear = competitionText.match(/[0-9]{4}/);
+let competitionPeriod = competitionText.match(/[0-9]{1,2}\-[0-9]{1,2}/g);
+let competitionDate = competitionText.match(/[0-9]{1,2}/g);
