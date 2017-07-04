@@ -1,125 +1,152 @@
-<div class="toggle__block " id="filter__block"
+<div class="toggle__block mb20" id="filter__block"
      xmlns:th="http://www.thymeleaf.org">
-    <h4>Фильтр:</h4>
     <div class="form-group">
-        <div class="col-sm-6">
-            <label>Пол</label>
-            <select class="form-control input-sm"
-                    name="gender" type="text" th:field="*{gender}">
-                <option value="true">Муж.</option>
-                <option value="false">Жен.</option>
-            </select>
-        </div>
-        <div class="col-sm-6">
-            <label>День рождение</label>
-            <div class="row">
-                <div class="col-sm-6">
-                    <input class="form-control input-sm datetimepicker"
-                           name="birthdate_from" type="text">
+        <div class="mb15 col-md-4 col-sm-6">
+            <div class="form-group flex">
+                <div class="">
+                    <label>Пол</label>
+                    <select class="form-control input-sm w75"
+                            name="gender" type="text" th:field="*{gender}">
+                        <option value="true">Муж.</option>
+                        <option value="false">Жен.</option>
+                    </select>
                 </div>
-                <div class="col-sm-6">
-                    <input class="form-control input-sm datetimepicker"
-                           name="birthdate_to" type="text">
+                <div class="">
+                    <label>День рождение</label>
+                    <div class="flex">
+                        <input class="form-control input-sm datetimepicker mr5"
+                               name="birthdate_from" type="text" placeholder="от"> -
+                        <input class="form-control input-sm datetimepicker ml5"
+                               name="birthdate_to" type="text" placeholder="до">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label>Субъект РФ</label>
+                    <select class="form-control input-sm" multiple
+                            name="subject_id" type="text" th:field="*{federalSubjectId}">
+                        <option value="" selected>Объект не выбран</option>
+                        <option th:each="subject : ${federalSubjects}" th:text="${subject.name}"
+                                th:value="${subject.id}"></option>
+                    </select>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-sm-6">
-            <label>Объект</label>
-            <select class="form-control input-sm"
-                    name="subject_id" type="text" th:field="*{federalSubjectId}">
-                <option value="" selected>Объект не выбран</option>
-                <option th:each="subject : ${federalSubjects}" th:text="${subject.name}"
-                        th:value="${subject.id}"></option>
-            </select>
-        </div>
-        <div class="col-sm-6">
-            <label>Команда</label>
-            <select class="form-control input-sm"
-                    name="teams_id" type="text" th:field="*{teamId}">
-                <option value="" selected>Команда не выбрана</option>
-                <option th:each="team : ${teams}" th:text="${team.name}"
-                        th:value="${team.id}"></option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-6">
-            <label>Заголовок</label>
-            <select class="form-control input-sm"
-                    name="titles_id" type="text" th:field="*{titleId}">
-                <option value="" selected>Заголовок не выбран</option>
-                <option th:each="title : ${titles}" th:text="${title.name}"
-                        th:value="${title.id}"></option>
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-sm-6">
-            <div class="app-checkbox">
-                <label>
-                    <input type="checkbox" name="rider" th:field="*{rider}"> Велосипедисты
-                    <span></span>
-                </label>
+        <div class="mb15 col-md-4 col-sm-6">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label>Команда</label>
+                    <select class="form-control input-sm"
+                            name="teams_id" type="text" th:field="*{teamId}">
+                        <option value="" selected>Команда не выбрана</option>
+                        <option th:each="team : ${teams}" th:text="${team.name}"
+                                th:value="${team.id}"></option>
+                    </select>
+                </div>
             </div>
-            <div class="app-checkbox">
-                <label>
-                    <input type="checkbox" name="technical" th:field="*{technical}"> Техника
-                    <span></span>
-                </label>
-            </div>
-            <div class="app-checkbox">
-                <label>
-                    <input type="checkbox" name="commissaire" th:field="*{commissaire}"> Комиссар
-                    <span></span>
-                </label>
-            </div>
-            <div class="app-checkbox">
-                <label>
-                    <input name="federation" type="checkbox" th:field="*{federation}"> Федерация
-                    <span></span>
-                </label>
-            </div>
-            <div class="app-checkbox">
-                <label>
-                    <input name="team_member" type="checkbox" th:field="*{teamMember}"> Члены команды
-                    <span></span>
-                </label>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label>Звание</label>
+                    <select class="form-control input-sm" multiple
+                            name="titles_id" type="text" th:field="*{titleId}">
+                        <option value="" selected>Заголовок не выбран</option>
+                        <option th:each="title : ${titles}" th:text="${title.name}"
+                                th:value="${title.id}"></option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="app-checkbox">
-                <label>
-                    <input name="other" type="checkbox" th:field="*{other}"> Другое
-                    <span></span>
-                </label>
-            </div>
-            <div class="app-checkbox">
-                <label>
-                    <input name="road" type="checkbox" th:field="*{road}"> Путь
-                    <span></span>
-                </label>
-            </div>
-            <div class="app-checkbox">
-                <label>
-                    <input name="track" type="checkbox" th:field="*{track}"> Дорожка
-                    <span></span>
-                </label>
-            </div>
-            <div class="app-checkbox">
-                <label>
-                    <input name="mb" type="checkbox" th:field="*{mb}"> Маунтинбайк
-                    <span></span>
-                </label>
-            </div>
-            <div class="app-checkbox">
-                <label>
-                    <input name="bmx" type="checkbox" th:field="*{bmx}"> bmx
-                    <span></span>
-                </label>
+        <div class="mb15 col-md-4 col-sm-12 mt20 mt0sm">
+            <div class="form-group">
+                <div class="col-sm-6 col-xs-6">
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input type="checkbox" name="rider" th:field="*{rider}"> Велосипедисты
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input type="checkbox" name="technical" th:field="*{technical}"> Техника
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input type="checkbox" name="commissaire" th:field="*{commissaire}"> Комиссар
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input name="federation" type="checkbox" th:field="*{federation}"> Федерация
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input name="team_member" type="checkbox" th:field="*{teamMember}"> Члены команды
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input name="other" type="checkbox" th:field="*{other}"> Другое
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-6">
+                    <div class="form-group">
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input name="road" type="checkbox" th:field="*{road}"> Трек
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input name="track" type="checkbox" th:field="*{track}"> Шоссе
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input name="mb" type="checkbox" th:field="*{mb}"> Маунтинбайк
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-6">
+                            <div class="app-checkbox">
+                                <label>
+                                    <input name="bmx" type="checkbox" th:field="*{bmx}"> BMX
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

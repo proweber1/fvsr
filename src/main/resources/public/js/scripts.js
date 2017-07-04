@@ -4,14 +4,20 @@ let btns = document.querySelectorAll('.btn-toggle');
 
 btns.forEach((btn) => {
 	btn.onclick = (e) => {
-		e.preventDefault();
-		let attr = e.target.getAttribute('href'),
-			block = document.querySelector(attr);
+	e.preventDefault();
+	e.target.classList.toggle('active');
+		let elem = e.target,
+	 	  attr = elem.getAttribute('href'),
+	 		block = document.querySelector(attr);
 			block.classList.toggle('active');
 
-		attr === '#search__block' ?
-			block.nextElementSibling.classList.remove('active') :
-			block.previousElementSibling.classList.remove('active');
+			if (attr === '#search__block') {
+				block.nextElementSibling.classList.remove('active');
+				elem.nextElementSibling.classList.remove('active');
+			} else {
+				block.previousElementSibling.classList.remove('active');
+				elem.previousElementSibling.classList.remove('active');
+			}
 	};
 });
 
@@ -29,10 +35,13 @@ document.getElementById('toggle_sidemenu_l')
 $.datetimepicker.setLocale('ru');
 $( document ).ready(function() {
 	$('.datetimepicker').datetimepicker({
-		format:'d.m.Y H:i:s',
+		timepicker:false,
+		format:'d.m.Y',
 		lang:'ru',
 		dayOfWeekStart: 1,
 		scrollTime: true,
 		step: 15
 	});
 });
+
+$('.select2').select2();

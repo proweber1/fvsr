@@ -1,34 +1,17 @@
 <div class="toggle__block mb20" id="search__block"
      xmlns:th="http://www.thymeleaf.org">
-    <h4>Поиск:</h4>
     <div class="form-group">
-        <div class="col-sm-6">
-            <label>№</label>
+        <div class="col-sm-4 mw180">
+            <label>UCI</label>
             <input class="form-control input-sm" type="text" name="id" th:field="*{id}">
         </div>
-        <div class="col-sm-6">
-            <label>Старый №</label>
-            <input class="form-control input-sm" type="text" name="old_id" th:field="*{oldId}">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-6">
+        <div class="col-sm-4 mw180 mt10xs">
             <label>Фамилия</label>
             <input class="form-control input-sm" type="text" name="lastname" th:field="*{surname}">
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4 mw180 mt10xs">
             <label>Имя</label>
             <input class="form-control input-sm" type="text" name="firstname" th:field="*{firstname}">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-6">
-            <label>Фамилия (rus)</label>
-            <input class="form-control input-sm" type="text" name="lastname_rus" th:field="*{surnameRus}">
-        </div>
-        <div class="col-sm-6">
-            <label>Имя (rus)</label>
-            <input class="form-control input-sm" type="text" name="firstname_rus" th:field="*{firstnameRus}">
         </div>
     </div>
     <div class="form-group">

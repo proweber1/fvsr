@@ -14624,8 +14624,7 @@ body.sb-l-m #content-footer.affix {
   margin-top: 10px; }
 
 .search__container form {
-  overflow: hidden;
-  max-width: 750px; }
+  overflow: hidden;}
 
 .search__container .toggle__block {
   display: none; }
@@ -14684,7 +14683,33 @@ dd {
 
 .form-control[readonly] {
   background: transparent; }
-
+.tooltip{
+  visibility: hidden; }
+.toggle-close .tooltip{
+  visibility: visible; }
+.flex{
+  display: flex;
+  align-items: center;
+}
+.flex > div {
+  padding: 0 15px;
+}
+.btn-toggle {
+  position: relative;
+  z-index: 1;
+}
+.btn-toggle .fa {
+  position: relative;
+  z-index: -1;
+}
+.btn-toggle.active {
+  background-color: #84bf43!important;
+  border-color: #77ad3b!important;
+}
+.btn-toggle.active:hover {
+  background-color: #84bf43!important;
+  border-color: #77ad3b!important;
+}
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)
 ================================================= */
@@ -14829,4 +14854,21 @@ dd {
   .toggle-open #sidebar_left .sidebar-header {
     display: block; }
   .toggle-open #sidebar_left .sidebar-menu > li > a > span:nth-child(1) {
-    padding-left: 13px; } }
+    padding-left: 13px; }
+  .toggle-open .tooltip {
+    visibility: hidden; }
+  .tooltip {
+    visibility: visible; }}
+@media (max-width: 991px) {
+  .mt0sm {
+    margin-top: 0!important;
+  }
+}
+@media (max-width: 768px) {
+  .mt15xs {
+    margin-top: 15px;
+  }
+  .mt10xs {
+    margin-top: 10px;
+  }
+}

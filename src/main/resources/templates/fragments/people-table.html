@@ -3,7 +3,6 @@
         <thead>
         <tr th:class="ws-no">
             <th th:class="w50">UCI</th>
-            <th>Старый UCI</th>
             <th>№ фед.</th>
             <th>Фамилия (Rus)</th>
             <th>Имя (Rus)</th>
@@ -22,13 +21,13 @@
             <th>Участник команды</th>
             <th>Другая роль</th>
             <th>Группа</th>
-            <th>Путь</th>
-            <th>Дорожка</th>
-            <th>mb</th>
-            <th>bmx</th>
+            <th>Трек</th>
+            <th>Шоссе</th>
+            <th>Маунтибайк</th>
+            <th>BMX</th>
             <th>Адрес №1</th>
             <th>Адрес №2</th>
-            <th>zip</th>
+            <th>Индекс</th>
             <th>Город</th>
             <th>Страна</th>
             <th>Тел. домашний</th>
@@ -40,7 +39,6 @@
         <tbody>
         <tr th:each="person : ${people}">
             <td th:text="${person.id}" th:class="w50"></td>
-            <td th:text="${person.oldIdUci}" th:class="w50"></td>
             <td th:text="${person.federationNum}"></td>
             <td th:text="${person.lastnameRus}"></td>
             <td th:text="${person.firstnameRus}"></td>

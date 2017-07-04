@@ -24,9 +24,10 @@
                         <dt>Место:</dt>
                             <dd th:text="${competition.place}"></dd>
                         <dt>Дата начала:</dt>
-                            <dd th:text="${competition.dateBegin}" class="dateBegin"></dd>
-                        <dt>Дата окончания:</dt>
-                            <dd th:text="${competition.dateEnd}" class="dateEnd"></dd>
+                            <dd th:text="${#temporals.format(competition.dateBegin, 'dd.MM.yyyy')}" class="dateBegin"></dd>
+                        <dt th:if="${!#strings.isEmpty(competition.dateEnd)}">Дата окончания:</dt>
+                            <dd th:if="${!#strings.isEmpty(competition.dateEnd)}"
+                                th:text="${#temporals.format(competition.dateEnd, 'dd.MM.yyyy')}" class="dateEnd"></dd>
                         <dt>Страна:</dt>
                             <dd th:text="${competition.country?.nameRus}"></dd>
                         <dt>Вид:</dt>

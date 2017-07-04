@@ -18,7 +18,10 @@
                 </thead>
                 <tbody>
                     <tr th:each="competition, status : ${competitions}">
-                        <td class="date">-</td>
+                        <td th:text="${#temporals.day(competition.dateBegin) + ' - ' +
+                        #temporals.day(competition.dateEnd) + ' ' +
+                        #temporals.monthName(competition.dateEnd) + ' ' +
+                        #temporals.year(competition.dateEnd)} " class="date"></td>
                         <td th:text="${competition.vid?.name}"></td>
                         <td th:text="${competition.name}"></td>
                         <td th:text="${competition.place}"></td>
