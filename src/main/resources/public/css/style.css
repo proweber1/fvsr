@@ -8984,7 +8984,7 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.49;
-  color: #898989;
+  color: #333;
   background-color: #fff; }
 
 input,
@@ -9515,7 +9515,7 @@ body.onload-check #topbar {
   transform: translateX(-50%);
   height: 60px;
   margin-right: 8px;
-  margin-left: -30px;
+  margin-left: -8px;
   padding: 0;
   font-size: 22px;
   font-weight: 300;
@@ -9554,7 +9554,7 @@ body.sb-top-xl .navbar-branding .navbar-brand {
 #toggle_sidemenu_l,
 #toggle_sidemenu_t {
   position: relative;
-  right: -173px;
+  right: -151px;
   cursor: pointer;
   font-size: 28px;
   line-height: 58px;
@@ -14302,7 +14302,7 @@ manipulation using an html class aswell */
   background-color: transparent; }
 
 .breadcrumb > li {
-  color: #888; }
+  color: #666; }
 
 .breadcrumb > li.crumb-active > a {
   color: #555;
@@ -14847,7 +14847,7 @@ dd {
     display: block; }
   .toggle-open #sidebar_left #toggle_sidemenu_l,
   .toggle-open #sidebar_left #toggle_sidemenu_t {
-    right: -173px;
+    right: -151px;
     -webkit-transition: width 0.2s ease;
     transition: width 0.2s ease; }
   .toggle-open #sidebar_left .navbar-branding {
