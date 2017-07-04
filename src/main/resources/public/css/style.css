@@ -14710,6 +14710,9 @@ dd {
   background-color: #84bf43!important;
   border-color: #77ad3b!important;
 }
+.table-dictionaries {
+  width: auto;
+}
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)
 ================================================= */

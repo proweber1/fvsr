@@ -31,17 +31,17 @@
             <table th:replace="~{fragments/dictionary-table :: table (dicts = ${federalDistricts})}"></table>
         </div>
         <div class="tab-pane" id="tabs-5">
-            <table class="table table-striped">
+            <table class="table table-striped table-dictionaries">
                 <thead>
                 <tr>
-                    <th>№</th>
+                    <th th:class="w50">№</th>
                     <th>Название</th>
                     <th>Федеральный округ</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="federalSubject, stat : ${federalSubjects}">
-                    <td th:text="${stat.index + 1}"></td>
+                    <td th:text="${stat.index + 1}" th:class="w50"></td>
                     <td th:text="${federalSubject.name}"></td>
                     <td th:text="${federalSubject.federalDistrict?.name}"></td>
                 </tr>

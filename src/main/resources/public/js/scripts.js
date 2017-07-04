@@ -34,9 +34,16 @@ document.getElementById('toggle_sidemenu_l')
 
 $.datetimepicker.setLocale('ru');
 $( document ).ready(function() {
-	$('.datetimepicker').datetimepicker({
+	$('.datepicker').datetimepicker({
 		timepicker:false,
 		format:'d.m.Y',
+		lang:'ru',
+		dayOfWeekStart: 1,
+		scrollTime: true,
+		step: 15
+	});
+	$('.datetimepicker').datetimepicker({
+		format:'d.m.Y H:i:s',
 		lang:'ru',
 		dayOfWeekStart: 1,
 		scrollTime: true,
