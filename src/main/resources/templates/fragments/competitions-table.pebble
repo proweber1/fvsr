@@ -49,6 +49,6 @@
     </div>
     {% endif %}
 </div>
-<p class="mt10">На страницу <span>competitions.getSize()</span> записей,
-    всего <span>competitions.getTotalElements()</span>
+<p class="mt10">На страницу <span>{{ competitions.getSize() }}</span> записей,
+    всего <span>{{ competitions.getTotalElements() }}</span>
 </p>

@@ -24,6 +24,7 @@ public class DictionariesController {
     private final ParticipantRepository participantRepository;
     private final ResultStatusRepository resultStatusRepository;
     private final CountryRepository countryRepository;
+    private final VidRepository vidRepository;
 
     /**
      * Constructor for dependency injection
@@ -43,7 +44,8 @@ public class DictionariesController {
             final CategoriesRepository categoriesRepository,
             final ParticipantRepository participantRepository,
             final ResultStatusRepository resultStatusRepository,
-            final CountryRepository countryRepository
+            final CountryRepository countryRepository,
+            final VidRepository vidRepository
     ) {
         this.federalDistrictRepository = federalDistrictRepository;
         this.federalSubjectRepository = federalSubjectRepository;
@@ -54,6 +56,7 @@ public class DictionariesController {
         this.participantRepository = participantRepository;
         this.resultStatusRepository = resultStatusRepository;
         this.countryRepository = countryRepository;
+        this.vidRepository = vidRepository;
     }
 
     /**а
@@ -73,6 +76,7 @@ public class DictionariesController {
         ui.addAttribute("participants", participantRepository.findAllByOrderByIdAsc());
         ui.addAttribute("resultStates", resultStatusRepository.findAllByOrderByIdAsc());
         ui.addAttribute("countries", countryRepository.findAllByOrderByShortNameAsc());
+        ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
 
         return "dictionaries";
     }

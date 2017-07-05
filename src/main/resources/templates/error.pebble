@@ -1,0 +1,19 @@
+{% extends "layouts/admin" %}
+
+{% block content %}
+
+<div class="row">
+    <!-- Three Pane Widget-->
+    <div class="col-md-12 admin-grid">
+        <!-- dashboard activity-->
+        <div data-panel-title="false" class="panel sort-disable">
+            <div class="panel-body pn error_page">
+                <h2 class="error-title">{{ status }}</h2>
+                <p class="error-subtitle">{{ error }}</p>
+                <h5 class="error-message">{{ message }}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

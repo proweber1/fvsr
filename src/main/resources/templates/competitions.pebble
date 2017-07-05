@@ -8,7 +8,6 @@
             <!-- dashboard activity-->
             <div data-panel-title="false" class="panel sort-disable">
                 <div class="panel-body pn">
-
                     {% include "fragments/competitions-table" %}
                 </div>
             </div>
