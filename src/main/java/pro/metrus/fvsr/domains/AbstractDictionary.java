@@ -16,7 +16,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 @Getter
 @Setter
-class AbstractDictionary {
+abstract class AbstractDictionary {
 
     /**
      * Первичный ключ группы

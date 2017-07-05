@@ -8,5 +8,5 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "titles")
-public class Title extends AbstractDictionary {
+public class Title extends AbstractDictionaryWithShortName {
 }

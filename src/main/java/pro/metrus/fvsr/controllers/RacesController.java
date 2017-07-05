@@ -63,7 +63,7 @@ public class RacesController extends AbstractCrudController<Race, Long> {
      */
     @ModelAttribute("raceTypes")
     public List<RaceType> raceTypes() {
-        return raceTypesRepository.findAllByOrderByIdAsc();
+        return raceTypesRepository.findAllByOrderByVidIdAsc();
     }
 
     /**
@@ -74,7 +74,7 @@ public class RacesController extends AbstractCrudController<Race, Long> {
      */
     @ModelAttribute("categories")
     public List<Category> categories() {
-        return categoriesRepository.findAllByOrderByIdAsc();
+        return categoriesRepository.findAllByOrderByShortNameAsc();
     }
 
     /**

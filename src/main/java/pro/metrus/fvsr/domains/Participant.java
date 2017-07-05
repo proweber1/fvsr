@@ -4,5 +4,5 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-public class Participant extends AbstractDictionary {
+public class Participant extends AbstractDictionaryWithShortName {
 }

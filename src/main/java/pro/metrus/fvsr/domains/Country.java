@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "countrys")
+@Table(name = "countries")
 @Getter
 @Setter
 public class Country {
@@ -14,11 +14,14 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "name_eng")
     private String name;
 
-    @Column(name = "name_rus")
+    @Column(name = "name")
     private String nameRus;
 
     private String alpha2;
-    private String alpha3;
+
+    @Column(name = "name_short")
+    private String shortName;
 }

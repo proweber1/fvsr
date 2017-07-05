@@ -5,5 +5,5 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "categories")
-public class Category extends AbstractDictionary {
+public class Category extends AbstractDictionaryWithShortName {
 }
