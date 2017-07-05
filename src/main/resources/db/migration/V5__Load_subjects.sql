@@ -1,4 +1,3 @@
-INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (77, 'Москва                                                                                              ', 1);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (83, 'Ненецкий автономный округ                                                                           ', 3);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (46, 'Курская область                                                                                     ', 1);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (39, 'Калининградская область                                                                             ', 3);
@@ -6,6 +5,7 @@ INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (3, 'Республи
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (35, 'Вологодская область                                                                                 ', 3);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (9, 'Карачаево-Черкесская республика                                                                     ', 8);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (23, 'Краснодарский край                                                                                  ', 2);
+INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (77, 'Москва                                                                                              ', 1);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (21, 'Чувашская республика                                                                                ', 7);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (65, 'Сахалинская область                                                                                 ', 4);
 INSERT INTO public.rf_subjects (id, name, rf_fo_id) VALUES (25, 'Приморский край                                                                                     ', 4);

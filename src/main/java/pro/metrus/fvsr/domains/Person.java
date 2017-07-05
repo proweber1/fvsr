@@ -82,10 +82,6 @@ public class Person {
     private String patronymicRus;
 
     @OneToOne
-    @JoinColumn(name = "groups_id")
-    private Group group;
-
-    @OneToOne
     @JoinColumn(name = "subjects_id")
     private FederalSubject federalSubject;
 

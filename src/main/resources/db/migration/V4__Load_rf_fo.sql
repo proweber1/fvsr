@@ -1,0 +1,9 @@
+INSERT INTO public.rf_fo (id, name_short, name) VALUES (5, 'СФО       ', 'Сибирский федеральный округ                                                                         ');
+INSERT INTO public.rf_fo (id, name_short, name) VALUES (1, 'ЦФО       ', 'Центральный федеральный округ                                                                       ');
+INSERT INTO public.rf_fo (id, name_short, name) VALUES (2, 'ЮФО       ', 'Южный федеральный округ                                                                             ');
+INSERT INTO public.rf_fo (id, name_short, name) VALUES (4, 'ДФО       ', 'Дальневосточный федеральный округ                                                                   ');
+INSERT INTO public.rf_fo (id, name_short, name) VALUES (8, 'СКФО      ', 'Северо-Кавказский федеральный округ                                                                 ');
+INSERT INTO public.rf_fo (id, name_short, name) VALUES (9, 'КФО       ', 'Крымский федеральный округ                                                                          ');
+INSERT INTO public.rf_fo (id, name_short, name) VALUES (7, 'ПФО       ', 'Приволжский федеральный округ                                                                       ');
+INSERT INTO public.rf_fo (id, name_short, name) VALUES (3, 'СЗФО      ', 'Северо-Западный федеральный округ                                                                   ');
+INSERT INTO public.rf_fo (id, name_short, name) VALUES (6, 'УФО       ', 'Уральский федеральный округ                                                                         ');

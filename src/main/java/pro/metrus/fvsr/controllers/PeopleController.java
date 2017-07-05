@@ -44,7 +44,6 @@ public class PeopleController {
      *
      */
     private final FederalSubjectRepository federalSubjectRepository;
-    private final GroupsRepository groupsRepository;
 
     /**
      * @param peopleRepository Repository for work with people
@@ -54,14 +53,12 @@ public class PeopleController {
             final PeopleRepository peopleRepository,
             final TeamRepository teamRepository,
             final TitleRepository titleRepository,
-            final FederalSubjectRepository federalSubjectRepository,
-            final GroupsRepository groupsRepository
-            ) {
+            final FederalSubjectRepository federalSubjectRepository
+    ) {
         this.peopleRepository = peopleRepository;
         this.teamRepository = teamRepository;
         this.titleRepository = titleRepository;
         this.federalSubjectRepository = federalSubjectRepository;
-        this.groupsRepository = groupsRepository;
     }
 
     @ModelAttribute("teams")
@@ -77,11 +74,6 @@ public class PeopleController {
     @ModelAttribute("federalSubjects")
     public List<FederalSubject> federalSubjects() {
         return federalSubjectRepository.findAll();
-    }
-
-    @ModelAttribute("groups")
-    public List<Group> groups() {
-        return groupsRepository.findAll();
     }
 
     /**

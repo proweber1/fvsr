@@ -10,5 +10,5 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "rf_fo")
-public class FederalDistrict extends AbstractDictionary {
+public class FederalDistrict extends AbstractDictionaryWithShortName {
 }

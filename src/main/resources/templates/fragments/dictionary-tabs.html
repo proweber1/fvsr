@@ -8,9 +8,6 @@
             <a href="#tabs-2" data-toggle="tab" aria-expanded="false">Команды</a>
         </li>
         <li>
-            <a href="#tabs-3" data-toggle="tab" aria-expanded="false">Группы</a>
-        </li>
-        <li>
             <a href="#tabs-4" data-toggle="tab" aria-expanded="false">ФО</a>
         </li>
         <li>
@@ -23,9 +20,6 @@
         </div>
         <div class="tab-pane" id="tabs-2">
             <table th:replace="~{fragments/dictionary-table :: table (dicts = ${teams})}"></table>
-        </div>
-        <div class="tab-pane" id="tabs-3">
-            <table th:replace="~{fragments/dictionary-table :: table (dicts = ${groups})}"></table>
         </div>
         <div class="tab-pane" id="tabs-4">
             <table th:replace="~{fragments/dictionary-table :: table (dicts = ${federalDistricts})}"></table>

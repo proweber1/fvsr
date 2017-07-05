@@ -1,9 +1,0 @@
-INSERT INTO public.rf_fo (id, name) VALUES (2, 'ЮФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (3, 'СЗФО      ');
-INSERT INTO public.rf_fo (id, name) VALUES (4, 'ДФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (5, 'СФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (6, 'УФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (7, 'ПФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (8, 'СКФО      ');
-INSERT INTO public.rf_fo (id, name) VALUES (9, 'КФО       ');
-INSERT INTO public.rf_fo (id, name) VALUES (1, 'ЦФО       ');

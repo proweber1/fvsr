@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pro.metrus.fvsr.domains.Participant;
 import pro.metrus.fvsr.repositories.*;
 
 /**
@@ -14,37 +15,21 @@ import pro.metrus.fvsr.repositories.*;
 @RequestMapping("/dictionaries")
 public class DictionariesController {
 
-    /**
-     *
-     */
     private final FederalDistrictRepository federalDistrictRepository;
-
-    /**
-     *
-     */
     private final FederalSubjectRepository federalSubjectRepository;
-
-    /**
-     *
-     */
-    private final GroupsRepository groupsRepository;
-
-    /**
-     *
-     */
     private final TeamRepository teamRepository;
-
-    /**
-     *
-     */
     private final TitleRepository titleRepository;
+    private final RaceTypesRepository raceTypesRepository;
+    private final CategoriesRepository categoriesRepository;
+    private final ParticipantRepository participantRepository;
+    private final ResultStatusRepository resultStatusRepository;
+    private final CountryRepository countryRepository;
 
     /**
      * Constructor for dependency injection
      *
      * @param federalDistrictRepository a
      * @param federalSubjectRepository b
-     * @param groupsRepository c
      * @param teamRepository d
      * @param titleRepository e
      */
@@ -52,18 +37,26 @@ public class DictionariesController {
     public DictionariesController(
             final FederalDistrictRepository federalDistrictRepository,
             final FederalSubjectRepository federalSubjectRepository,
-            final GroupsRepository groupsRepository,
             final TeamRepository teamRepository,
-            final TitleRepository titleRepository
+            final TitleRepository titleRepository,
+            final RaceTypesRepository raceTypesRepository,
+            final CategoriesRepository categoriesRepository,
+            final ParticipantRepository participantRepository,
+            final ResultStatusRepository resultStatusRepository,
+            final CountryRepository countryRepository
     ) {
         this.federalDistrictRepository = federalDistrictRepository;
         this.federalSubjectRepository = federalSubjectRepository;
-        this.groupsRepository = groupsRepository;
         this.teamRepository = teamRepository;
         this.titleRepository = titleRepository;
+        this.raceTypesRepository = raceTypesRepository;
+        this.categoriesRepository = categoriesRepository;
+        this.participantRepository = participantRepository;
+        this.resultStatusRepository = resultStatusRepository;
+        this.countryRepository = countryRepository;
     }
 
-    /**
+    /**а
      * This action showing all dictionaries in system
      *
      * @param ui Spring ui model
@@ -73,9 +66,13 @@ public class DictionariesController {
     public String dictionaries(final Model ui) {
         ui.addAttribute("federalDistricts", federalDistrictRepository.findAllByOrderByIdAsc());
         ui.addAttribute("federalSubjects", federalSubjectRepository.findAllByOrderByIdAsc());
-        ui.addAttribute("groups", groupsRepository.findAllByOrderByIdAsc());
-        ui.addAttribute("teams", teamRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("teams", teamRepository.findAllByOrderByShortNameAsc());
         ui.addAttribute("titles", titleRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("raceTypes", raceTypesRepository.findAllByOrderByVidIdAsc());
+        ui.addAttribute("categories", categoriesRepository.findAllByOrderByShortNameAsc());
+        ui.addAttribute("participants", participantRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("resultStates", resultStatusRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("countries", countryRepository.findAllByOrderByShortNameAsc());
 
         return "dictionaries";
     }

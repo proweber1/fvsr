@@ -21,6 +21,7 @@
         <hibernate.version>5.2.10.Final</hibernate.version>
         <hikaricp.version>2.6.3</hikaricp.version>
         <postgres.jdbc.version>42.1.1</postgres.jdbc.version>
+        <peeble.version>2.4.0</peeble.version>
     </properties>
 
     <dependencies>
@@ -55,24 +56,29 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+        <dependency>
+            <groupId>com.mitchellbosecke</groupId>
+            <artifactId>pebble-spring-boot-starter</artifactId>
+            <version>${peeble.version}</version>
+        </dependency>
         <!-- End spring dependencies -->
 
         <!-- We using thymeleaf for out templates -->
-        <dependency>
-            <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf</artifactId>
-            <version>${thymeleaf.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf-spring4</artifactId>
-            <version>${thymeleaf.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>nz.net.ultraq.thymeleaf</groupId>
-            <artifactId>thymeleaf-layout-dialect</artifactId>
-            <version>2.0.5</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.thymeleaf</groupId>-->
+            <!--<artifactId>thymeleaf</artifactId>-->
+            <!--<version>${thymeleaf.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.thymeleaf</groupId>-->
+            <!--<artifactId>thymeleaf-spring4</artifactId>-->
+            <!--<version>${thymeleaf.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>nz.net.ultraq.thymeleaf</groupId>-->
+            <!--<artifactId>thymeleaf-layout-dialect</artifactId>-->
+            <!--<version>2.0.5</version>-->
+        <!--</dependency>-->
         <!-- End thymeleaf dependencies -->
 
         <!-- Hibernate dependencies -->

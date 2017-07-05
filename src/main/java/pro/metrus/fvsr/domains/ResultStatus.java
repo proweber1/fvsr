@@ -5,5 +5,5 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "result_status")
-public class ResultStatus extends AbstractDictionary {
+public class ResultStatus extends AbstractDictionaryWithShortName {
 }
