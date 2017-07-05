@@ -1,11 +1,10 @@
-<aside id="sidebar_left" class="nano nano-light affix"
-       xmlns:th="http://www.w3.org/1999/xhtml">
+<aside id="sidebar_left" class="nano nano-light affix">
 
     <!--Navbar Branding-->
     <div class="navbar-branding">
-        <a href="/" th:href="@{/}" class="navbar-brand">
+        <a href="/" class="navbar-brand">
             <span class="text-white">
-                <img th:src="@{/image/fvsr_text.svg}" height="70" alt="ФВСР" title="ФВСР">
+                <img src="/image/fvsr_text.svg" height="70" alt="ФВСР" title="ФВСР">
             </span>
         </a>
         <i class="fa fa-bars" id="toggle_sidemenu_l" aria-hidden="true"></i>
@@ -19,8 +18,8 @@
             <!-- Sidebar Widget - Author-->
             <div class="sidebar-widget author-widget">
                 <div class="media">
-                    <a href="/" th:href="@{/}" class="media-left">
-                        <img th:src="@{/image/3.jpg}" class="img-responsive">
+                    <a href="/" class="media-left">
+                        <img src="/image/3.jpg" class="img-responsive">
                     </a>
                     <div class="media-body">
                         <div class="media-links"></div>
@@ -28,7 +27,7 @@
                         <a href="#" class="mr10">
                             <i class="fa fa-user" aria-hidden="true"></i> Профиль
                         </a>
-                        <a href="#" th:href="@{/login}">
+                        <a href="/login">
                             <i class="fa fa-fw fa-sign-out"></i> Выйти
                         </a>
                     </div>
@@ -46,40 +45,40 @@
         <!-- Start: Sidebar Menu-->
         <ul class="nav sidebar-menu">
             <li class="sidebar-label pt30">Меню</li>
-            <li th:classappend="${#httpServletRequest.requestURI == '/' ? 'active' : ''}">
-                <a href="/" th:href="@{/}">
+            <li>
+                <a href="/">
                     <span class="fa fa-home" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Личный кабинет"></span>
                     <span class="sidebar-title">Личный кабинет</span>
                 </a>
             </li>
-            <li th:classappend="${#httpServletRequest.requestURI == '/dictionaries' ? 'active' : ''}">
-                <a href="#" th:href="@{/dictionaries}">
+            <li>
+                <a href="#">
                     <span class="fa fa-book" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Справочники"></span>
                     <span class="sidebar-title">Справочники</span>
                 </a>
             </li>
-            <li th:classappend="${#httpServletRequest.requestURI == '/people' ? 'active' : ''}">
-                <a href="#" th:href="@{/people}">
+            <li>
+                <a href="#">
                     <span class="fa fa-users" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Люди"></span>
                     <span class="sidebar-title">Люди</span>
                 </a>
             </li>
-            <li th:classappend="${#httpServletRequest.requestURI == '/competitions' ? 'active' : ''}">
-                <a href="#" th:href="@{/competitions}">
+            <li>
+                <a href="#">
                     <span class="fa fa-futbol-o" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Соревнования"></span>
                     <span class="sidebar-title">Соревнования</span>
                 </a>
             </li>
-            <li th:classappend="${#httpServletRequest.requestURI == '/races' ? 'active' : ''}">
-                <a href="#" th:href="@{/races}">
+            <li>
+                <a href="#">
                     <span class="fa fa-bicycle" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Список заездов"></span>
