@@ -3,9 +3,12 @@
         <i class="fa fa-plus" aria-hidden="true"></i>
         <span class="sidebar-title">Добавить заезд</span>
     </a>
+    <p>На страницу <span th:text="${items.getSize()}"></span> записей,
+        всего <span th:text="${items.getTotalElements()}"></span>
+    </p>
     <div class="table-double">
         <div class="over-x-auto">
-            <table class="table table-striped table__refact">
+            <table class="table table-striped table__refact mbn">
                 <thead>
                 <tr th:class="ws-no">
                     <th class="date">Время</th>
@@ -46,4 +49,7 @@
             </div>
         </div>
     </div>
+    <p class="mt10">На страницу <span th:text="${items.getSize()}"></span> записей,
+        всего <span th:text="${items.getTotalElements()}"></span>
+    </p>
 </div>
