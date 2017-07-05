@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ href('/dictionaries') }}">
                     <span class="fa fa-book" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Справочники"></span>
@@ -62,7 +62,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ href('/people') }}">
                     <span class="fa fa-users" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Люди"></span>
@@ -70,7 +70,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ href('/competitions') }}">
                     <span class="fa fa-futbol-o" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Соревнования"></span>
@@ -78,7 +78,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ href('/races') }}">
                     <span class="fa fa-bicycle" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Список заездов"></span>

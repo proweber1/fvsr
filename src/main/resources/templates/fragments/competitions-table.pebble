@@ -1,0 +1,54 @@
+<a href="{{ href('/competitions/create') }}" class="btn btn-info mb10">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    <span class="sidebar-title">Добавить соревнование</span>
+</a>
+<p>На страницу <span>{{ competitions.getSize() }}</span> записей,
+    всего <span>{{ competitions.getTotalElements() }}</span>
+</p>
+<div class="table-double">
+    <div class="over-x-auto">
+        <table class="table table-striped table__refact text-left mbn">
+            <thead>
+                <tr class="ws-no">
+                    <th class="date">Дата</th>
+                    <th>Вид</th>
+                    <th>Название</th>
+                    <th>Место</th>
+                    <th>Субъект</th>
+                    <th>Страна</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for competition in competitions %}
+
+                <td>{{ competition.vid.name }}</td>
+                <td>{{ competition.name }}</td>
+                <td>{{ competition.place }}</td>
+                <td>{{ competition.subject.name }}</td>
+                <td>{{ competition.country.nameRus }}</td>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if competitions.content is empty %}
+    <div class="interaction">
+        <span class="interaction__title">Действие</span>
+        <div class="interaction__group">
+            {% for competition in competitions %}
+                <a class="btn btn-info mw40" title="Информация о соревновании"
+                   href="{{ href('/competitions/' + competition.id) }}">
+                    <i class="fa fa-info" aria-hidden="true"></i>
+                </a>
+
+                <a class="btn btn-info mw40" title="Изменить"
+                   href="{{ href('/competitions/' + competition.id) }}">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+<p class="mt10">На страницу <span>competitions.getSize()</span> записей,
+    всего <span>competitions.getTotalElements()</span>
+</p>
