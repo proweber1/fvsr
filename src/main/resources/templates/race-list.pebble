@@ -9,7 +9,7 @@
         <div data-panel-title="false" class="panel sort-disable">
             <div class="panel-body pn">
                 {% include "fragments/race-table" %}
-                {% include "fragments/pagination"  with {"pages": items } %}
+                {% include "admin/components/pagination/list" with {"pages": items } %}
             </div>
         </div>
     </div>

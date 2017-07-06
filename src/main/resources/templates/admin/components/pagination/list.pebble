@@ -1,0 +1,29 @@
+{% if pages.totalPages > 1 %}
+{% set pageSize = pages.getSize() %}
+
+<div class="row">
+    <div class="form-group col-md-11 pagination-centered">
+        <ul class="pagination">
+
+            <li class="{{ pages.isFirst() ? 'disabled' : null }}">
+                <a href="{{ href('?pageSize=' + pageSize + '&page=0') }}">&laquo;</a>
+            </li>
+            <li class="{{ pages.hasPrevious() ? null : 'disabled' }}">
+                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.number - 1)) }}">&larr;</a>
+            </li>
+
+            <li>
+                <span class="text-dark">{{ pages.number + 1 }}</span>
+            </li>
+
+            <li class="{{ pages.hasNext() ? null : 'disabled' }}">
+                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.number + 1))}}">&rarr;</a>
+            </li>
+            <li class="{{ pages.isLast() ? 'disabled' : null }}">
+                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.totalPages - 1))}}">&raquo;</a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+{% endif %}

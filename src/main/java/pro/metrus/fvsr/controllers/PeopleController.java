@@ -88,7 +88,9 @@ public class PeopleController {
         final Specifications<Person> specifications
                 = PeopleFilterSpecification.withAllSpecifications(filter);
 
-        ui.addAttribute("people", peopleRepository.findAll(specifications, pageable));
+        Page<Person> all = peopleRepository.findAll(specifications, pageable);
+
+        ui.addAttribute("people", all);
         ui.addAttribute("filter", filter);
 
         return "admin/pages/people/index";
