@@ -1,3 +1,5 @@
+{% set isEdit = (form.id > 0) %}
+
 <form method="POST" name="competitionsSave" action="{{ href('/competitions/save') }}"
       role="form" class="form-horizontal">
 
@@ -5,7 +7,7 @@
     <p>{{ err }}</p>
     {% endfor %}
 
-    {% if form.id > 0 %}
+    {% if isEdit %}
     <input type="hidden" name="id" value="{{ form.id }}">
     {% endif %}
 
@@ -92,13 +94,14 @@
             {% endfor %}
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-sm-12">
-            <button type="submit" class="btn btn-success">
-                <i class="fa fa-plus" aria-hidden="true"></i> Создать
+    <div class="form-group mt25">
+        <div class="col-sm-12 text-right">
+            <button type="reset" class="btn btn-lg btn-default">
+                <i class="fa fa-eraser" aria-hidden="true"></i> Очистить форму
             </button>
-            <button type="reset" class="btn btn-warning">
-                <i class="fa fa-eraser" aria-hidden="true"></i> Очистить
+            <button type="submit" class="btn btn-lg btn-success">
+                <i class="fa {{ isEdit ? 'fa-save' : 'fa-plus' }}" aria-hidden="true"></i>
+                {{ isEdit ? 'Изменить' : 'Добавить' }}
             </button>
         </div>
     </div>

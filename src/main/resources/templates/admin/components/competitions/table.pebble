@@ -1,10 +1,3 @@
-<div class="competitions__tools">
-    <a href="{{ href('/competitions/create') }}" class="btn btn-info mb10">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-        <span class="sidebar-title">Добавить соревнование</span>
-    </a>
-</div>
-
 {% include "admin/components/pagination/info" with { "pages": competitions } %}
 
 <div class="table-double">
@@ -50,4 +43,6 @@
     </div>
 </div>
 
-{% include "admin/components/pagination/info" with { "pages": competitions } %}
+<div class="mt15">
+    {% include "admin/components/pagination/info" with { "pages": competitions } %}
+</div>
