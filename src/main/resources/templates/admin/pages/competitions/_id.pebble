@@ -1,0 +1,35 @@
+{% extends "layouts/admin" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 admin-grid">
+
+        <div class="panel sort-disable">
+            <div class="panel-body pn">
+                <div class="calendar">Тут будет мега календарь</div>
+
+                <dl>
+                    <dt>Название:</dt>
+                        <dd>{{ competition.name }}</dd>
+                    <dt>Место:</dt>
+                        <dd>{{ competition.place }}</dd>
+                    <dt>Дата начала:</dt>
+                        <dd>{{ competition.dateBegin | date('dd.MM.yyyy') }}</dd>
+
+                    {% if competition.dateEnd is not empty %}
+                    <dt>Дата окончания:</dt>
+                        <dd>{{ competition.dateEnd | date('dd.MM.yyyy') }}</dd>
+                    {% endif %}
+
+                    <dt>Страна:</dt>
+                        <dd>{{ competition.country.nameRus | default('-') }}</dd>
+                    <dt>Вид:</dt>
+                        <dd>{{ competition.vid.name | default('-') }}</dd>
+                    <dt>Субъект:</dt>
+                        <dd>{{ competition.subject.name | default('-') }}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
