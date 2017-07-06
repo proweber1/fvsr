@@ -12,35 +12,36 @@
     {% endif %}
 
     <div class="form-group">
-        <div class="col-sm-6">
-            <label>Название</label>
-            <input class="form-control input-sm" type="text" name="name"
+        <div class="col-sm-12">
+            <label for="competition__name" class="h3 mtn">Название</label>
+            <input class="form-control" type="text" name="name"
+                   id="competition__name"
                    value="{{ form.name }}">
 
             {% for error in getFieldErrors('competitionsSave', 'name') %}
             <small class="error-field text-danger">{{ error }}</small>
             {% endfor %}
         </div>
+    </div>
+    <div class="form-group">
         <div class="col-sm-6">
             <label>Место</label>
             <input class="form-control input-sm" type="text" name="place"
                    value="{{ form.place }}">
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-6">
+        <div class="col-sm-3">
             <label>Дата начала</label>
             <input class="form-control input-sm datepicker" type="text" name="dateBegin"
                    value="{{ form.dateBegin | date('dd.MM.yyyy') }}">
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-3">
             <label>Дата окончания</label>
             <input class="form-control input-sm datepicker" type="text" name="dateEnd"
                    value="{{ form.dateEnd | date('dd.MM.yyyy') }}">
         </div>
     </div>
     <div class="form-group">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <label>Страна</label>
             <select class="form-control input-sm" type="text" name="country">
                 <option value="">Выберите страну</option>
@@ -57,7 +58,7 @@
             <small class="error-field text-danger">{{ error }}</small>
             {% endfor %}
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <label>Вид</label>
             <select class="form-control input-sm" type="text" name="vid">
                 <option value="">Выберите вид</option>
@@ -74,9 +75,7 @@
             <small class="error-field text-danger">{{ error }}</small>
             {% endfor %}
         </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <label>Субъект</label>
             <select class="form-control input-sm" type="text" name="subject">
                 <option value="">Выберите субъект</option>
@@ -84,7 +83,7 @@
                 {% for subject in federalSubjects %}
                 <option value="{{ subject.id }}"
                         {{ form.subject.id == subject.id ? 'selected' : null }}>
-                    {{ subject.name }}
+                {{ subject.name }}
                 </option>
                 {% endfor %}
             </select>
