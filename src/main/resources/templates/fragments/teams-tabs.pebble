@@ -1,0 +1,9 @@
+<div class="dictionaries__tabs">
+    <ul class="nav nav-tabs">
+        {% for item in vid %}
+        <li class="{{ loop.index == 0 ? active : null }}">
+            <a href="{{ href(request.GetRequestURI() + '/' + item.id + '/members') }}">{{ item.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
