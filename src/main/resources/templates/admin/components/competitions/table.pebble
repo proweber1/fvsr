@@ -1,0 +1,48 @@
+{% include "admin/components/pagination/info" with { "pages": competitions } %}
+
+<div class="table-double">
+    <div class="over-x-auto">
+        <table class="table table-striped text-left mbn">
+            <thead>
+                <tr class="ws-no">
+                    <th class="date">Даты</th>
+                    <th>Вид</th>
+                    <th>Название</th>
+                    <th>Место</th>
+                    <th>Субъект</th>
+                    <th>Страна</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for competition in competitions %}
+            <tr>
+                <td class="text-center">
+                    {{ competition.dateBegin | date('dd.MM.yyyy') }}
+                    <div>-</div>
+                    {{ competition.dateEnd | date('dd.MM.yyyy') }}
+                </td>
+                <td>{{ competition.vid.name }}</td>
+                <td>
+                    <a href="{{ href('/competitions/' + competition.id) }}">
+                        {{ competition.name }}
+                    </a>
+                </td>
+                <td class="text-nowrap">{{ competition.place }}</td>
+                <td>{{ competition.subject.name }}</td>
+                <td>{{ competition.country.nameRus }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6">Список пуст</td>
+            </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt15">
+    {% include "admin/components/pagination/info" with { "pages": competitions } %}
+</div>
