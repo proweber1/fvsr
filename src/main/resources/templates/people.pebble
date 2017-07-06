@@ -1,0 +1,22 @@
+{% extends "layouts/admin" %}
+
+{% block content %}
+<div class="row">
+    <!-- Three Pane Widget-->
+    <div class="col-md-12 admin-grid">
+        <!-- dashboard activity-->
+        <div data-panel-title="false" class="panel sort-disable">
+            <div class="panel-body pn">
+                <div class="search-filter">
+                    Filter
+                    <!--<div th:replace="~{fragments/people-search :: filter (filterForm=${filter})}"></div>-->
+                </div>
+                Table
+                <!--<table th:replace="~{fragments/people-table}"></table>-->
+                People
+                <!--<div th:replace="~{fragments/pagination :: pagination (pages = ${people})}"></div>-->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

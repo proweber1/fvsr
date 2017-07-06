@@ -1,4 +1,4 @@
-<div class="search__people" xmlns:th="http://www.thymeleaf.org" th:fragment="filter (filterForm)">
+<div class="search__people" th:fragment="filter (filterForm)">
     <a href="#search__block" class="btn btn-info btn-toggle">
         <i class="fa fa-search" aria-hidden="true"></i> Поиск
     </a>
