@@ -1,0 +1,14 @@
+<div class="dictionaries__tabs">
+    <ul class="nav nav-tabs">
+        {% for item in vid %}
+        <li class="{{ loop.index == 0 ? active : null }}">
+            <a href="{{ href(item.id + '/members') }}">{{ item.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active">
+            {% include "fragments/teams-table" %}
+        </div>
+    </div>
+</div>
