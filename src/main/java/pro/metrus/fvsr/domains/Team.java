@@ -17,11 +17,6 @@ import java.util.List;
 @Setter
 public class Team extends AbstractDictionaryWithShortName {
 
-    /** Регион в котором участвует комманда */
-    @OneToOne
-    @JoinColumn(name = "countries_id")
-    private Country country;
-
     /** Формат команд */
     private String format;
 
