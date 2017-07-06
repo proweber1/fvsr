@@ -4,10 +4,10 @@
             <a href="#tabs-1" data-toggle="tab" aria-expanded="true">Названия</a>
         </li>
         <li>
-            <a href="#tabs-2" data-toggle="tab" aria-expanded="false">Категории</a>
+            <a href="#tabs-2" data-toggle="tab" aria-expanded="false">Вид спорта</a>
         </li>
         <li>
-            <a href="#tabs-3" data-toggle="tab" aria-expanded="false">Вид спорта</a>
+            <a href="#tabs-3" data-toggle="tab" aria-expanded="false">Категории</a>
         </li>
         <li>
             <a href="#tabs-4" data-toggle="tab" aria-expanded="false">Дисциплина</a>
@@ -16,7 +16,7 @@
             <a href="#tabs-5" data-toggle="tab" aria-expanded="false">Возрастные группы</a>
         </li>
         <li>
-            <a href="#tabs-6" data-toggle="tab" aria-expanded="false">Результат</a>
+            <a href="#tabs-6" data-toggle="tab" aria-expanded="false">Результат заезда</a>
         </li>
         <li>
             <a href="#tabs-7" data-toggle="tab" aria-expanded="false">Континенты</a>
@@ -42,10 +42,35 @@
             {% include "fragments/dictionary-table" with {"dicts": titles} %}
         </div>
         <div class="tab-pane" id="tabs-2">
-            {% include "fragments/dictionary-table" with {"dicts": categories} %}
+            {% include "fragments/dictionary-table-light" with {"dicts": vid} %}
         </div>
         <div class="tab-pane" id="tabs-3">
-            {% include "fragments/dictionary-table-light" with {"dicts": vid} %}
+            <table class="table table-striped table-dictionaries">
+                <thead>
+                <tr>
+                    <th class="w50">№</th>
+                    <th>Обозначение</th>
+                    <th>Название</th>
+                    <th>Обозначение (Eng)</th>
+                    <th>Название (Eng)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                <tr>
+                    <td class="w50">{{ loop.index + 1 }}</td>
+                    <td>{{ category.shortName }}</td>
+                    <td>{{ category.name }}</td>
+                    <td>{{ category.shortNameEng }}</td>
+                    <td>{{ category.nameEng }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">Список пуст</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
         <div class="tab-pane" id="tabs-4">
             <table class="table table-striped table-dictionaries">
@@ -54,6 +79,8 @@
                     <th class="w50">№</th>
                     <th>Вид</th>
                     <th>Название</th>
+                    <th>Обозначение (Eng)</th>
+                    <th>Название (Eng)</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -62,6 +89,92 @@
                     <td class="w50">{{ loop.index + 1 }}</td>
                     <td>{{ raceType.vid.name }}</td>
                     <td>{{ raceType.name }}</td>
+                    <td>{{ raceType.shortNameEng }}</td>
+                    <td>{{ raceType.nameEng }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">Список пуст</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="tabs-5">
+            {% include "fragments/dictionary-table-light" with {"dicts": participants } %}
+            <table class="table table-striped table-dictionaries">
+                <thead>
+                <tr>
+                    <th class="w50">№</th>
+                    <th>Обозначение</th>
+                    <th>Название</th>
+                    <th>Обозначение (Eng)</th>
+                    <th>Название (Eng)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for participant in participants %}
+                <tr>
+                    <td class="w50">{{ loop.index + 1 }}</td>
+                    <td>{{ participant.shortName }}</td>
+                    <td>{{ participant.name }}</td>
+                    <td>{{ participant.shortNameEng }}</td>
+                    <td>{{ participant.nameEng }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">Список пуст</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="tabs-6">
+            {% include "fragments/dictionary-table" with {"dicts": resultStates } %}
+            <table class="table table-striped table-dictionaries">
+                <thead>
+                <tr>
+                    <th class="w50">№</th>
+                    <th>Обозначение</th>
+                    <th>Название</th>
+                    <th>Обозначение (Eng)</th>
+                    <th>Название (Eng)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for resultState in resultStates %}
+                <tr>
+                    <td class="w50">{{ loop.index + 1 }}</td>
+                    <td>{{ resultState.shortName }}</td>
+                    <td>{{ resultState.name }}</td>
+                    <td>{{ resultState.shortNameEng }}</td>
+                    <td>{{ resultState.nameEng }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">Список пуст</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="tabs-7">
+            <table class="table table-striped table-dictionaries">
+                <thead>
+                <tr>
+                    <th class="w50">№</th>
+                    <th>Обозначение</th>
+                    <th>Название</th>
+                    <th>Обозначение (Eng)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for continent in continents %}
+                <tr>
+                    <td class="w50">{{ loop.index + 1 }}</td>
+                    <td>{{ continent.shortName }}</td>
+                    <td>{{ continent.name }}</td>
+                    <td>{{ continent.shortNameEng }}</td>
                 </tr>
                 {% else %}
                 <tr>
@@ -71,19 +184,11 @@
                 </tbody>
             </table>
         </div>
-        <div class="tab-pane" id="tabs-5">
-            {% include "fragments/dictionary-table-light" with {"dicts": participants } %}
-        </div>
-        <div class="tab-pane" id="tabs-6">
-            {% include "fragments/dictionary-table" with {"dicts": resultStates } %}
-        </div>
-        <div class="tab-pane" id="tabs-7">
-            {% include "fragments/dictionary-table" with {"dicts": continents } %}
-        </div>
         <div class="tab-pane" id="tabs-8">
             <table class="table table-striped table-dictionaries">
                 <thead>
                     <th class="w50">№</th>
+                    <th>ISO</th>
                     <th>Обозначение</th>
                     <th>Название</th>
                     <th>Континент</th>
@@ -92,6 +197,7 @@
                     {% for country in countries %}
                     <tr>
                         <td class="w50">{{ loop.index + 1 }}</td>
+                        <td>{{ country.id }}</td>
                         <td>{{ country.shortName }}</td>
                         <td>{{ country.nameRus }}</td>
                         <td>{{ country.continent.name }}</td>
@@ -105,7 +211,7 @@
                 <thead>
                 <tr>
                     <th class="w50">№</th>
-                    <th>ФО</th>
+                    <th>ФО - сокращение</th>
                     <th>Название</th>
                 </tr>
                 </thead>
@@ -147,6 +253,8 @@
                 </tbody>
             </table>
         </div>
-
+        <div class="tab-pane" id="tabs-12">
+            {% include "fragments/dictionary-table" with {"dicts": federalDistricts } %}
+        </div>
     </div>
 </div>

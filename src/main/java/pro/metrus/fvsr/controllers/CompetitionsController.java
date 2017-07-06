@@ -136,7 +136,7 @@ public class CompetitionsController {
     public String list(final Model ui, final Pageable pageable) {
         ui.addAttribute("competitions", competitionsRepository.findAllByOrderByIdAsc(pageable));
 
-        return "competitions";
+        return "admin/pages/competitions/index";
     }
 
     /**
@@ -150,7 +150,7 @@ public class CompetitionsController {
     public String create(final Model ui) {
         ui.addAttribute(FORM_ATTR, new Competitions());
 
-        return "competition-create";
+        return "admin/pages/competitions/competition-create";
     }
 
     /**
@@ -164,7 +164,7 @@ public class CompetitionsController {
     public String update(final Model ui, @PathVariable final long id) {
         ui.addAttribute(FORM_ATTR, loadCompetitionOrException(id));
 
-        return "competition-update";
+        return "admin/pages/competitions/competition-update";
     }
 
     /**
@@ -178,7 +178,7 @@ public class CompetitionsController {
     public String view(final Model ui, @PathVariable final long id) {
         ui.addAttribute("competition", loadCompetitionOrException(id));
 
-        return "competition-view";
+        return "admin/pages/competitions/competition-view";
     }
 
     /**

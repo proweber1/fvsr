@@ -61,7 +61,7 @@ public class TeamsController {
      * @return Teams view name
      */
     @GetMapping("/{id}/members")
-    public String view(final Model ui, @PathParam("id") final long id) {
+    public String view(final Model ui) {
         ui.addAttribute("raceTypes", raceTypesRepository.findAllByOrderByVidIdAsc());
 
         return "race-view";
