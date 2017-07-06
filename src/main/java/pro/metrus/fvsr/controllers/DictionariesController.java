@@ -25,6 +25,8 @@ public class DictionariesController {
     private final ResultStatusRepository resultStatusRepository;
     private final CountryRepository countryRepository;
     private final VidRepository vidRepository;
+    private final ContinentsRepository continentsRepository;
+    private final UciRepository uciRepository;
 
     /**
      * Constructor for dependency injection
@@ -45,7 +47,9 @@ public class DictionariesController {
             final ParticipantRepository participantRepository,
             final ResultStatusRepository resultStatusRepository,
             final CountryRepository countryRepository,
-            final VidRepository vidRepository
+            final VidRepository vidRepository,
+            final ContinentsRepository continentsRepository,
+            final UciRepository uciRepository
     ) {
         this.federalDistrictRepository = federalDistrictRepository;
         this.federalSubjectRepository = federalSubjectRepository;
@@ -57,6 +61,8 @@ public class DictionariesController {
         this.resultStatusRepository = resultStatusRepository;
         this.countryRepository = countryRepository;
         this.vidRepository = vidRepository;
+        this.continentsRepository = continentsRepository;
+        this.uciRepository = uciRepository;
     }
 
     /**а
@@ -77,6 +83,8 @@ public class DictionariesController {
         ui.addAttribute("resultStates", resultStatusRepository.findAllByOrderByIdAsc());
         ui.addAttribute("countries", countryRepository.findAllByOrderByShortNameAsc());
         ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("uci", uciRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("continents", continentsRepository.findAllByOrderByShortNameAsc());
 
         return "dictionaries";
     }

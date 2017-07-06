@@ -24,4 +24,7 @@ public class Country {
 
     @Column(name = "name_short")
     private String shortName;
+
+    @OneToOne
+    private Continent continent;
 }
