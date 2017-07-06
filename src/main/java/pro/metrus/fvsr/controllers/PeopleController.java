@@ -91,13 +91,13 @@ public class PeopleController {
         ui.addAttribute("people", peopleRepository.findAll(specifications, pageable));
         ui.addAttribute("filter", filter);
 
-        return "people";
+        return "admin/pages/people/index";
     }
 
     @GetMapping("/create")
     public String create(final Model ui) {
         ui.addAttribute("form", new Person());
 
-        return "create";
+        return "admin/pages/people/create";
     }
 }

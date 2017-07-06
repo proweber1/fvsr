@@ -8,12 +8,11 @@
         <div data-panel-title="false" class="panel sort-disable">
             <div class="panel-body pn">
                 <div class="search-filter">
-                    Filter
-                    <!--<div th:replace="~{fragments/people-search :: filter (filterForm=${filter})}"></div>-->
+                    {% include "admin/components/people/search" %}
                 </div>
-                Table
-                <!--<table th:replace="~{fragments/people-table}"></table>-->
-                People
+                {% include "admin/components/people/table" %}
+
+                Pagination
                 <!--<div th:replace="~{fragments/pagination :: pagination (pages = ${people})}"></div>-->
             </div>
         </div>

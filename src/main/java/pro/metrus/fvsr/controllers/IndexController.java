@@ -21,6 +21,6 @@ public class IndexController {
     @Contract(pure = true)
     @GetMapping("/")
     private String index() {
-        return "index";
+        return "admin/pages/index";
     }
 }
