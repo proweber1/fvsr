@@ -39,38 +39,34 @@
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="tabs-1">
-            {% include "fragments/dictionary-table" with {"dicts": titles} %}
-        </div>
-        <div class="tab-pane" id="tabs-2">
-            {% include "fragments/dictionary-table-light" with {"dicts": vid} %}
-        </div>
-        <div class="tab-pane" id="tabs-3">
             <table class="table table-striped table-dictionaries">
                 <thead>
                 <tr>
                     <th class="w50">№</th>
                     <th>Обозначение</th>
                     <th>Название</th>
-                    <th>Обозначение (Eng)</th>
-                    <th>Название (Eng)</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for category in categories %}
+                {% for title in titles %}
                 <tr>
                     <td class="w50">{{ loop.index + 1 }}</td>
-                    <td>{{ category.shortName }}</td>
-                    <td>{{ category.name }}</td>
-                    <td>{{ category.shortNameEng }}</td>
-                    <td>{{ category.nameEng }}</td>
+                    <td>{{ title.shortName }}</td>
+                    <td>{{ title.name }}</td>
                 </tr>
                 {% else %}
                 <tr>
-                    <td colspan="5">Список пуст</td>
+                    <td colspan="3">Список пуст</td>
                 </tr>
                 {% endfor %}
                 </tbody>
             </table>
+        </div>
+        <div class="tab-pane" id="tabs-2">
+            {% include "fragments/dictionary-table-light" with {"dicts": vid} %}
+        </div>
+        <div class="tab-pane" id="tabs-3">
+            {% include "fragments/dictionary-table" with {"dicts": categories} %}
         </div>
         <div class="tab-pane" id="tabs-4">
             <table class="table table-striped table-dictionaries">
@@ -101,62 +97,10 @@
             </table>
         </div>
         <div class="tab-pane" id="tabs-5">
-            {% include "fragments/dictionary-table-light" with {"dicts": participants } %}
-            <table class="table table-striped table-dictionaries">
-                <thead>
-                <tr>
-                    <th class="w50">№</th>
-                    <th>Обозначение</th>
-                    <th>Название</th>
-                    <th>Обозначение (Eng)</th>
-                    <th>Название (Eng)</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for participant in participants %}
-                <tr>
-                    <td class="w50">{{ loop.index + 1 }}</td>
-                    <td>{{ participant.shortName }}</td>
-                    <td>{{ participant.name }}</td>
-                    <td>{{ participant.shortNameEng }}</td>
-                    <td>{{ participant.nameEng }}</td>
-                </tr>
-                {% else %}
-                <tr>
-                    <td colspan="5">Список пуст</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            {% include "fragments/dictionary-table" with {"dicts": participants} %}
         </div>
         <div class="tab-pane" id="tabs-6">
-            {% include "fragments/dictionary-table" with {"dicts": resultStates } %}
-            <table class="table table-striped table-dictionaries">
-                <thead>
-                <tr>
-                    <th class="w50">№</th>
-                    <th>Обозначение</th>
-                    <th>Название</th>
-                    <th>Обозначение (Eng)</th>
-                    <th>Название (Eng)</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for resultState in resultStates %}
-                <tr>
-                    <td class="w50">{{ loop.index + 1 }}</td>
-                    <td>{{ resultState.shortName }}</td>
-                    <td>{{ resultState.name }}</td>
-                    <td>{{ resultState.shortNameEng }}</td>
-                    <td>{{ resultState.nameEng }}</td>
-                </tr>
-                {% else %}
-                <tr>
-                    <td colspan="5">Список пуст</td>
-                </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            {% include "fragments/dictionary-table" with {"dicts": resultStates} %}
         </div>
         <div class="tab-pane" id="tabs-7">
             <table class="table table-striped table-dictionaries">
@@ -194,15 +138,19 @@
                     <th>Континент</th>
                 </thead>
                 <tbody>
-                    {% for country in countries %}
-                    <tr>
-                        <td class="w50">{{ loop.index + 1 }}</td>
-                        <td>{{ country.id }}</td>
-                        <td>{{ country.shortName }}</td>
-                        <td>{{ country.nameRus }}</td>
-                        <td>{{ country.continent.name }}</td>
-                    </tr>
-                    {% endfor %}
+                {% for country in countries %}
+                <tr>
+                    <td class="w50">{{ loop.index + 1 }}</td>
+                    <td>{{ country.id }}</td>
+                    <td>{{ country.shortName }}</td>
+                    <td>{{ country.nameRus }}</td>
+                    <td>{{ country.continent.name }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">Список пуст</td>
+                </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>
@@ -224,7 +172,7 @@
                 </tr>
                 {% else %}
                 <tr>
-                    <td colspan="4">Список пуст</td>
+                    <td colspan="3">Список пуст</td>
                 </tr>
                 {% endfor %}
                 </tbody>
@@ -242,19 +190,51 @@
                     <th>Вид</th>
                 </thead>
                 <tbody>
-                    {% for uciItem in uci %}
-                        <tr>
-                            <td class="w50">{{ loop.index + 1 }}</td>
-                            <td>{{ uciItem.shortName }}</td>
-                            <td>{{ uciItem.name }}</td>
-                            <td>{{ uciItem.vid.name }}</td>
-                        </tr>
-                    {% endfor %}
+                {% for uciItem in uci %}
+                    <tr>
+                        <td class="w50">{{ loop.index + 1 }}</td>
+                        <td>{{ uciItem.shortName }}</td>
+                        <td>{{ uciItem.name }}</td>
+                        <td>{{ uciItem.vid.name }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="4">Список пуст</td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
         </div>
-        <div class="tab-pane" id="tabs-12">
-            {% include "fragments/dictionary-table" with {"dicts": federalDistricts } %}
-        </div>
+        <!-- TODO: Вывести таблицу. Сейчас грузится другая страница по клику на "Велокоманды" -->
+        <!--<div class="tab-pane" id="tabs-12">-->
+            <!--<table class="table table-striped table-dictionaries">-->
+                <!--<thead>-->
+                <!--<tr>-->
+                    <!--<th class="w50">№</th>-->
+                    <!--<th>Обозначение</th>-->
+                    <!--<th>Название</th>-->
+                    <!--<th>Страна</th>-->
+                    <!--<th>Классификация UCI</th>-->
+                    <!--<th>Формат</th>-->
+                <!--</tr>-->
+                <!--</thead>-->
+                <!--<tbody>-->
+                <!--{% for team in teams %}-->
+                <!--<tr>-->
+                    <!--<td class="w50">{{ loop.index + 1 }}</td>-->
+                    <!--<td>{{ team.shortName }}</td>-->
+                    <!--<td>{{ team.name }}</td>-->
+                    <!--<td>{{ team.country.nameRus }}</td>-->
+                    <!--<td>{{ team.ufc }}</td>-->
+                    <!--<td>{{ team.format }}</td>-->
+                <!--</tr>-->
+                <!--{% else %}-->
+                <!--<tr>-->
+                    <!--<td colspan="6">Список пуст</td>-->
+                <!--</tr>-->
+                <!--{% endfor %}-->
+                <!--</tbody>-->
+            <!--</table>-->
+        <!--</div>-->
     </div>
 </div>

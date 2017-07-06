@@ -4,6 +4,8 @@
         <th class="w50">№</th>
         <th>Обозначение</th>
         <th>Название</th>
+        <th>Обозначение (Eng)</th>
+        <th>Название (Eng)</th>
     </tr>
     </thead>
     <tbody>
@@ -12,10 +14,12 @@
         <td class="w50">{{ loop.index + 1 }}</td>
         <td>{{ dict.shortName }}</td>
         <td>{{ dict.name }}</td>
+        <td>{{ dict.shortNameEng }}</td>
+        <td>{{ dict.nameEng }}</td>
     </tr>
     {% else %}
     <tr>
-        <td colspan="3">Список пуст</td>
+        <td colspan="5">Список пуст</td>
     </tr>
     {% endfor %}
     </tbody>
