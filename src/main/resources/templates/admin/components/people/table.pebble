@@ -41,7 +41,7 @@
 
             {% for person in people %}
             <tr>
-                <td class="w50">{{ person.id }}</td>
+                <td class="w50">{{ person.uci }}</td>
                 <td>{{ person.federationNum }}</td>
                 <td>{{ person.lastname }}</td>
                 <td>{{ person.firstname }}</td>
