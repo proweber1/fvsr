@@ -20,15 +20,13 @@ import java.time.LocalDate;
 public class Person {
 
     @Id
-    @Column(name = "id_uci")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    private long uci;
 
     @Column(name = "federation_num")
     private int federationNum;
-
-    private String lastname;
-
-    private String firstname;
 
     /**
      * Это поле завел архитектор, мы хотели сделать
@@ -72,14 +70,11 @@ public class Person {
     @Column(name = "other_role")
     private boolean otherRole;
 
-    @Column(name = "lastname_rus")
-    private String lastnameRus;
+    private String lastname;
+    private String firstname;
 
-    @Column(name = "firstname_rus")
-    private String firstnameRus;
-
-    @Column(name = "patronymic_rus")
-    private String patronymicRus;
+    @Column(name = "patronymic")
+    private String patronymic;
 
     @OneToOne
     @JoinColumn(name = "subjects_id")
@@ -101,6 +96,9 @@ public class Person {
     @JoinColumn(name = "titles_id")
     private Title title;
 
-    @Column(name = "old_id_uci")
-    private String oldIdUci;
+    @Column(name = "firstname_eng")
+    private String firstnameEng;
+
+    @Column(name = "lastname_eng")
+    private String lastnameEng;
 }
