@@ -1,0 +1,17 @@
+{% extends "layouts/admin" %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-md-12 admin-grid">
+
+        <div class="panel sort-disable">
+            <div class="panel-body pn">
+
+                {% include "admin/components/competitions/form" %}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

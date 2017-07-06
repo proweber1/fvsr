@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "competitions")
@@ -31,11 +31,11 @@ public class Competitions {
 
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     @Column(name = "date_begin")
-    private LocalDate dateBegin;
+    private Date dateBegin;
 
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     @Column(name = "date_end")
-    private LocalDate dateEnd;
+    private Date dateEnd;
 
     @OneToOne
     @JoinColumn(name = "id_country")

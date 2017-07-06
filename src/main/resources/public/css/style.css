@@ -14713,6 +14713,32 @@ dd {
 .table-dictionaries {
   width: auto;
 }
+.dictionaries__tabs {
+  display: flex;
+}
+.dictionaries__tabs .nav-tabs {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  border-bottom: none;
+}
+.dictionaries__tabs .nav-tabs li a,
+.dictionaries__tabs .nav-tabs li.active a{
+  border: none;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.dictionaries__tabs .nav-tabs li.active a {
+  background: #eee;
+}
+.dictionaries__tabs .nav-tabs li a:hover {
+  background: #f2f2f2;
+}
+.dictionaries__tabs .tab-content {
+  flex-basis: 100%;
+  -webkit-flex-basis: 100%;
+}
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)
 ================================================= */

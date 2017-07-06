@@ -8,13 +8,13 @@
 <div id="main">
 
     <!-- Fragment Sidebar-->
-    {% include "components/aside" %}
+    {% include "admin/components/aside" %}
 
     <!-- Start: Content-Wrapper-->
     <section id="content_wrapper">
         <!-- Fragment Header -->
 
-        {% include "components/header" %}
+        {% include "admin/components/header" %}
 
         <!-- Begin: Content-->
         <section id="content" class="table-layout animated fadeIn">

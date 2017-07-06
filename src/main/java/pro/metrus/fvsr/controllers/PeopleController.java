@@ -88,16 +88,18 @@ public class PeopleController {
         final Specifications<Person> specifications
                 = PeopleFilterSpecification.withAllSpecifications(filter);
 
-        ui.addAttribute("people", peopleRepository.findAll(specifications, pageable));
+        Page<Person> all = peopleRepository.findAll(specifications, pageable);
+
+        ui.addAttribute("people", all);
         ui.addAttribute("filter", filter);
 
-        return "people";
+        return "admin/pages/people/index";
     }
 
     @GetMapping("/create")
     public String create(final Model ui) {
         ui.addAttribute("form", new Person());
 
-        return "create";
+        return "admin/pages/people/create";
     }
 }
