@@ -6,9 +6,4 @@
         </li>
         {% endfor %}
     </ul>
-    <div class="tab-content">
-        <div class="tab-pane active">
-            {% include "fragments/teams-table" with {"table": items }%}
-        </div>
-    </div>
 </div>

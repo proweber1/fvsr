@@ -34,7 +34,7 @@
             <a href="#tabs-11" data-toggle="tab" aria-expanded="false">Классификация UCI</a>
         </li>
         <li>
-            <a href="{{ href('/race-types/1/members') }}">Велокоманды</a>
+            <a href="{{ href('/race-types') }}">Велокоманды</a>
         </li>
     </ul>
     <div class="tab-content">
