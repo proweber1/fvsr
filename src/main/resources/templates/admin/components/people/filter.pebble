@@ -1,5 +1,4 @@
-<div class="toggle__block mb20" id="filter__block"
-     xmlns:th="http://www.thymeleaf.org">
+<div class="toggle__block mb20" id="filter__block">
     <div class="form-group">
         <div class="mb15 col-md-4 col-sm-6">
             <div class="form-group flex">
