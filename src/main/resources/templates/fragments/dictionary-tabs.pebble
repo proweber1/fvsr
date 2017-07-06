@@ -80,7 +80,24 @@
         {% include "fragments/dictionary-table" with {"dicts": continents } %}
     </div>
     <div class="tab-pane" id="tabs-8">
-        {% include "fragments/dictionary-table" with {"dicts": countries } %}
+        <table class="table table-striped">
+            <thead>
+                <th>№</th>
+                <th>Обозначение</th>
+                <th>Название</th>
+                <th>Континент</th>
+            </thead>
+            <tbody>
+                {% for country in countries %}
+                <tr>
+                    <td>{{ loop.index + 1 }}</td>
+                    <td>{{ country.shortName }}</td>
+                    <td>{{ country.nameRus }}</td>
+                    <td>{{ country.continent.name }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
     <div class="tab-pane" id="tabs-9">
         <table class="table table-striped table-dictionaries">
@@ -110,7 +127,24 @@
         {% include "fragments/dictionary-table" with {"dicts": federalDistricts } %}
     </div>
     <div class="tab-pane" id="tabs-11">
-        {% include "fragments/dictionary-table" with {"dicts": uci } %}
+        <table class="table table-striped">
+            <thead>
+                <th>№</th>
+                <th>Обозначение</th>
+                <th>Название</th>
+                <th>Вид</th>
+            </thead>
+            <tbody>
+                {% for uciItem in uci %}
+                    <tr>
+                        <td>{{ loop.index + 1 }}</td>
+                        <td>{{ uciItem.shortName }}</td>
+                        <td>{{ uciItem.name }}</td>
+                        <td>{{ uciItem.vid.name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
     <div class="tab-pane" id="tabs-12">
         <table class="table table-striped table-dictionaries">
