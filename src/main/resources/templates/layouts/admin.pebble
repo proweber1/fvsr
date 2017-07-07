@@ -26,7 +26,11 @@
     <title>Система учета данных Федерации велосипедного спорта России</title>
 </head>
 
-<body class="dashboard-page">
+<body>
+<script>
+    if (localStorage.getItem('aside-state') === 'true')
+        document.body.classList.add('toggle-close');
+</script>
 
 <div id="main">
 

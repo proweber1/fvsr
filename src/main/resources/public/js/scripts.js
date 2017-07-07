@@ -30,6 +30,12 @@ document.getElementById('toggle_sidemenu_l')
 			document.body.classList.toggle('toggle-open');
 			document.body.classList.remove('toggle-close');
 		}
+
+	if (document.body.classList.contains('toggle-close')) {
+		localStorage.setItem('aside-state', 'true');
+	} else {
+		localStorage.setItem('aside-state', 'false');
+	}
 };
 
 $.datetimepicker.setLocale('ru');
