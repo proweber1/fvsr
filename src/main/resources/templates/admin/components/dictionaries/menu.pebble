@@ -1,0 +1,36 @@
+{% set URI = request.GetRequestURI() %}
+<ul class="nav nav-pills nav-stacked">
+    <li class="{{ URI == '/dictionaries' ? 'active' : null }}">
+        <a href="{{ href('/dictionaries') }}">Спорт. звания</a>
+    </li>
+    <li class="{{ URI == '/dictionaries/countries' ? 'active' : null }}">
+        <a href="{{ href('/dictionaries/countries') }}">Страны</a>
+    </li>
+    <li>
+        <a>Вид спорта</a>
+    </li>
+    <li>
+        <a>Категории</a>
+    </li>
+    <li>
+        <a>Дисциплина</a>
+    </li>
+    <li>
+        <a>Возрастные группы</a>
+    </li>
+    <li>
+        <a>Результат заезда</a>
+    </li>
+    <li>
+        <a>Континенты</a>
+    </li>
+    <li>
+        <a>Субъекты РФ</a>
+    </li>
+    <li>
+        <a>Федеральные округи</a>
+    </li>
+    <li>
+        <a>Классификация UCI</a>
+    </li>
+</ul>

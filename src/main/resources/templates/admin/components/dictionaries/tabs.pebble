@@ -73,10 +73,10 @@
             </table>
         </div>
         <div class="tab-pane" id="tabs-2">
-            {% include "fragments/dictionary-table-light" with {"dicts": vid} %}
+            {% include "admin/components/dictionaries/table-light" with {"dicts": vid} %}
         </div>
         <div class="tab-pane" id="tabs-3">
-            {% include "fragments/dictionary-table" with {"dicts": categories} %}
+            {% include "admin/components/dictionaries/table" with {"dicts": categories} %}
         </div>
         <div class="tab-pane" id="tabs-4">
             <table class="table table-striped table-dictionaries table__refact">
@@ -107,10 +107,10 @@
             </table>
         </div>
         <div class="tab-pane" id="tabs-5">
-            {% include "fragments/dictionary-table" with {"dicts": participants} %}
+            {% include "admin/components/dictionaries/table" with {"dicts": participants} %}
         </div>
         <div class="tab-pane" id="tabs-6">
-            {% include "fragments/dictionary-table" with {"dicts": resultStates} %}
+            {% include "admin/components/dictionaries/table" with {"dicts": resultStates} %}
         </div>
         <div class="tab-pane" id="tabs-7">
             <table class="table table-striped table-dictionaries table__refact">
@@ -189,7 +189,7 @@
             </table>
         </div>
         <div class="tab-pane" id="tabs-10">
-            {% include "fragments/dictionary-table" with {"dicts": federalDistricts } %}
+            {% include "admin/components/dictionaries/table" with {"dicts": federalDistricts } %}
         </div>
         <div class="tab-pane" id="tabs-11">
             <table class="table table-striped table-dictionaries table__refact">
