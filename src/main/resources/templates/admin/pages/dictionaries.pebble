@@ -1,0 +1,21 @@
+{% extends "layouts/admin" %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3">
+        {% include "admin/components/dictionaries/menu" %}
+    </div>
+    <div class="col-md-9">
+
+        <div class="panel">
+            <div class="panel-body">
+
+                {% include "admin/components/dictionaries/table" %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

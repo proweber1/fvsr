@@ -1,6 +1,6 @@
 <p class="pagination__info">
-    Всего записей: {{ pages.getTotalElements() }}.
+    Всего записей: {{ pages.totalElements }}.
     Страница
-    {{ pages.getNumber() + 1 }} из
-    {{ pages.getTotalPages() }}
+    {{ pages.number + 1 }} из
+    {{ pages.totalPages }}
 </p>

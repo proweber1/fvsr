@@ -11496,6 +11496,11 @@ th {
   max-width: 100%;
   margin-bottom: 18px; }
 
+@media (min-width: 1400px) {
+  .table {
+    max-width: 1200px; }
+}
+
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -14715,9 +14720,6 @@ dd {
 .btn-toggle.active:hover {
   background-color: #84bf43!important;
   border-color: #77ad3b!important;
-}
-.table-dictionaries {
-  width: auto;
 }
 .dictionaries__tabs {
   display: flex;
