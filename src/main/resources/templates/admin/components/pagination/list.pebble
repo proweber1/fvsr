@@ -1,4 +1,4 @@
-
+{% if pages.totalPages > 1 %}
 {% set pageSize = pages.getSize() %}
 
 <div class="row">
@@ -48,3 +48,4 @@
         </ul>
     </div>
 </div>
+{% endif %}
