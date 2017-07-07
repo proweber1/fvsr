@@ -15,14 +15,21 @@
             <tbody>
 
             {% for competition in competitions %}
+
             {% set isRange = (competition.dateBegin != competition.dateEnd) %}
+            {% set diffMonth = (competition.dateBegin.month != competition.dateEnd.month) %}
             <tr>
                 <td class="text-center text-nowrap">
                     {{ competition.dateBegin | date('dd') }}
                     {{ isRange ? '- '+ competition.dateEnd | date('dd') : null }}
 
-                    <div class="text-center">{{ competition.dateEnd | date('MMMM') }}</div>
-                    {{ competition.dateEnd | date('yyyy') }}
+                    <div class="block">
+                        {{ competition.dateBegin | date('MMMM') }}
+                        {{ diffMonth ? '- '+ competition.dateEnd | date('MMMM') : null }}
+                    </div>
+                    <div class="text-muted">
+                        {{ competition.dateEnd | date('yyyy') }}
+                    </div>
                 </td>
                 <td class="text-center">
                     <img src="{{ href('/image/vids/vid_'+ competition.vid.id +'.png') }}"
