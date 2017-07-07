@@ -13,7 +13,7 @@
             <input class="form-control" type="text" name="name"
                    placeholder="Введите название соревнования"
                    id="competition__name"
-                   value="{{ form.name }}">
+                   value="{{ form.name | trim }}">
 
             {% for error in getFieldErrors('form', 'name') %}
             <small class="error-field text-danger">{{ error }}</small>
@@ -65,7 +65,7 @@
             <input class="form-control input-sm" type="text" name="place"
                    id="competition__place"
                    placeholder="Например: Москва"
-                   value="{{ form.place }}">
+                   value="{{ form.place | trim }}">
 
             {% for error in getFieldErrors('form', 'place') %}
             <small class="error-field text-danger">{{ error }}</small>

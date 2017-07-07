@@ -10981,6 +10981,9 @@ a.text-system:hover {
 .text-dark {
   color: #3b3f4f; }
 
+.text-dark-i {
+  color: #3b3f4f !important; }
+
 a.text-dark:hover {
   color: #000000; }
 

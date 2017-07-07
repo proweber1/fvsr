@@ -1,36 +1,49 @@
 {% include "admin/components/pagination/info" with { "pages": competitions } %}
 
-<div class="table-double">
+<div class="competitions__table">
     <div class="over-x-auto">
         <table class="table table-striped text-left mbn">
             <thead>
                 <tr class="ws-no">
-                    <th class="date">Даты</th>
-                    <th>Вид</th>
+                    <th class="text-center">Даты</th>
+                    <th class="text-center">Вид</th>
                     <th>Название</th>
                     <th>Место</th>
-                    <th>Субъект</th>
-                    <th>Страна</th>
+                    <th>Страна/Субъект</th>
                 </tr>
             </thead>
             <tbody>
 
             {% for competition in competitions %}
+            {% set isRange = (competition.dateBegin != competition.dateEnd) %}
             <tr>
-                <td class="text-center">
-                    {{ competition.dateBegin | date('dd.MM.yyyy') }}
-                    <div>-</div>
-                    {{ competition.dateEnd | date('dd.MM.yyyy') }}
+                <td class="text-center text-nowrap">
+                    {{ competition.dateBegin | date('dd') }}
+                    {{ isRange ? '- '+ competition.dateEnd | date('dd') : null }}
+
+                    <div class="text-center">{{ competition.dateEnd | date('MMMM') }}</div>
+                    {{ competition.dateEnd | date('yyyy') }}
                 </td>
-                <td>{{ competition.vid.name }}</td>
                 <td>
-                    <a href="{{ href('/competitions/' + competition.id) }}">
-                        {{ competition.name }}
-                    </a>
+                    <img src="{{ href('/image/vids/vid_'+ competition.vid.id +'.png') }}"
+                         title="{{ competition.vid.name }}"
+                         alt="Иконка {{ competition.vid.name }}">
+                    <div class="text-center">
+                        {{ competition.vid.name }}
+                    </div>
+                </td>
+                <td>
+                    <h3 class="h4 mtn">
+                        <a href="{{ href('/competitions/' + competition.id) }}">
+                            {{ competition.name }}
+                        </a>
+                    </h3>
                 </td>
                 <td class="text-nowrap">{{ competition.place }}</td>
-                <td>{{ competition.subject.name }}</td>
-                <td>{{ competition.country.nameRus }}</td>
+                <td>
+                    {{ competition.country.nameRus | trim }},
+                    {{ competition.subject.name | trim }}
+                </td>
             </tr>
             {% else %}
             <tr>
@@ -45,4 +58,5 @@
 
 <div class="mt15">
     {% include "admin/components/pagination/info" with { "pages": competitions } %}
+    {% include "admin/components/pagination/list" with { "pages": competitions } %}
 </div>
