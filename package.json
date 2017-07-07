@@ -1,0 +1,20 @@
+{
+  "name": "fvsr.dev",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.polexpert.us/fsvr/admin-area.git"
+  },
+  "author": "Lookin",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.1.0"
+  }
+}
