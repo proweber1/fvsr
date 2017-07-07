@@ -21,6 +21,7 @@ public class TeamsController {
      * Repository for work with vid
      */
     private final VidRepository vidRepository;
+
     /**
      * Repository for work with race types
      */
