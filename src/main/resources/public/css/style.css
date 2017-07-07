@@ -14764,6 +14764,23 @@ dd {
 .dictionaries__tabs .tab-pane {
   overflow-x: auto;
 }
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+.animate .navbar-brand, .animate .sidebar-header, .animate .sidebar-title {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)
 ================================================= */
