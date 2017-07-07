@@ -3,6 +3,7 @@
 {% block content %}
 
 {% set isRange = (competition.dateBegin != competition.dateEnd) %}
+{% set diffMonth = (competition.dateBegin.month != competition.dateEnd.month) %}
 <div class="row">
     <div class="col-md-12">
 
@@ -19,12 +20,13 @@
                         <div class="competition__preview-dates">
 
                             <div class="competition__preview-numbers">
-                                {{ competition.dateBegin | date('d') }}
-                                {{ isRange ? '- '+ competition.dateEnd | date('d') : null }}
+                                {{ competition.dateBegin | date('dd') }}
+                                {{ isRange ? '- '+ competition.dateEnd | date('dd') : null }}
                             </div>
 
                             <div class="competition__preview-month">
-                                {{ competition.dateEnd | date('MMMM') }}
+                                {{ competition.dateBegin | date('MMMM') }}
+                                {{ diffMonth ? '- '+ competition.dateEnd | date('MMMM') : null }}
                             </div>
                             <div class="competition__preview-year">
                                 {{ competition.dateEnd | date('yyyy') }}
@@ -38,7 +40,17 @@
                         {{ competition.name }}
                     </h1>
                     <div class="block">
+                        <img src="{{ href('/image/vids/vid_'+ competition.vid.id +'.png') }}"
+                             class="mr15"
+                             title="{{ competition.vid.name }}"
+                             alt="Иконка типа состязания: {{ competition.vid.name }}">
+
                         Тип гонки: {{ competition.vid.name | trim }}
+
+                        <img src="{{ href('/image/vids/vid_'+ competition.vid.id +'.png') }}"
+                             class="ml15"
+                             title="{{ competition.vid.name | trim }}"
+                             alt="Иконка типа состязания: {{ competition.vid.name }}">
                     </div>
                     <div class="block">
                         <a href="{{ href('/competitions/'+ competition.id +'/update') }}">
@@ -53,17 +65,7 @@
                         {{ competition.subject.name | trim }}
                     </div>
                     <div class="h3 block mt5">
-                        <img src="{{ href('/image/vids/vid_'+ competition.vid.id +'.png') }}"
-                             class="mr15"
-                             title="{{ competition.vid.name }}"
-                             alt="Иконка типа состязания: {{ competition.vid.name }}">
-
                         {{ competition.place }}
-
-                        <img src="{{ href('/image/vids/vid_'+ competition.vid.id +'.png') }}"
-                             class="ml15"
-                             title="{{ competition.vid.name | trim }}"
-                             alt="Иконка типа состязания: {{ competition.vid.name }}">
                     </div>
                 </div>
             </div>
