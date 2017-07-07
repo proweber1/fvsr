@@ -14857,6 +14857,8 @@ dd {
     transition: width 0.2s ease; }
   .toggle-close #sidebar_left .sidebar-header {
     display: none; }
+  .toggle-close #sidebar_left .sidebar-title {
+    display: none; }
   .toggle-close #sidebar_left .sidebar-menu > li > a > span:nth-child(1) {
     padding-left: 0; }
   .toggle-close #content_wrapper,
@@ -14883,6 +14885,8 @@ dd {
     transition: width 0.2s ease; }
   .sidebar-header {
     display: none; }
+  .sidebar-title {
+    display: none; }
   #content_wrapper, #content-footer {
     margin-left: 60px;
     -webkit-transition: margin 0.2s ease;
@@ -14906,6 +14910,8 @@ dd {
     transition: width 0.2s ease; }
   .toggle-open #sidebar_left .sidebar-header {
     display: block; }
+  .toggle-open #sidebar_left .sidebar-title {
+    display: inline-block; }
   .toggle-open #sidebar_left .sidebar-menu > li > a > span:nth-child(1) {
     padding-left: 13px; }
   .toggle-open .tooltip {
