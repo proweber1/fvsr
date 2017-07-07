@@ -64,6 +64,7 @@ public class TeamsController {
     @GetMapping("/{id}/members")
     public String view(final Model ui) {
         ui.addAttribute("raceTypes", raceTypesRepository.findAllByOrderByVidIdAsc());
+        ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
 
         return "race-view";
     }

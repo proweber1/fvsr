@@ -14728,6 +14728,7 @@ dd {
 .dictionaries__tabs .nav-tabs li a,
 .dictionaries__tabs .nav-tabs li.active a{
   border: none;
+  padding: 10px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -14741,6 +14742,19 @@ dd {
 .dictionaries__tabs .tab-content {
   flex-basis: 100%;
   -webkit-flex-basis: 100%;
+}
+.dictionaries__tabs .nav-tabs li.active + .sub-tabs {
+  display: block;
+}
+.dictionaries__tabs .sub-tabs {
+  display: none;
+}
+.dictionaries__tabs .sub-tabs .nav-tabs {
+  padding-left: 10px;
+  margin-right: 0;
+}
+.dictionaries__tabs .nav-tabs li.active .fa-angle-right:before {
+  content: "\f107";
 }
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)

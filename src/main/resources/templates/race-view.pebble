@@ -1,6 +1,7 @@
 {% extends "layouts/admin" %}
 
 {% block content %}
+{% set url = "/race-types/" %}
 
 <div class="row">
     <!-- Three Pane Widget-->
@@ -8,26 +9,38 @@
         <!-- dashboard activity-->
         <div data-panel-title="false" class="panel sort-disable">
             <div class="panel-body pn">
-                <table class="table table-striped table-dictionaries">
-                    <thead>
-                    <tr>
-                        <th class="w50">№</th>
-                        <th>Название</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for raceType in raceTypes %}
-                    <tr>
-                        <td class="w50">{{ loop.index + 1 }}</td>
-                        <td>{{ raceType.name }}</td>
-                    </tr>
-                    {% else %}
-                    <tr>
-                        <td colspan="2">Список пуст</td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                <div class="dictionaries__tabs">
+                    <ul class="nav nav-tabs">
+                        {% for item in vid %}
+                        <li class="{{ request.GetRequestURI() == (url + item.id + '/members')
+                                    ? 'active' : null }}">
+                            <a href="{{ href(url + item.id + '/members') }}">{{ item.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="tab-content">
+                        <table class="table table-striped table-dictionaries">
+                            <thead>
+                            <tr>
+                                <th class="w50">№</th>
+                                <th>Название</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for raceType in raceTypes %}
+                            <tr>
+                                <td class="w50">{{ loop.index + 1 }}</td>
+                                <td>{{ raceType.name }}</td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="2">Список пуст</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
