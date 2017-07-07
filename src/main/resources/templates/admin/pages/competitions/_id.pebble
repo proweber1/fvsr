@@ -1,33 +1,71 @@
 {% extends "layouts/admin" %}
 
 {% block content %}
+
+{% set isRange = (competition.dateBegin != competition.dateEnd) %}
 <div class="row">
-    <div class="col-md-12 admin-grid">
+    <div class="col-md-12">
 
-        <div class="panel sort-disable">
-            <div class="panel-body pn">
-                <div class="calendar">Тут будет мега календарь</div>
+        <div class="panel">
+            <div class="panel-body">
 
-                <dl>
-                    <dt>Название:</dt>
-                        <dd>{{ competition.name }}</dd>
-                    <dt>Место:</dt>
-                        <dd>{{ competition.place }}</dd>
-                    <dt>Дата начала:</dt>
-                        <dd>{{ competition.dateBegin | date('dd.MM.yyyy') }}</dd>
+                <div class="competition__preview">
+                    <img src="{{ href('/image/tracks/vid_'+ competition.vid.id +'.jpg') }}"
+                         class="competition__preview-img"
+                         alt="Превью {{ competition.vid.name }}">
 
-                    {% if competition.dateEnd is not empty %}
-                    <dt>Дата окончания:</dt>
-                        <dd>{{ competition.dateEnd | date('dd.MM.yyyy') }}</dd>
-                    {% endif %}
+                    <div class="competition__preview-info">
 
-                    <dt>Страна:</dt>
-                        <dd>{{ competition.country.nameRus | default('-') }}</dd>
-                    <dt>Вид:</dt>
-                        <dd>{{ competition.vid.name | default('-') }}</dd>
-                    <dt>Субъект:</dt>
-                        <dd>{{ competition.subject.name | default('-') }}</dd>
-                </dl>
+                        <div class="competition__preview-dates">
+
+                            <div class="competition__preview-numbers">
+                                {{ competition.dateBegin | date('d') }}
+                                {{ isRange ? '- '+ competition.dateEnd | date('d') : null }}
+                            </div>
+
+                            <div class="competition__preview-month">
+                                {{ competition.dateEnd | date('MMMM') }}
+                            </div>
+                            <div class="competition__preview-year">
+                                {{ competition.dateEnd | date('yyyy') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block text-center">
+                    <h1 class="h1">
+                        {{ competition.name }}
+                    </h1>
+                    <div class="block">
+                        Тип гонки: {{ competition.vid.name | trim }}
+                    </div>
+                    <div class="block">
+                        <a href="{{ href('/competitions/'+ competition.id +'/update') }}">
+                            <i class="fa fa-pencil mr5"></i>
+                            Редактировать
+                        </a>
+                    </div>
+
+                    <div class="block mt25">
+                        <i class="fa fa-map-marker mr5"></i>
+                        {{ competition.country.nameRus | trim }},
+                        {{ competition.subject.name | trim }}
+                    </div>
+                    <div class="h3 block mt5">
+                        <img src="{{ href('/image/vids/vid_'+ competition.vid.id +'.png') }}"
+                             class="mr15"
+                             title="{{ competition.vid.name }}"
+                             alt="Иконка типа состязания: {{ competition.vid.name }}">
+
+                        {{ competition.place }}
+
+                        <img src="{{ href('/image/vids/vid_'+ competition.vid.id +'.png') }}"
+                             class="ml15"
+                             title="{{ competition.vid.name | trim }}"
+                             alt="Иконка типа состязания: {{ competition.vid.name }}">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
