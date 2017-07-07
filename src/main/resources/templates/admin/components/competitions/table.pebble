@@ -24,13 +24,12 @@
                     <div class="text-center">{{ competition.dateEnd | date('MMMM') }}</div>
                     {{ competition.dateEnd | date('yyyy') }}
                 </td>
-                <td>
+                <td class="text-center">
                     <img src="{{ href('/image/vids/vid_'+ competition.vid.id +'.png') }}"
                          title="{{ competition.vid.name }}"
                          alt="Иконка {{ competition.vid.name }}">
-                    <div class="text-center">
-                        {{ competition.vid.name }}
-                    </div>
+
+                    <div class="block">{{ competition.vid.name | trim }}</div>
                 </td>
                 <td>
                     <h3 class="h4 mtn">
