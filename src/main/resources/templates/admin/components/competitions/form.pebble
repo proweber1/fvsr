@@ -3,81 +3,49 @@
 <form method="POST" name="competitionsSave" action="{{ href('/competitions/save') }}"
       role="form" class="form-horizontal">
 
-    {% for err in getAllErrors('competitionsSave') %}
-    <p>{{ err }}</p>
-    {% endfor %}
-
     {% if isEdit %}
     <input type="hidden" name="id" value="{{ form.id }}">
     {% endif %}
 
-    <div class="form-group">
+    <div class="form-group {{ hasFieldErrors('form', 'name') ? 'has-error' : null }}">
         <div class="col-sm-12">
             <label for="competition__name" class="h3 mtn">Название</label>
             <input class="form-control" type="text" name="name"
+                   placeholder="Введите название соревнования"
                    id="competition__name"
                    value="{{ form.name }}">
 
-            {% for error in getFieldErrors('competitionsSave', 'name') %}
+            {% for error in getFieldErrors('form', 'name') %}
             <small class="error-field text-danger">{{ error }}</small>
             {% endfor %}
         </div>
     </div>
+
     <div class="form-group">
-        <div class="col-sm-6">
-            <label>Место</label>
-            <input class="form-control input-sm" type="text" name="place"
-                   value="{{ form.place }}">
-        </div>
-        <div class="col-sm-3">
-            <label>Дата начала</label>
-            <input class="form-control input-sm datepicker" type="text" name="dateBegin"
-                   value="{{ form.dateBegin | date('dd.MM.yyyy') }}">
-        </div>
-        <div class="col-sm-3">
-            <label>Дата окончания</label>
-            <input class="form-control input-sm datepicker" type="text" name="dateEnd"
-                   value="{{ form.dateEnd | date('dd.MM.yyyy') }}">
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-sm-4">
-            <label>Страна</label>
-            <select class="form-control input-sm" type="text" name="country">
+        <div class="col-sm-4 {{ hasFieldErrors('form', 'country') ? 'has-error' : null }}">
+            <label for="competition__country">Страна</label>
+            <select class="form-control input-sm" type="text"
+                    id="competition__country"
+                    name="country">
                 <option value="">Выберите страну</option>
 
                 {% for country in countries %}
                 <option value="{{ country.id }}"
                         {{ form.country.id == country.id ? 'selected' : null }}>
-                    {{ country.nameRus }}
+                {{ country.nameRus }}
                 </option>
                 {% endfor %}
             </select>
 
-            {% for error in getFieldErrors('competitionsSave', 'country') %}
+            {% for error in getFieldErrors('form', 'country') %}
             <small class="error-field text-danger">{{ error }}</small>
             {% endfor %}
         </div>
-        <div class="col-sm-4">
-            <label>Вид</label>
-            <select class="form-control input-sm" type="text" name="vid">
-                <option value="">Выберите вид</option>
-
-                {% for vid in vids %}
-                <option value="{{ vid.id }}"
-                        {{ form.vid.id == vid.id ? 'selected' : null }}>
-                    {{ vid.name }}
-                </option>
-                {% endfor %}
-            </select>
-
-            {% for error in getFieldErrors('competitionsSave', 'vid') %}
-            <small class="error-field text-danger">{{ error }}</small>
-            {% endfor %}
-        </div>
-        <div class="col-sm-4">
-            <label>Субъект</label>
-            <select class="form-control input-sm" type="text" name="subject">
+        <div class="col-sm-4 {{ hasFieldErrors('form', 'subject') ? 'has-error' : null }}">
+            <label for="competition__subject">Субъект</label>
+            <select class="form-control input-sm" type="text"
+                    id="competition__subject"
+                    name="subject">
                 <option value="">Выберите субъект</option>
 
                 {% for subject in federalSubjects %}
@@ -88,9 +56,54 @@
                 {% endfor %}
             </select>
 
-            {% for error in getFieldErrors('competitionsSave', 'subject') %}
+            {% for error in getFieldErrors('form', 'subject') %}
             <small class="error-field text-danger">{{ error }}</small>
             {% endfor %}
+        </div>
+        <div class="col-sm-4 {{ hasFieldErrors('form', 'place') ? 'has-error' : null }}">
+            <label for="competition__place">Место</label>
+            <input class="form-control input-sm" type="text" name="place"
+                   id="competition__place"
+                   placeholder="Например: Москва"
+                   value="{{ form.place }}">
+
+            {% for error in getFieldErrors('form', 'place') %}
+            <small class="error-field text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4  {{ hasFieldErrors('form', 'vid') ? 'has-error' : null }}">
+            <label for="competition__vid">Вид</label>
+            <select class="form-control input-sm" type="text" name="vid"
+                    id="competition__vid">
+                <option value="">Выберите вид</option>
+
+                {% for vid in vids %}
+                <option value="{{ vid.id }}"
+                        {{ form.vid.id == vid.id ? 'selected' : null }}>
+                {{ vid.name }}
+                </option>
+                {% endfor %}
+            </select>
+
+            {% for error in getFieldErrors('form', 'vid') %}
+            <small class="error-field text-danger">{{ error }}</small>
+            {% endfor %}
+        </div>
+        <div class="col-sm-2">
+            <label for="competition__begin">Дата начала</label>
+            <input class="form-control input-sm datepicker" type="text" name="dateBegin"
+                   id="competition__begin"
+                   placeholder="01.01.2001"
+                   value="{{ form.dateBegin | date('dd.MM.yyyy') }}">
+        </div>
+        <div class="col-sm-2">
+            <label for="competition__end" class="text-nowrap">Дата окончания</label>
+            <input class="form-control input-sm datepicker" type="text" name="dateEnd"
+                   id="competition__end"
+                   placeholder="02.01.2001"
+                   value="{{ form.dateEnd | date('dd.MM.yyyy') }}">
         </div>
     </div>
     <div class="form-group mt25">
