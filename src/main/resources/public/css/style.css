@@ -14593,6 +14593,20 @@ body.sb-l-m #content-footer.affix {
 .table__refact th.date, .table__refact td.date {
   text-align: center;
 }
+.table__refact th a {
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+.table__refact th a .fa{
+  color: #9f9f9f;
+  position: relative;
+  z-index: -1;
+}
+.table__refact th a.active .fa {
+  color: #3f3f3f;
+}
 
 .over-x-auto {
   overflow-x: auto; }
