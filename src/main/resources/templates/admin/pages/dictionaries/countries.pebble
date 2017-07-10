@@ -1,0 +1,29 @@
+{% extends "admin/pages/dictionaries" %}
+
+{% block table %}
+<table class="table table-striped">
+    <thead>
+        <th class="w50">№</th>
+        <th>ISO</th>
+        <th>Обозначение</th>
+        <th>Название</th>
+        <th>Континент</th>
+    </thead>
+    <tbody>
+
+    {% for country in dictionaries %}
+    <tr>
+        <td class="w50">{{ number + (loop.index + 1) }}</td>
+        <td>{{ country.id }}</td>
+        <td>{{ country.shortName }}</td>
+        <td>{{ country.nameRus }}</td>
+        <td>{{ country.continent.name }}</td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="5">Список пуст</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock table %}
