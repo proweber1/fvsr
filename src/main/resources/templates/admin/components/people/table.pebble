@@ -66,7 +66,7 @@
 
                 <td>{{ person.federalSubject.name | default('-') }}</td>
                 <td title="{{ person.team.name }}">{{ person.team.shortName | default('-') }}</td>
-                <td>{{ person.title }}</td>
+                <td>{{ person.title.name }}</td>
 
                 <td class="text-center">
                     <i class="fa {{ person.rider ? 'fa-check text-success' : 'fa-times text-primary' }}"
