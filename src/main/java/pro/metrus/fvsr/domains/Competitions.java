@@ -27,8 +27,6 @@ public class Competitions {
     @NotNull
     private FederalSubject subject;
 
-    private String place;
-
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     @Column(name = "startdate")
     private Date dateBegin;
