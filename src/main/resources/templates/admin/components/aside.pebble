@@ -4,7 +4,7 @@
     <div class="navbar-branding">
         <a href="/" class="navbar-brand">
             <span class="text-white">
-                <img src="/image/fvsr_text.svg" height="70" alt="ФВСР" title="ФВСР">
+                <img src="/image/fvsr_text.svg" height="55" alt="ФВСР" title="ФВСР">
             </span>
         </a>
         <i class="fa fa-bars" id="toggle_sidemenu_l" aria-hidden="true"></i>
@@ -24,9 +24,6 @@
                     <div class="media-body">
                         <div class="media-links"></div>
                         <div class="media-author">Админ сайта</div>
-                        <a href="#" class="mr10">
-                            <i class="fa fa-user" aria-hidden="true"></i> Профиль
-                        </a>
                         <a href="{{ href('/login') }}">
                             <i class="fa fa-fw fa-sign-out"></i> Выйти
                         </a>
