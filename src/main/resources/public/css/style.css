@@ -9512,14 +9512,13 @@ body.onload-check #topbar {
 
 .navbar-branding .navbar-brand {
   position: relative;
-  left: 15px;
+  left: 70px;
+  top: 5px;
   height: 60px;
-  margin-right: 8px;
   padding: 0;
   font-size: 22px;
   font-weight: 300;
   line-height: 58px;
-  letter-spacing: 0.5px;
   color: #e27d7f; }
 
 body.sb-top-lg .navbar-branding .navbar-brand,
@@ -9553,7 +9552,7 @@ body.sb-top-xl .navbar-branding .navbar-brand {
 #toggle_sidemenu_l,
 #toggle_sidemenu_t {
   position: relative;
-  right: -63px;
+  right: -94px;
   cursor: pointer;
   font-size: 28px;
   line-height: 58px;
@@ -13887,7 +13886,7 @@ body.sb-l-m #sidebar_left.sidebar-light .sidebar-menu > li > a > .sidebar-title 
 #sidebar_left.nano {
   padding-top: 82px;
   padding-bottom: 0;
-  padding-left: 15px; }
+  padding-left: 25px; }
 
 .sb-l-m #sidebar_left.nano.affix {
   padding-left: 0; }
@@ -14887,8 +14886,7 @@ dd {
     -webkit-transition: margin 0.2s ease;
     transition: margin 0.2s ease; } }
 .toggle-close .sidebar-menu > li > a > span:nth-child(1) {
-  position: relative;
-  left: 10px;}
+  position: relative;  }
 
 @media (max-width: 1200px) {
   #sidebar_left {
@@ -14916,8 +14914,7 @@ dd {
     transition: margin 0.2s ease; }
   .sidebar-menu > li > a > span:nth-child(1) {
     padding-left: 0;
-    position: relative;
-    left: 10px;}
+    position: relative;  }
   /* =====  */
   .toggle-open #sidebar_left {
     width: 240px; }
@@ -14926,7 +14923,7 @@ dd {
     display: block; }
   .toggle-open #sidebar_left #toggle_sidemenu_l,
   .toggle-open #sidebar_left #toggle_sidemenu_t {
-    right: -63px;
+    right: -94px;
     -webkit-transition: width 0.2s ease;
     transition: width 0.2s ease; }
   .toggle-open #sidebar_left .navbar-branding {
