@@ -7,6 +7,11 @@
         <div class="col-md-12 admin-grid">
 
             <div class="panel sort-disable">
+                <div class="panel-heading">
+                    <span class="panel-title">Соревнования</span>
+
+                    {% include "admin/components/competitions/tools" %}
+                </div>
                 <div class="panel-body pn">
                     {% include "admin/components/competitions/table" %}
                 </div>

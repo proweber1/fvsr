@@ -1,0 +1,6 @@
+<span class="competitions__tools pull-right">
+    <a href="{{ href('/competitions/create') }}" class="btn btn-success">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Добавить
+    </a>
+</span>

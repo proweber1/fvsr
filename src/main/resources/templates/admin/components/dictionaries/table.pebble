@@ -1,0 +1,41 @@
+{% set number = (dictionaries.size * (dictionaries.number + 1) - dictionaries.size) %}
+
+<div class="dictionaries__table">
+    <div class="block">
+        {% include "admin/components/pagination/info" with { "pages": dictionaries } %}
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="w50">№</th>
+            <th>Обозначение</th>
+            <th>Название</th>
+            <th>Обозначение (Eng)</th>
+            <th>Название (Eng)</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for dictionary in dictionaries %}
+        <tr>
+            <td class="w50">{{ number + loop.index + 1 }}</td>
+            <td>{{ dictionary.shortName }}</td>
+            <td>{{ dictionary.name }}</td>
+            <td>{{ dictionary.shortNameEng }}</td>
+            <td>{{ dictionary.nameEng }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="5">Список пуст</td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <div class="mt25">
+        {% include "admin/components/pagination/info" with { "pages": dictionaries } %}
+        {% include "admin/components/pagination/list" with { "pages": dictionaries } %}
+    </div>
+</div>

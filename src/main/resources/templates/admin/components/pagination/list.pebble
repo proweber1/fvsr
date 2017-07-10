@@ -1,26 +1,48 @@
 {% if pages.totalPages > 1 %}
-{% set pageSize = pages.getSize() %}
+{% set pageSize = pages.size %}
 
 <div class="row">
     <div class="form-group col-md-11 pagination-centered">
         <ul class="pagination">
 
             <li class="{{ pages.isFirst() ? 'disabled' : null }}">
-                <a href="{{ href('?pageSize=' + pageSize + '&page=0') }}">&laquo;</a>
+                <a href="{{ href('?') }}">&laquo;</a>
             </li>
             <li class="{{ pages.hasPrevious() ? null : 'disabled' }}">
                 <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.number - 1)) }}">&larr;</a>
             </li>
 
-            <li>
-                <span class="text-dark">{{ pages.number + 1 }}</span>
+            <li class="{{ pages.number - 1 > 0 ? null : 'hidden' }}">
+                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.number - 2)) }}">
+                    {{ pages.number - 1 }}
+                </a>
+            </li>
+            <li class="{{ pages.hasPrevious() ? null : 'hidden' }}">
+                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.number - 1)) }}">
+                    {{ pages.number }}
+                </a>
+            </li>
+
+            <li class="active">
+                <span>{{ pages.number + 1 }}</span>
+            </li>
+
+            <li class="{{ pages.hasNext() ? null : 'hidden' }}">
+                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.number + 1)) }}">
+                    {{ pages.number + 2 }}
+                </a>
+            </li>
+            <li class="{{ pages.number + 2 < pages.totalPages ? null : 'hidden' }}">
+                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.number + 2)) }}">
+                    {{ pages.number + 3 }}
+                </a>
             </li>
 
             <li class="{{ pages.hasNext() ? null : 'disabled' }}">
-                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.number + 1))}}">&rarr;</a>
+                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.number + 1)) }}">&rarr;</a>
             </li>
             <li class="{{ pages.isLast() ? 'disabled' : null }}">
-                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.totalPages - 1))}}">&raquo;</a>
+                <a href="{{ href('?pageSize=' + pageSize + '&page=' + (pages.totalPages - 1)) }}">&raquo;</a>
             </li>
 
         </ul>

@@ -5629,6 +5629,9 @@ tbody.collapse.in {
 .btn .caret {
   margin-left: 0; }
 
+.btn .fa {
+  margin-right: 6px; }
+
 .btn-lg .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
@@ -10978,6 +10981,9 @@ a.text-system:hover {
 .text-dark {
   color: #3b3f4f; }
 
+.text-dark-i {
+  color: #3b3f4f !important; }
+
 a.text-dark:hover {
   color: #000000; }
 
@@ -11489,6 +11495,11 @@ th {
   width: 100%;
   max-width: 100%;
   margin-bottom: 18px; }
+
+@media (min-width: 1400px) {
+  .table {
+    max-width: 1200px; }
+}
 
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -13378,6 +13389,7 @@ body.sb-top.sb-top-collapsed .navbar[class*='bg-'] #toggle_sidemenu_t .fa-caret-
   /* Menu Widget - A Slide-Down Menu. Hidden by default */ }
 
 .sidebar-widget.author-widget {
+  height: 135px;
   padding-top: 30px; }
 
 .sidebar-widget.author-widget .media-left img {
@@ -14710,9 +14722,6 @@ dd {
   background-color: #84bf43!important;
   border-color: #77ad3b!important;
 }
-.table-dictionaries {
-  width: auto;
-}
 .dictionaries__tabs {
   display: flex;
 }
@@ -14721,10 +14730,13 @@ dd {
   flex-direction: column;
   margin-right: 20px;
   border-bottom: none;
+  min-width: 160px;
+  width: 160px;
 }
 .dictionaries__tabs .nav-tabs li a,
 .dictionaries__tabs .nav-tabs li.active a{
   border: none;
+  padding: 10px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
@@ -14736,8 +14748,23 @@ dd {
   background: #f2f2f2;
 }
 .dictionaries__tabs .tab-content {
-  flex-basis: 100%;
-  -webkit-flex-basis: 100%;
+  width: calc(100% - 180px);
+}
+.dictionaries__tabs .nav-tabs li.active + .sub-tabs {
+  display: block;
+}
+.dictionaries__tabs .sub-tabs {
+  display: none;
+}
+.dictionaries__tabs .sub-tabs .nav-tabs {
+  padding-left: 10px;
+  margin-right: 0;
+}
+.dictionaries__tabs .nav-tabs li.active .fa-angle-right:before {
+  content: "\f107";
+}
+.dictionaries__tabs .tab-pane {
+  overflow-x: auto;
 }
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)
@@ -14833,6 +14860,8 @@ dd {
     transition: width 0.2s ease; }
   .toggle-close #sidebar_left .sidebar-header {
     display: none; }
+  .toggle-close #sidebar_left .sidebar-title {
+    display: none; }
   .toggle-close #sidebar_left .sidebar-menu > li > a > span:nth-child(1) {
     padding-left: 0; }
   .toggle-close #content_wrapper,
@@ -14859,6 +14888,8 @@ dd {
     transition: width 0.2s ease; }
   .sidebar-header {
     display: none; }
+  .sidebar-title {
+    display: none; }
   #content_wrapper, #content-footer {
     margin-left: 60px;
     -webkit-transition: margin 0.2s ease;
@@ -14882,6 +14913,8 @@ dd {
     transition: width 0.2s ease; }
   .toggle-open #sidebar_left .sidebar-header {
     display: block; }
+  .toggle-open #sidebar_left .sidebar-title {
+    display: inline-block; }
   .toggle-open #sidebar_left .sidebar-menu > li > a > span:nth-child(1) {
     padding-left: 13px; }
   .toggle-open .tooltip {

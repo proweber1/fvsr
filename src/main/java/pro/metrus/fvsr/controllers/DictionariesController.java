@@ -1,10 +1,13 @@
 package pro.metrus.fvsr.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import pro.metrus.fvsr.domains.Country;
 import pro.metrus.fvsr.domains.Participant;
 import pro.metrus.fvsr.repositories.*;
 
@@ -65,27 +68,45 @@ public class DictionariesController {
         this.uciRepository = uciRepository;
     }
 
-    /**а
+    /**
      * This action showing all dictionaries in system
      *
      * @param ui Spring ui model
+     * @param pageable Spring pageable bean
      * @return template for showing dictionaries
      */
     @GetMapping
-    public String dictionaries(final Model ui) {
+    public String dictionaries(final Model ui, final Pageable pageable) {
         ui.addAttribute("federalDistricts", federalDistrictRepository.findAllByOrderByIdAsc());
         ui.addAttribute("federalSubjects", federalSubjectRepository.findAllByOrderByIdAsc());
         ui.addAttribute("teams", teamRepository.findAllByOrderByShortNameAsc());
-        ui.addAttribute("titles", titleRepository.findAllByOrderByIdAsc());
         ui.addAttribute("raceTypes", raceTypesRepository.findAllByOrderByVidIdAsc());
         ui.addAttribute("categories", categoriesRepository.findAllByOrderByShortNameAsc());
         ui.addAttribute("participants", participantRepository.findAllByOrderByIdAsc());
         ui.addAttribute("resultStates", resultStatusRepository.findAllByOrderByIdAsc());
-        ui.addAttribute("countries", countryRepository.findAllByOrderByShortNameAsc());
         ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
         ui.addAttribute("uci", uciRepository.findAllByOrderByIdAsc());
         ui.addAttribute("continents", continentsRepository.findAllByOrderByShortNameAsc());
 
-        return "dictionaries";
+
+        ui.addAttribute("dictionaries", titleRepository.findAllByOrderByIdAsc(pageable));
+
+        return "admin/pages/dictionaries";
+    }
+
+    /**
+     * This action showing all countries
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing countries
+     */
+    @GetMapping("/countries")
+    public String countries(final Model ui, final Pageable pageable) {
+        Page<Country> all = countryRepository.findAllByOrderByShortNameAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries";
     }
 }
