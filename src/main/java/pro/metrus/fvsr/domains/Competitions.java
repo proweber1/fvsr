@@ -38,7 +38,6 @@ public class Competitions {
     private String nameEng;
 
     @OneToOne
-    @JoinColumn(name = "id_vid")
     @NotNull
     private Vid vid;
 }
