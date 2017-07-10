@@ -13388,7 +13388,7 @@ body.sb-top.sb-top-collapsed .navbar[class*='bg-'] #toggle_sidemenu_t .fa-caret-
   /* Menu Widget - A Slide-Down Menu. Hidden by default */ }
 
 .sidebar-widget.author-widget {
-  height: 135px;
+  height: 110px;
   padding-top: 30px; }
 
 .sidebar-widget.author-widget .media-left img {
