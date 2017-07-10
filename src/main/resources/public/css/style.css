@@ -13388,7 +13388,7 @@ body.sb-top.sb-top-collapsed .navbar[class*='bg-'] #toggle_sidemenu_t .fa-caret-
   /* Menu Widget - A Slide-Down Menu. Hidden by default */ }
 
 .sidebar-widget.author-widget {
-  height: 135px;
+  height: 110px;
   padding-top: 30px; }
 
 .sidebar-widget.author-widget .media-left img {
@@ -14592,6 +14592,20 @@ body.sb-l-m #content-footer.affix {
   white-space: nowrap; }
 .table__refact th.date, .table__refact td.date {
   text-align: center;
+}
+.table__refact th a {
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+.table__refact th a .fa{
+  color: #9f9f9f;
+  position: relative;
+  z-index: -1;
+}
+.table__refact th a.active .fa {
+  color: #3f3f3f;
 }
 
 .over-x-auto {

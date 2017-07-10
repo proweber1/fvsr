@@ -80,3 +80,33 @@ $( document ).ready(function() {
 });
 
 $('.select2').select2();
+
+let sort = document.querySelectorAll('.sort');
+
+sort.forEach((item) => {
+	item.onclick = (e) => {
+		let elem = e.target,
+			elemSort = elem.getAttribute('data-sort');
+
+		let activeSort = document.querySelector('.sort.active');
+		if (activeSort) activeSort.classList.remove('active');
+
+		elem.classList.add('active');
+		localStorage.setItem('sort', elemSort);
+	};
+});
+
+$( document ).ready(function() {
+	let activeSort = localStorage.getItem('sort');
+	if (!activeSort) return;
+
+	document.querySelector('[data-sort="' + activeSort +'"]').classList.add('active');
+});
+
+let navLinks = document.querySelectorAll('.sidebar-menu a');
+
+navLinks.forEach((item) => {
+	item.onclick = () => {
+		localStorage.removeItem('sort');
+	}
+});
