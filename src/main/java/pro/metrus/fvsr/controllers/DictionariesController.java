@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pro.metrus.fvsr.domains.Country;
-import pro.metrus.fvsr.domains.Participant;
 import pro.metrus.fvsr.repositories.*;
 
 /**
@@ -103,7 +102,7 @@ public class DictionariesController {
      */
     @GetMapping("/countries")
     public String countries(final Model ui, final Pageable pageable) {
-        Page<Country> all = countryRepository.findAllByOrderByShortNameAsc(pageable);
+        Page<Country> all = countryRepository.findAllByOrderByNameAsc(pageable);
 
         ui.addAttribute("dictionaries", all);
 
