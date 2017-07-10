@@ -15,7 +15,7 @@ public interface CountryRepository
      *
      * @return Список стран
      */
-    List<Country> findAllByOrderByShortNameAsc();
+    List<Country> findAllByOrderByNameAsc();
 
     /**
      * Возвращает список стран вместе с сортировкой по short name и пагинацией
@@ -23,5 +23,5 @@ public interface CountryRepository
      * @param pageable Spring pageable bean
      * @return Список стран
      */
-    Page<Country> findAllByOrderByShortNameAsc(final Pageable pageable);
+    Page<Country> findAllByOrderByNameAsc(final Pageable pageable);
 }
