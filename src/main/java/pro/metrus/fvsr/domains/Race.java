@@ -48,7 +48,6 @@ public class Race {
 
     /** Соревнование в котором участвует эта гонка */
     @OneToOne
-    @JoinColumn(name = "id_competition")
     @NotNull
     private Competitions competitions;
 }
