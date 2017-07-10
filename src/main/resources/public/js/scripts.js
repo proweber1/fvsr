@@ -88,7 +88,9 @@ sort.forEach((item) => {
 		let elem = e.target,
 			elemSort = elem.getAttribute('data-sort');
 
-		document.querySelector('.sort.active').classList.remove('active');
+		let activeSort = document.querySelector('.sort.active');
+		if (activeSort) activeSort.classList.remove('active');
+
 		elem.classList.add('active');
 		localStorage.setItem('sort', elemSort);
 	};
@@ -99,4 +101,12 @@ $( document ).ready(function() {
 	if (!activeSort) return;
 
 	document.querySelector('[data-sort="' + activeSort +'"]').classList.add('active');
+});
+
+let navLinks = document.querySelectorAll('.sidebar-menu a');
+
+navLinks.forEach((item) => {
+	item.onclick = () => {
+		localStorage.removeItem('sort');
+	}
 });
