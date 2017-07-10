@@ -6,8 +6,8 @@
     <li class="{{ URI == '/dictionaries/countries' ? 'active' : null }}">
         <a href="{{ href('/dictionaries/countries') }}">Страны</a>
     </li>
-    <li>
-        <a>Вид спорта</a>
+    <li class="{{ URI == '/dictionaries/vid' ? 'active' : null }}">
+        <a href="{{ href('/dictionaries/vid') }}">Вид спорта</a>
     </li>
     <li>
         <a>Категории</a>

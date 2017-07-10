@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pro.metrus.fvsr.domains.Country;
 import pro.metrus.fvsr.domains.Participant;
+import pro.metrus.fvsr.domains.Vid;
 import pro.metrus.fvsr.repositories.*;
 
 /**
@@ -104,6 +105,22 @@ public class DictionariesController {
     @GetMapping("/countries")
     public String countries(final Model ui, final Pageable pageable) {
         Page<Country> all = countryRepository.findAllByOrderByShortNameAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries";
+    }
+
+    /**
+     * This action showing all vid`s
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing vid
+     */
+    @GetMapping("/vid")
+    public String vid(final Model ui, final Pageable pageable) {
+        Page<Vid> all = vidRepository.findAllByOrderByIdAsc(pageable);
 
         ui.addAttribute("dictionaries", all);
 
