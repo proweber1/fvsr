@@ -7,9 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pro.metrus.fvsr.domains.Country;
-import pro.metrus.fvsr.domains.Participant;
-import pro.metrus.fvsr.domains.Vid;
+import pro.metrus.fvsr.domains.*;
 import pro.metrus.fvsr.repositories.*;
 
 /**
@@ -78,21 +76,12 @@ public class DictionariesController {
      */
     @GetMapping
     public String dictionaries(final Model ui, final Pageable pageable) {
-        ui.addAttribute("federalDistricts", federalDistrictRepository.findAllByOrderByIdAsc());
-        ui.addAttribute("federalSubjects", federalSubjectRepository.findAllByOrderByIdAsc());
         ui.addAttribute("teams", teamRepository.findAllByOrderByShortNameAsc());
-        ui.addAttribute("raceTypes", raceTypesRepository.findAllByOrderByVidIdAsc());
-        ui.addAttribute("categories", categoriesRepository.findAllByOrderByShortNameAsc());
-        ui.addAttribute("participants", participantRepository.findAllByOrderByIdAsc());
-        ui.addAttribute("resultStates", resultStatusRepository.findAllByOrderByIdAsc());
-        ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
         ui.addAttribute("uci", uciRepository.findAllByOrderByIdAsc());
-        ui.addAttribute("continents", continentsRepository.findAllByOrderByShortNameAsc());
-
 
         ui.addAttribute("dictionaries", titleRepository.findAllByOrderByIdAsc(pageable));
 
-        return "admin/pages/dictionaries";
+        return "admin/pages/dictionaries/titles";
     }
 
     /**
@@ -108,7 +97,7 @@ public class DictionariesController {
 
         ui.addAttribute("dictionaries", all);
 
-        return "admin/pages/dictionaries";
+        return "admin/pages/dictionaries/countries";
     }
 
     /**
@@ -124,6 +113,134 @@ public class DictionariesController {
 
         ui.addAttribute("dictionaries", all);
 
-        return "admin/pages/dictionaries";
+        return "admin/pages/dictionaries/default";
+    }
+
+    /**
+     * This action showing all categories
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing categories
+     */
+    @GetMapping("/categories")
+    public String categories(final Model ui, final Pageable pageable) {
+        Page<Category> all = categoriesRepository.findAllByOrderByShortNameAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries/categories";
+    }
+
+    /**
+     * This action showing all races types
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing races types
+     */
+    @GetMapping("/races-types")
+    public String racesTypes(final Model ui, final Pageable pageable) {
+        Page<RaceType> all = raceTypesRepository.findAllByOrderByVidIdAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries/races-types";
+    }
+
+    /**
+     * This action showing all participants
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing participants
+     */
+    @GetMapping("/participants")
+    public String participants(final Model ui, final Pageable pageable) {
+        Page<Participant> all = participantRepository.findAllByOrderByIdAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries/default";
+    }
+
+    /**
+     * This action showing all result statuses
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing result statuses
+     */
+    @GetMapping("/result-statuses")
+    public String resultStatuses(final Model ui, final Pageable pageable) {
+        Page<ResultStatus> all = resultStatusRepository.findAllByOrderByIdAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries/categories";
+    }
+
+    /**
+     * This action showing all continents
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing continents
+     */
+    @GetMapping("/continents")
+    public String continents(final Model ui, final Pageable pageable) {
+        Page<Continent> all = continentsRepository.findAllByOrderByShortNameAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries/continents";
+    }
+
+    /**
+     * This action showing all federal subjects
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing federal subjects
+     */
+    @GetMapping("/subjects")
+    public String subjects(final Model ui, final Pageable pageable) {
+        Page<FederalSubject> all = federalSubjectRepository.findAllByOrderByIdAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries/subjects";
+    }
+
+    /**
+     * This action showing all districts
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing districts
+     */
+    @GetMapping("/districts")
+    public String districts(final Model ui, final Pageable pageable) {
+        Page<FederalDistrict> all = federalDistrictRepository.findAllByOrderByIdAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries/titles";
+    }
+
+    /**
+     * This action showing all uci
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing uci
+     */
+    @GetMapping("/uci")
+    public String uci(final Model ui, final Pageable pageable) {
+        Page<Uci> all = uciRepository.findAllByOrderByIdAsc(pageable);
+
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries/uci";
     }
 }

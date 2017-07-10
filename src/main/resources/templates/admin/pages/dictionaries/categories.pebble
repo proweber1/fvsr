@@ -1,0 +1,32 @@
+{% extends "admin/pages/dictionaries" %}
+
+{% block table %}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th class="w50">№</th>
+        <th>Обозначение</th>
+        <th>Название</th>
+        <th>Обозначение (Eng)</th>
+        <th>Название (Eng)</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    {% for item in dictionaries %}
+    <tr>
+        <td class="w50">{{ number + (loop.index + 1) }}</td>
+        <td>{{ item.shortName }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.shortNameEng }}</td>
+        <td>{{ item.nameEng }}</td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="5">Список пуст</td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+</table>
+{% endblock table %}
