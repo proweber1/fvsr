@@ -27,7 +27,7 @@
                         <a href="#" class="mr10">
                             <i class="fa fa-user" aria-hidden="true"></i> Профиль
                         </a>
-                        <a href="/login">
+                        <a href="{{ href('/login') }}">
                             <i class="fa fa-fw fa-sign-out"></i> Выйти
                         </a>
                     </div>

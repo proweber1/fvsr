@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+
+    <head>
+        <meta name="viewport"
+              content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta charset="utf-8">
+
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="/css/jquery.datetimepicker.css">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/admin.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=cyrillic-ext" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&amp;subset=cyrillic-ext" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <title>Система учета данных Федерации велосипедного спорта России</title>
+    </head>
+
+    <body class="body-clear">
+    <!-- Start: Main-->
+        <div id="login" class="animated fadeIn">
+            <!-- Start: Content-Wrapperr-->
+            <section id="content_wrapper" class="bg-gradient-1 well-cover">
+                <!-- Begin: Content-->
+                <section id="content">
+                    <div class="content__wrapper">
+                        <div class="admin-form theme-info mw500">
+                            <!-- Login Panel/Forms-->
+                            <div class="panel mb25">
+                                <div class="text-center mb15">
+                                    <img src="/image/fvsr_text.svg" height="70" alt="ФВСР" title="ФВСР">
+                                </div>
+                                <form  method="get" class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label>Логин</label>
+                                            <input class="form-control" type="text"
+                                                   placeholder="Введите логин" name="login">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <label>Пароль</label>
+                                            <input class="form-control" type="password"
+                                                   placeholder="Введите пароль" name="password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12 text-center">
+                                            <button type="submit" class="btn btn-login">
+                                                <i class="fa fa-sign-in"></i> Войти
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </body>
+</html>
