@@ -19,6 +19,8 @@ public class Result {
     @JoinColumn(name = "id_race")
     private Race race;
 
+    private String bib;
+    private String rank;
     private Integer num;
     private Integer place;
 
@@ -36,13 +38,7 @@ public class Result {
     @OneToOne
     @JoinColumn(name = "id_team")
     private Team team;
-
-    @OneToOne
-    @JoinColumn(name = "id_people_old")
-    private Person oldPerson;
-
-    @Column(name = "time_result")
-    private LocalDateTime timeResult;
+    private String points;
 
     @OneToOne
     @JoinColumn(name = "id_result_status")

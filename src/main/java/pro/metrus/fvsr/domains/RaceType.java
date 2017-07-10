@@ -3,16 +3,19 @@ package pro.metrus.fvsr.domains;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "race_type")
 @Getter
 @Setter
 public class RaceType extends AbstractDictionary {
+
+    @Column(name = "name_eng")
+    private String nameEng;
+
+    @Column(name = "name_short_name")
+    private String nameShortName;
 
     /** Вид соревнования */
     @OneToOne

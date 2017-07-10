@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 public class Country {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,7 +21,10 @@ public class Country {
     @Column(name = "name")
     private String nameRus;
 
+    @Column(name = "country2")
     private String alpha2;
+
+    private String country3;
 
     @Column(name = "name_short")
     private String shortName;

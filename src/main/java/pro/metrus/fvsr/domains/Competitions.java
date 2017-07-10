@@ -30,17 +30,19 @@ public class Competitions {
     private String place;
 
     @DateTimeFormat(pattern = "dd.MM.yyyy")
-    @Column(name = "date_begin")
+    @Column(name = "startdate")
     private Date dateBegin;
 
     @DateTimeFormat(pattern = "dd.MM.yyyy")
-    @Column(name = "date_end")
+    @Column(name = "enddate")
     private Date dateEnd;
 
-    @OneToOne
-    @JoinColumn(name = "id_country")
-    @NotNull
-    private Country country;
+    private String country3;
+    private String country2;
+    private String classcode;
+
+    @Column(name = "name_eng")
+    private String nameEng;
 
     @OneToOne
     @JoinColumn(name = "id_vid")

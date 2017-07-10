@@ -28,4 +28,5 @@ public class Team extends AbstractDictionaryWithShortName {
             inverseJoinColumns = @JoinColumn(name = "uci_id")
     )
     private List<Uci> ucis;
+    private String country3;
 }
