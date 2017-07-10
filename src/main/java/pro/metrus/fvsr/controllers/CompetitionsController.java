@@ -7,15 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pro.metrus.fvsr.domains.Competitions;
-import pro.metrus.fvsr.domains.Country;
-import pro.metrus.fvsr.domains.FederalSubject;
-import pro.metrus.fvsr.domains.Vid;
+import pro.metrus.fvsr.domains.*;
 import pro.metrus.fvsr.exceptions.NotFoundException;
-import pro.metrus.fvsr.repositories.CompetitionsRepository;
-import pro.metrus.fvsr.repositories.CountryRepository;
-import pro.metrus.fvsr.repositories.FederalSubjectRepository;
-import pro.metrus.fvsr.repositories.VidRepository;
+import pro.metrus.fvsr.repositories.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -63,6 +57,11 @@ public class CompetitionsController {
     private final VidRepository vidRepository;
 
     /**
+     * Repository for work with "Заезды"
+     */
+    private final ResultsRepository resultsRepository;
+
+    /**
      * Конструктор для внедрения зависимостей
      *
      * @param competitionsRepository   Репозиторий для работы с соревнованиями, не должен
@@ -77,12 +76,14 @@ public class CompetitionsController {
             final CompetitionsRepository competitionsRepository,
             final FederalSubjectRepository federalSubjectRepository,
             final CountryRepository countryRepository,
-            final VidRepository vidRepository
+            final VidRepository vidRepository,
+            final ResultsRepository resultsRepository
     ) {
         this.competitionsRepository = competitionsRepository;
         this.federalSubjectRepository = federalSubjectRepository;
         this.countryRepository = countryRepository;
         this.vidRepository = vidRepository;
+        this.resultsRepository =  resultsRepository;
     }
 
     /**
@@ -135,6 +136,7 @@ public class CompetitionsController {
     @GetMapping
     public String list(final Model ui, final Pageable pageable) {
         ui.addAttribute("competitions", competitionsRepository.findAllByOrderByIdAsc(pageable));
+        ui.addAttribute("race", resultsRepository.findAll());
 
         return "admin/pages/competitions/index";
     }

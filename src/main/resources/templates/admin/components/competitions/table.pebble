@@ -2,6 +2,7 @@
 
 <div class="competitions__table">
     <div class="over-x-auto">
+        {{ race }}
         <table class="table table-striped text-left mbn">
             <thead>
                 <tr class="ws-no">
