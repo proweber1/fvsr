@@ -26,9 +26,6 @@ public class Country {
 
     private String country3;
 
-    @Column(name = "name_short")
-    private String shortName;
-
     @OneToOne
     private Continent continent;
 }
