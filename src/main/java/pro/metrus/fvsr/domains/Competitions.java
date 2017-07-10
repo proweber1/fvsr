@@ -22,11 +22,6 @@ public class Competitions {
     @NotEmpty
     private String name;
 
-    @OneToOne
-    @JoinColumn(name = "id_rf_subject")
-    @NotNull
-    private FederalSubject subject;
-
     @DateTimeFormat(pattern = "dd.MM.yyyy")
     @Column(name = "startdate")
     private Date dateBegin;
