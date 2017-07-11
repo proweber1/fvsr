@@ -5,7 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 
 /**
  * Сущность спортсмена
@@ -35,7 +35,7 @@ public class Person {
      */
     private boolean gender;
 
-    private LocalDate birthdate;
+    private Date birthdate;
 
     private String address1;
 

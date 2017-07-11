@@ -76,9 +76,6 @@ public class DictionariesController {
      */
     @GetMapping
     public String dictionaries(final Model ui, final Pageable pageable) {
-        ui.addAttribute("teams", teamRepository.findAllByOrderByShortNameAsc());
-        ui.addAttribute("uci", uciRepository.findAllByOrderByIdAsc());
-
         ui.addAttribute("dictionaries", titleRepository.findAllByOrderByIdAsc(pageable));
 
         return "admin/pages/dictionaries/titles";
@@ -242,5 +239,22 @@ public class DictionariesController {
         ui.addAttribute("dictionaries", all);
 
         return "admin/pages/dictionaries/uci";
+    }
+
+    /**
+     * This action showing all teams
+     *
+     * @param ui Spring ui model
+     * @param pageable Spring pageable bean
+     * @return template for showing teams
+     */
+    @GetMapping("/teams")
+    public String teams(final Model ui, final Pageable pageable) {
+        Page<Team> all = teamRepository.findAllByOrderByShortNameAsc(pageable);
+
+        ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
+        ui.addAttribute("dictionaries", all);
+
+        return "admin/pages/dictionaries/teams";
     }
 }

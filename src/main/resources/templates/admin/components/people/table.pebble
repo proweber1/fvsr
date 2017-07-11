@@ -1,56 +1,47 @@
+{% macro sort(title, param, sortParam=request.getParameter('sort')) %}
+
+{% set order = (sortParam is not null)
+and sortParam.startsWith(param + ",")
+and sortParam.endsWith("asc") %}
+
+{% set ordering = order ? "desc" : "asc" %}
+{% set revers = order ? "asc" : "desc" %}
+
+    <a href="{{ href('?sort='+ param +','+ ordering) }}"
+       class="text-nowrap text-dark {{ order ? 'text-success-i' : null }}">
+
+        {{ title }}
+        <i class="fa fa-sort-amount-{{ revers }} ml5" aria-hidden="true"></i>
+    </a>
+{% endmacro %}
+
 <div class="people-table">
 
     {% include "admin/components/pagination/info" with { "pages": people } %}
 
     <div class="over-x-auto">
-        <table class="table table-striped table__refact mbn">
+        <table class="table table-striped">
             <thead>
                 <tr class="ws-no">
                     <th class="w50">UCI</th>
-                    <th title="№ Федерации">№ фед.</th>
+                    <th class="text-nowrap" title="№ Федерации">№ Фед.</th>
                     <th>
-                        <a data-sort="fio" class="sort"
-                           href="{{ href('?sort=lastname,asc&firstname,asc&patronymic,asc') }}">ФИО
-                            <i class="fa fa-sort-amount-asc ml5" aria-hidden="true"></i>
-                        </a>
+                        {{ sort("ФИО", "lastname") }}
                     </th>
                     <th title="Фамилия и имя на английском">
-                        <a data-sort="fioEn" class="sort"
-                           href="{{ href('?sort=lastnameEng,asc&firstnameEng,asc') }}">ФИ (Eng)
-                            <i class="fa fa-sort-amount-asc ml5" aria-hidden="true"></i>
-                        </a>
+                        {{ sort("ФИ (Eng)", "lastnameEng") }}
                     </th>
                     <th title="День рождение">
-                        <a data-sort="bd" class="sort"
-                           href="{{ href('?sort=birthdate,asc') }}">Д/Р
-                            <i class="fa fa-sort-amount-asc ml5" aria-hidden="true"></i>
-                        </a>
+                        {{ sort("ДР", "birthdate") }}
                     </th>
-                    <th>Пол</th>
+                    <th class="text-center">Пол</th>
                     <th>
-                        <a data-sort="fs" class="sort"
-                           href="{{ href('?sort=federalSubject.name,asc') }}">Субъект РФ
-                            <i class="fa fa-sort-amount-asc ml5" aria-hidden="true"></i>
-                        </a>
+                        {{ sort("Субъект РФ", "federalSubject.name") }}
                     </th>
                     <th>
-                        <a data-sort="team" class="sort"
-                           href="{{ href('?sort=team.shortName,asc') }}">Команда
-                            <i class="fa fa-sort-amount-asc ml5" aria-hidden="true"></i>
-                        </a>
+                        {{ sort("Команда", "team.shortName") }}
                     </th>
-                    <th>Спорт. звание</th>
-                    <th class="text-center" title="Велосипедист">вел</th>
-                    <th class="text-center" title="Комиссар">ком</th>
-                    <th class="text-center" title="Классификатор">кл</th>
-                    <th class="text-center" title="Технический делегат">тд</th>
-                    <th class="text-center" title="Федерация">фед</th>
-                    <th class="text-center" title="Участник команды">ук</th>
-                    <th class="text-center" title="Другая роль">др</th>
-                    <th class="text-center">Трек</th>
-                    <th class="text-center">Шоссе</th>
-                    <th class="text-center" title="Маунтибайк">МБ</th>
-                    <th class="text-center">BMX</th>
+                    <th>Спорт.звание</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,59 +50,43 @@
             <tr>
                 <td class="w50">{{ person.uci }}</td>
                 <td>{{ person.federationNum }}</td>
-                <td>{{ person.lastname }} {{ person.firstname }} {{ person.patronymic }}</td>
+                <td>
+                    {{ person.lastname | default(person.lastnameEng) }}
+                    {{ person.firstname | default(person.firstnameEng) }}
+                    {{ person.patronymic }}
+
+                    <div class="list__positions">
+                        <span title="Велосипедист"
+                              class="{{ person.rider ? null : 'hidden' }}">вел</span>
+                        <span title="Комиссар"
+                              class="{{ person.commissaire ? null : 'hidden' }}">ком</span>
+                        <span title="Классификатор"
+                              class="{{ person.classifier ? null : 'hidden' }}">кл</span>
+                        <span title="Технический делегат"
+                              class="{{ person.techincalDelegate ? null : 'hidden' }}">тд</span>
+                        <span title="Федерация"
+                              class="{{ person.federation ? null : 'hidden' }}">фед</span>
+                        <span title="Участник команды"
+                              class="{{ person.teamMember ? null : 'hidden' }}">ук</span>
+                        <span title="Другая роль"
+                              class="{{ person.otherRole ? null : 'hidden' }}">др</span>
+                        <span title="Трек"
+                              class="{{ person.road ? null : 'hidden' }}">Т</span>
+                        <span title="Шоссе"
+                              class="{{ person.track ? null : 'hidden' }}">Ш</span>
+                        <span title="Маунтибайк"
+                              class="{{ person.mb ? null : 'hidden' }}">МБ</span>
+                        <span title="BMX"
+                              class="{{ person.bmx ? null : 'hidden' }}">BMX</span>
+                    </div>
+                </td>
                 <td>{{ person.lastnameEng }} {{ person.firstnameEng }}</td>
-                <td>{{ person.birthdate }}</td>
-                <td>{{ person.gender ? 'Муж.' : 'Жен.' }}</td>
+                <td>{{ person.birthdate | date('dd.MM.yyyy') }}</td>
+                <td class="text-center">{{ person.gender ? 'М' : 'Ж' }}</td>
 
                 <td>{{ person.federalSubject.name | default('-') }}</td>
                 <td title="{{ person.team.name }}">{{ person.team.shortName | default('-') }}</td>
-                <td>{{ person.title.name }}</td>
-
-                <td class="text-center">
-                    <i class="fa {{ person.rider ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.commissaire ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.classifier ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.techincalDelegate ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.federation ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.teamMember ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.otherRole ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true" ></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.road ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.track ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.mb ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
-                <td class="text-center">
-                    <i class="fa {{ person.bmx ? 'fa-check text-success' : 'fa-times text-primary' }}"
-                       aria-hidden="true"></i>
-                </td>
+                <td>{{ person.title.name | default('-') }}</td>
             </tr>
             {% else %}
             <tr>
