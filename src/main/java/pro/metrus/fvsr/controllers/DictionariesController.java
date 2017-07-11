@@ -6,6 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pro.metrus.fvsr.domains.*;
 import pro.metrus.fvsr.repositories.*;
@@ -248,9 +249,9 @@ public class DictionariesController {
      * @param pageable Spring pageable bean
      * @return template for showing teams
      */
-    @GetMapping("/teams")
-    public String teams(final Model ui, final Pageable pageable) {
-        Page<Team> all = teamRepository.findAllByOrderByShortNameAsc(pageable);
+    @GetMapping("/teams/{vidId}")
+    public String teams(final Model ui, final Pageable pageable, @PathVariable("vidId") final short vidId) {
+        Page<Team> all = teamRepository.findAllByUcisVidIdOrderByShortNameAsc(pageable, vidId);
 
         ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
         ui.addAttribute("dictionaries", all);
