@@ -11,7 +11,20 @@
         <div class="panel">
             <div class="panel-body">
 
-                {% include "admin/components/dictionaries/table" %}
+                {% set number = (dictionaries.size * (dictionaries.number + 1) - dictionaries.size) %}
+
+                <div class="dictionaries__table">
+                    <div class="block">
+                        {% include "admin/components/pagination/info" with { "pages": dictionaries } %}
+                    </div>
+
+                    {% block table %}{% endblock %}
+
+                    <div class="mt25">
+                        {% include "admin/components/pagination/info" with { "pages": dictionaries } %}
+                        {% include "admin/components/pagination/list" with { "pages": dictionaries } %}
+                    </div>
+                </div>
 
             </div>
         </div>

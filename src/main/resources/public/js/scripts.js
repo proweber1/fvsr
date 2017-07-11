@@ -24,19 +24,41 @@ btns.forEach((btn) => {
 document.getElementById('toggle_sidemenu_l')
 	.onclick = () => {
 		if ( window.innerWidth > 1200 ) {
-			document.body.classList.toggle('toggle-close');
-			document.body.classList.remove('toggle-open');
+			asideToggleDesktop();
 		} else {
-			document.body.classList.toggle('toggle-open');
-			document.body.classList.remove('toggle-close');
+			asideToggleTablet();
 		}
 
+	setState();
+};
+function setState() {
 	if (document.body.classList.contains('toggle-close')) {
 		localStorage.setItem('aside-state', 'true');
 	} else {
 		localStorage.setItem('aside-state', 'false');
 	}
-};
+}
+function asideToggleDesktop() {
+	animate('toggle-close');
+	
+	document.body.classList.toggle('toggle-close');
+	document.body.classList.remove('toggle-open');
+}
+function asideToggleTablet() {
+	document.body.classList.toggle('toggle-open');
+	document.body.classList.remove('toggle-close');
+
+	animate('toggle-open');
+}
+function animate(state) {
+	if (document.body.classList.contains(state)) {
+		document.body.classList.add('animate');
+
+		setTimeout(function () {
+			document.body.classList.remove('animate');
+		}, 1000)
+	}
+}
 
 $.datetimepicker.setLocale('ru');
 $( document ).ready(function() {
@@ -58,3 +80,33 @@ $( document ).ready(function() {
 });
 
 $('.select2').select2();
+
+let sort = document.querySelectorAll('.sort');
+
+sort.forEach((item) => {
+	item.onclick = (e) => {
+		let elem = e.target,
+			elemSort = elem.getAttribute('data-sort');
+
+		let activeSort = document.querySelector('.sort.active');
+		if (activeSort) activeSort.classList.remove('active');
+
+		elem.classList.add('active');
+		localStorage.setItem('sort', elemSort);
+	};
+});
+
+$( document ).ready(function() {
+	let activeSort = localStorage.getItem('sort');
+	if (!activeSort) return;
+
+	document.querySelector('[data-sort="' + activeSort +'"]').classList.add('active');
+});
+
+let navLinks = document.querySelectorAll('.sidebar-menu a');
+
+navLinks.forEach((item) => {
+	item.onclick = () => {
+		localStorage.removeItem('sort');
+	}
+});

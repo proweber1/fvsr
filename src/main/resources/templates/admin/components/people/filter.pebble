@@ -5,7 +5,7 @@
                 <div class="">
                     <label>Пол</label>
                     <select class="form-control input-sm w75"
-                            name="gender" type="text" th:field="*{gender}">
+                            name="gender" type="text">
                         <option value="true">Муж.</option>
                         <option value="false">Жен.</option>
                     </select>
@@ -24,10 +24,11 @@
                 <div class="col-sm-12">
                     <label>Субъект РФ</label>
                     <select class="form-control input-sm" multiple
-                            name="subject_id" type="text" th:field="*{federalSubjectId}">
+                            name="subject_id" type="text">
                         <option value="" selected>Объект не выбран</option>
-                        <option th:each="subject : ${federalSubjects}" th:text="${subject.name}"
-                                th:value="${subject.id}"></option>
+                        {% for subject in federalSubjects %}
+                        <option value="{{subject.id}}">{{ subject.name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
@@ -37,10 +38,11 @@
                 <div class="col-sm-12">
                     <label>Команда</label>
                     <select class="form-control input-sm"
-                            name="teams_id" type="text" th:field="*{teamId}">
+                            name="teams_id" type="text">
                         <option value="" selected>Команда не выбрана</option>
-                        <option th:each="team : ${teams}" th:text="${team.name}"
-                                th:value="${team.id}"></option>
+                        {% for team in teams %}
+                        <option value="{{team.id}}">{{ team.name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
@@ -48,22 +50,24 @@
                 <div class="col-sm-12">
                     <label>Звание</label>
                     <select class="form-control input-sm" multiple
-                            name="titles_id" type="text" th:field="*{titleId}">
+                            name="titles_id" type="text">
                         <option value="" selected>Заголовок не выбран</option>
-                        <option th:each="title : ${titles}" th:text="${title.name}"
-                                th:value="${title.id}"></option>
+                        {% for title in titles %}
+                        <option value="{{title.id}}">{{ title.name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
             </div>
         </div>
         <div class="mb15 col-md-4 col-sm-12 mt20 mt0sm">
             <div class="form-group">
+                {{ request.getContextPath() }}
                 <div class="col-sm-6 col-xs-6">
                     <div class="form-group">
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input type="checkbox" name="rider" th:field="*{rider}"> Велосипедисты
+                                    <input type="checkbox" name="rider"> Велосипедисты
                                     <span></span>
                                 </label>
                             </div>
@@ -71,7 +75,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input type="checkbox" name="technical" th:field="*{technical}"> Техника
+                                    <input type="checkbox" name="technical"> Техника
                                     <span></span>
                                 </label>
                             </div>
@@ -79,7 +83,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input type="checkbox" name="commissaire" th:field="*{commissaire}"> Комиссар
+                                    <input type="checkbox" name="commissaire"> Комиссар
                                     <span></span>
                                 </label>
                             </div>
@@ -87,7 +91,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input name="federation" type="checkbox" th:field="*{federation}"> Федерация
+                                    <input name="federation" type="checkbox"> Федерация
                                     <span></span>
                                 </label>
                             </div>
@@ -95,7 +99,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input name="team_member" type="checkbox" th:field="*{teamMember}"> Члены команды
+                                    <input name="team_member" type="checkbox"> Члены команды
                                     <span></span>
                                 </label>
                             </div>
@@ -103,7 +107,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input name="other" type="checkbox" th:field="*{other}"> Другое
+                                    <input name="other" type="checkbox"> Другое
                                     <span></span>
                                 </label>
                             </div>
@@ -115,7 +119,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input name="road" type="checkbox" th:field="*{road}"> Трек
+                                    <input name="road" type="checkbox"> Трек
                                     <span></span>
                                 </label>
                             </div>
@@ -123,7 +127,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input name="track" type="checkbox" th:field="*{track}"> Шоссе
+                                    <input name="track" type="checkbox"> Шоссе
                                     <span></span>
                                 </label>
                             </div>
@@ -131,7 +135,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input name="mb" type="checkbox" th:field="*{mb}"> Маунтинбайк
+                                    <input name="mb" type="checkbox"> Маунтинбайк
                                     <span></span>
                                 </label>
                             </div>
@@ -139,7 +143,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input name="bmx" type="checkbox" th:field="*{bmx}"> BMX
+                                    <input name="bmx" type="checkbox"> BMX
                                     <span></span>
                                 </label>
                             </div>
