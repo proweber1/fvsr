@@ -6,11 +6,11 @@
         <table class="table table-striped text-left mbn">
             <thead>
                 <tr class="ws-no">
-                    <th class="text-center">Даты</th>
+                    <th class="text-center w50">Даты</th>
                     <th class="text-center">Вид</th>
                     <th>Название</th>
                     <th>Место</th>
-                    <th>Страна/Субъект</th>
+                    <th class="text-nowrap">Страна/Субъект</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,7 +20,7 @@
             {% set isRange = (competition.dateBegin != competition.dateEnd) %}
             {% set diffMonth = (competition.dateBegin.month != competition.dateEnd.month) %}
             <tr>
-                <td class="text-center text-nowrap">
+                <td class="text-center text-nowrap w50">
                     {{ competition.dateBegin | date('dd') }}
                     {{ isRange ? '- '+ competition.dateEnd | date('dd') : null }}
 
@@ -46,9 +46,10 @@
                         </a>
                     </h3>
                 </td>
-                <td class="text-nowrap">{{ competition.place }}</td>
+                <td class="text-nowrap">{{ competition.place | default('Не указано') }}</td>
                 <td>
-                    {{ competition.country.nameRus | trim }},
+                    {{ competition.country.nameRus | trim }}
+                    {{ (competition.country is not null) and (competition.subject is not null) ? ',' : 'Не указано' }}
                     {{ competition.subject.name | trim }}
                 </td>
             </tr>

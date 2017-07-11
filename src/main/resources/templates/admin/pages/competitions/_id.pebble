@@ -59,14 +59,19 @@
                         </a>
                     </div>
 
+                    {% if (competition.country is not null) and (competition.subject is not null) %}
                     <div class="block mt25">
                         <i class="fa fa-map-marker mr5"></i>
                         {{ competition.country.nameRus | trim }},
                         {{ competition.subject.name | trim }}
                     </div>
+                    {% endif %}
+
+                    {% if competition.place is not null %}
                     <div class="h3 block mt5">
                         {{ competition.place }}
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
