@@ -86,7 +86,7 @@ and sortParam.endsWith("asc") %}
 
                 <td>{{ person.federalSubject.name | default('-') }}</td>
                 <td title="{{ person.team.name }}">{{ person.team.shortName | default('-') }}</td>
-                <td>{{ person.title.name }}</td>
+                <td>{{ person.title.name | default('-') }}</td>
             </tr>
             {% else %}
             <tr>
