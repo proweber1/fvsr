@@ -14796,6 +14796,17 @@ dd {
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+.table .list__positions {
+  margin-top: 3px;
+}
+.table .list__positions span{
+  border: 1px solid #999;
+  color: #888;
+  padding: 1px 3px;
+  line-height: 7px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
 /*===============================================
   L. Error Pages - 404, 500 (plus alt pages)
 ================================================= */
