@@ -1,4 +1,4 @@
-{% set URI = request.GetRequestURI() %}
+{% set URI = request.getRequestURI() %}
 
 <ul class="nav nav-pills nav-stacked">
     <li class="{{ URI == '/dictionaries' ? 'active' : null }}">

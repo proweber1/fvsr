@@ -3,18 +3,19 @@
         <div class="mb15 col-md-4 col-sm-6">
             <div class="form-group flex">
                 <div class="">
-                    <label>Пол</label>
+                    <label for="gender">Пол</label>
                     <select class="form-control input-sm w75"
-                            name="gender" type="text">
+                            name="gender" type="text" id="gender">
+                        <option value="">Все</option>
                         <option value="true">Муж.</option>
                         <option value="false">Жен.</option>
                     </select>
                 </div>
                 <div class="">
-                    <label>День рождение</label>
+                    <label for="birthdate">День рождение</label>
                     <div class="flex">
                         <input class="form-control input-sm datepicker mr5"
-                               name="birthdate_from" type="text" placeholder="от"> -
+                               name="birthdate_from" type="text" placeholder="от" id="birthdate"> -
                         <input class="form-control input-sm datepicker ml5"
                                name="birthdate_to" type="text" placeholder="до">
                     </div>
