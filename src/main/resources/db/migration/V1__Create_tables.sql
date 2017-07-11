@@ -33,7 +33,7 @@ CREATE TABLE people
   mb                 BOOLEAN,
   bmx                BOOLEAN,
   titles_id          SMALLINT,
-  id                 SERIAL NOT NULL
+  id                 BIGSERIAL NOT NULL
 );
 
 COMMENT ON COLUMN people.gender IS '0 - мужики';

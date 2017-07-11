@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Participant extends AbstractDictionary {
 
     @Column(name = "name_short_eng")
-    private String shortName;
+    private String nameShortEng;
 
     @Column(name = "name_eng")
     private String nameEng;
