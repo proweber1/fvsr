@@ -1,6 +1,6 @@
 CREATE TABLE people
 (
-  uci                SERIAL NOT NULL
+  uci                BIGINT NOT NULL
     CONSTRAINT pk_people
     PRIMARY KEY,
   federation_num     INTEGER,

@@ -61,7 +61,7 @@
                 <td>{{ person.federationNum }}</td>
                 <td>{{ person.lastname }} {{ person.firstname }} {{ person.patronymic }}</td>
                 <td>{{ person.lastnameEng }} {{ person.firstnameEng }}</td>
-                <td>{{ person.birthdate }}</td>
+                <td>{{ person.birthdate | date('dd.MM.yyyy') }}</td>
                 <td>{{ person.gender ? 'Муж.' : 'Жен.' }}</td>
 
                 <td>{{ person.federalSubject.name | default('-') }}</td>
