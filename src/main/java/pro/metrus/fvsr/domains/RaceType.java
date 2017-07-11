@@ -15,7 +15,7 @@ public class RaceType extends AbstractDictionary {
     private String nameEng;
 
     @Column(name = "name_short_eng")
-    private String nameShortName;
+    private String nameShortEng;
 
     /** Вид соревнования */
     @OneToOne
