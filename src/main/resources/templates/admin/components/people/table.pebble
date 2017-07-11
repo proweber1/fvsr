@@ -54,7 +54,7 @@ and sortParam.endsWith("asc") %}
                     {{ person.lastname | default(person.lastnameEng) }}
                     {{ person.firstname | default(person.firstnameEng) }}
                     {{ person.patronymic }}
-                    
+
                     <div class="list__positions">
                         <span title="Велосипедист"
                               class="{{ person.rider ? null : 'hidden' }}">вел</span>
