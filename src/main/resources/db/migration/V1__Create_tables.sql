@@ -1,6 +1,6 @@
 CREATE TABLE people
 (
-  uci                BIGINT NOT NULL
+  uci                SERIAL NOT NULL
     CONSTRAINT pk_people
     PRIMARY KEY,
   federation_num     INTEGER,
@@ -40,7 +40,7 @@ COMMENT ON COLUMN people.gender IS '0 - мужики';
 
 CREATE TABLE rf_subjects
 (
-  id       SERIAL       NOT NULL
+  id       SERIAL  NOT NULL
     CONSTRAINT rf_subjects_pkey
     PRIMARY KEY,
   name     VARCHAR(100) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE rf_subjects
 
 CREATE TABLE rf_fo
 (
-  id         SERIAL      NOT NULL
+  id         SERIAL NOT NULL
     CONSTRAINT rf_fo_pkey
     PRIMARY KEY,
   name_short VARCHAR(10) NOT NULL,
@@ -58,18 +58,18 @@ CREATE TABLE rf_fo
 
 CREATE TABLE teams
 (
-  id           SERIAL       NOT NULL
+  id         SERIAL  NOT NULL
     CONSTRAINT teams_pkey
     PRIMARY KEY,
-  name         VARCHAR(100) NOT NULL,
-  name_short   VARCHAR(10),
-  countries_id INTEGER,
-  format       VARCHAR(50)
+  name       VARCHAR(100) NOT NULL,
+  name_short VARCHAR(10),
+  format     VARCHAR(50),
+  country3   VARCHAR(3)
 );
 
 CREATE TABLE titles
 (
-  id         SERIAL      NOT NULL
+  id         SERIAL NOT NULL
     CONSTRAINT titles_pkey
     PRIMARY KEY,
   name_short VARCHAR(50) NOT NULL,
@@ -78,10 +78,11 @@ CREATE TABLE titles
 
 CREATE TABLE vid
 (
-  id   SERIAL      NOT NULL
+  id        SERIAL   NOT NULL
     CONSTRAINT vid_pkey
     PRIMARY KEY,
-  name VARCHAR(50) NOT NULL
+  name      VARCHAR(50) NOT NULL,
+  parent_id INTEGER
 );
 
 CREATE TABLE competitions
@@ -95,7 +96,8 @@ CREATE TABLE competitions
   country3  VARCHAR(3),
   country2  VARCHAR(2),
   classcode VARCHAR(10),
-  flagcode  VARCHAR(2)
+  vid_id    INTEGER,
+  name_eng  VARCHAR(300)
 );
 
 CREATE TABLE participant
@@ -103,20 +105,20 @@ CREATE TABLE participant
   id             SERIAL NOT NULL
     CONSTRAINT participant_pkey
     PRIMARY KEY,
-  name           VARCHAR(50),
-  name_short_eng VARCHAR(10),
-  name_eng       VARCHAR(50)
+  name           CHAR(50),
+  name_short_eng CHAR(10),
+  name_eng       CHAR(50)
 );
 
 CREATE TABLE countries
 (
-  id           SERIAL       NOT NULL
+  id           SERIAL   NOT NULL
     CONSTRAINT countrys_pkey
     PRIMARY KEY,
   name_eng     VARCHAR(100) NOT NULL,
   name         VARCHAR(100) NOT NULL,
-  alpha2       VARCHAR(2),
-  name_short   VARCHAR(3),
+  country2     VARCHAR(2),
+  country3     VARCHAR(3),
   continent_id INTEGER
 );
 
@@ -128,21 +130,21 @@ CREATE TABLE categories
   name           VARCHAR(200),
   name_short     VARCHAR(10),
   name_eng       VARCHAR(200),
-  name_eng_short VARCHAR(10)
+  name_short_eng VARCHAR(10)
 );
 
 CREATE TABLE races
 (
-  id             SERIAL    NOT NULL
+  id              SERIAL NOT NULL
     CONSTRAINT races_pkey
     PRIMARY KEY,
-  id_race_type   INTEGER,
-  id_category    INTEGER,
-  place          VARCHAR(200),
-  date_time      TIMESTAMP NOT NULL,
-  id_competition INTEGER   NOT NULL,
-  coments        VARCHAR(300),
-  distance       REAL
+  place           VARCHAR(200),
+  date            DATE,
+  competitions_id INTEGER,
+  name            VARCHAR(300),
+  mandatorydate   DATE,
+  participant_id  INTEGER,
+  categorycode    VARCHAR(50)
 );
 
 CREATE TABLE race_type
@@ -186,7 +188,7 @@ CREATE TABLE result_status
 
 CREATE TABLE continents
 (
-  id             SERIAL      NOT NULL
+  id             SERIAL   NOT NULL
     CONSTRAINT continents_pkey
     PRIMARY KEY,
   name           VARCHAR(10) NOT NULL,
@@ -196,7 +198,7 @@ CREATE TABLE continents
 
 CREATE TABLE uci
 (
-  id         SERIAL      NOT NULL
+  id         SERIAL   NOT NULL
     CONSTRAINT uci_pkey
     PRIMARY KEY,
   name       VARCHAR(50) NOT NULL,
@@ -212,27 +214,3 @@ CREATE TABLE teams_uci
   PRIMARY KEY (uci_id, team_id)
 );
 
-CREATE TABLE competitions_back
-(
-  id            SERIAL       NOT NULL
-    CONSTRAINT competitions_back_pkey
-    PRIMARY KEY,
-  name          VARCHAR(300) NOT NULL,
-  id_rf_subject INTEGER,
-  place         VARCHAR(300),
-  date_begin    DATE,
-  date_end      DATE,
-  id_country    INTEGER DEFAULT 643,
-  id_vid        INTEGER
-);
-
-CREATE TABLE teams
-(
-  id           SERIAL  NOT NULL
-    CONSTRAINT teams_pkey
-    PRIMARY KEY,
-  name         VARCHAR(100) NOT NULL,
-  name_short   VARCHAR(10),
-  countries_id INTEGER,
-  format       VARCHAR(50)
-);
