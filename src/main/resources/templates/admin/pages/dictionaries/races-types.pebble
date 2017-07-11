@@ -17,7 +17,7 @@
         <td class="w50">{{ number + (loop.index + 1) }}</td>
         <td>{{ raceType.vid.name }}</td>
         <td>{{ raceType.name }}</td>
-        <td>{{ raceType.shortNameEng }}</td>
+        <td>{{ raceType.nameShortEng }}</td>
         <td>{{ raceType.nameEng }}</td>
     </tr>
     {% else %}

@@ -5,9 +5,10 @@
     <thead>
         <th class="w50">№</th>
         <th>ISO</th>
-        <th>Обозначение</th>
         <th>Название</th>
         <th>Континент</th>
+        <th>Обозначение (Eng)</th>
+        <th>Название (Eng)</th>
     </thead>
     <tbody>
 
@@ -15,9 +16,10 @@
     <tr>
         <td class="w50">{{ number + (loop.index + 1) }}</td>
         <td>{{ country.id }}</td>
-        <td>{{ country.shortName }}</td>
         <td>{{ country.nameRus }}</td>
         <td>{{ country.continent.name }}</td>
+        <td>{{ country.country3 }}</td>
+        <td>{{ country.name }}</td>
     </tr>
     {% else %}
     <tr>

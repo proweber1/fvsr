@@ -111,7 +111,7 @@ public class DictionariesController {
 
         ui.addAttribute("dictionaries", all);
 
-        return "admin/pages/dictionaries/default";
+        return "admin/pages/dictionaries/vid";
     }
 
     /**
@@ -159,7 +159,7 @@ public class DictionariesController {
 
         ui.addAttribute("dictionaries", all);
 
-        return "admin/pages/dictionaries/default";
+        return "admin/pages/dictionaries/participants";
     }
 
     /**

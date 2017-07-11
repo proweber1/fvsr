@@ -6,6 +6,7 @@
     <tr>
         <th class="w50">№</th>
         <th>Обозначение</th>
+        <th>Обозначение (Eng)</th>
         <th>Название</th>
     </tr>
     </thead>
@@ -14,6 +15,7 @@
     <tr>
         <td class="w50">{{ number + (loop.index + 1) }}</td>
         <td>{{ continent.shortName }}</td>
+        <td>{{ continent.nameShortEng }}</td>
         <td>{{ continent.name }}</td>
     </tr>
     {% else %}
