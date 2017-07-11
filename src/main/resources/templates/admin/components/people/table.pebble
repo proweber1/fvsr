@@ -1,11 +1,12 @@
 {% macro sort(title, param, sortParam=request.getParameter('sort')) %}
 
 {% set order = (sortParam is not null)
-and sortParam.startsWith(param + ",")
-and sortParam.endsWith("asc") %}
+and sortParam.startsWith(param + ",") %}
 
-{% set ordering = order ? "desc" : "asc" %}
-{% set revers = order ? "asc" : "desc" %}
+{% set orderAsc = order and sortParam.endsWith("asc") %}
+
+{% set ordering = orderAsc ? "desc" : "asc" %}
+{% set revers = orderAsc ? "asc" : "desc" %}
 
     <a href="{{ href('?sort='+ param +','+ ordering) }}"
        class="text-nowrap text-dark {{ order ? 'text-success-i' : null }}">
