@@ -1,57 +1,21 @@
-CREATE TABLE categories
-(
-  id         SERIAL PRIMARY KEY NOT NULL,
-  name       CHAR(200),
-  name_short CHAR(10)
-);
-CREATE TABLE competitions
-(
-  id            SERIAL PRIMARY KEY NOT NULL,
-  name          CHAR(300)          NOT NULL,
-  id_rf_subject INTEGER,
-  place         CHAR(300),
-  date_begin    DATE,
-  date_end      DATE,
-  id_country    INTEGER DEFAULT 643,
-  id_vid        INTEGER
-);
-CREATE TABLE continents
-(
-  id         SERIAL PRIMARY KEY NOT NULL,
-  name       CHAR(10)           NOT NULL,
-  name_short CHAR(3)            NOT NULL
-);
-CREATE TABLE countries
-(
-  id           SERIAL PRIMARY KEY NOT NULL,
-  name_eng     CHAR(100)          NOT NULL,
-  name         CHAR(100)          NOT NULL,
-  alpha2       CHAR(2),
-  name_short   CHAR(3),
-  continent_id INTEGER
-);
-CREATE TABLE participant
-(
-  id         SERIAL PRIMARY KEY NOT NULL,
-  name       CHAR(50)           NOT NULL,
-  name_short CHAR(10)
-);
 CREATE TABLE people
 (
-  uci                BIGINT,
+  uci                BIGINT NOT NULL
+    CONSTRAINT pk_people
+    PRIMARY KEY,
   federation_num     INTEGER,
-  lastname_eng       CHAR(100),
-  firstname_eng      CHAR(100),
+  lastname_eng       VARCHAR(100),
+  firstname_eng      VARCHAR(100),
   gender             BOOLEAN,
   birthdate          DATE,
-  address1           CHAR(300),
-  address2           CHAR(300),
-  zip                CHAR(20),
-  town               CHAR(100),
-  country            CHAR(100),
-  phone              CHAR(50),
-  mobile             CHAR(50),
-  email              CHAR(200),
+  address1           VARCHAR(300),
+  address2           VARCHAR(300),
+  zip                VARCHAR(20),
+  town               VARCHAR(100),
+  country            VARCHAR(100),
+  phone              VARCHAR(50),
+  mobile             VARCHAR(50),
+  email              VARCHAR(200),
   rider              BOOLEAN DEFAULT FALSE,
   commissaire        BOOLEAN DEFAULT FALSE,
   classifier         BOOLEAN DEFAULT FALSE,
@@ -59,9 +23,9 @@ CREATE TABLE people
   federation         BOOLEAN DEFAULT FALSE,
   team_member        BOOLEAN DEFAULT FALSE,
   other_role         BOOLEAN,
-  lastname           CHAR(100),
-  firstname          CHAR(100),
-  patronymic         CHAR(100),
+  lastname           VARCHAR(100),
+  firstname          VARCHAR(100),
+  patronymic         VARCHAR(100),
   subjects_id        SMALLINT,
   teams_id           SMALLINT,
   road               BOOLEAN,
@@ -69,88 +33,196 @@ CREATE TABLE people
   mb                 BOOLEAN,
   bmx                BOOLEAN,
   titles_id          SMALLINT,
-  id                 BIGSERIAL PRIMARY KEY NOT NULL
+  id                 SERIAL NOT NULL
 );
+
 COMMENT ON COLUMN people.gender IS '0 - мужики';
-CREATE TABLE race_type
+
+CREATE TABLE rf_subjects
 (
-  id     SERIAL PRIMARY KEY NOT NULL,
-  name   CHAR(50)           NOT NULL,
-  id_vid INTEGER
+  id       SERIAL  NOT NULL
+    CONSTRAINT rf_subjects_pkey
+    PRIMARY KEY,
+  name     VARCHAR(100) NOT NULL,
+  rf_fo_id SMALLINT
 );
+
+CREATE TABLE rf_fo
+(
+  id         SERIAL NOT NULL
+    CONSTRAINT rf_fo_pkey
+    PRIMARY KEY,
+  name_short VARCHAR(10) NOT NULL,
+  name       VARCHAR(100)
+);
+
+CREATE TABLE teams
+(
+  id           SERIAL  NOT NULL
+    CONSTRAINT teams_pkey
+    PRIMARY KEY,
+  name         VARCHAR(100) NOT NULL,
+  name_short   VARCHAR(10),
+  countries_id INTEGER,
+  format       VARCHAR(50)
+);
+
+CREATE TABLE titles
+(
+  id         SERIAL NOT NULL
+    CONSTRAINT titles_pkey
+    PRIMARY KEY,
+  name_short VARCHAR(50) NOT NULL,
+  name       VARCHAR(100)
+);
+
+CREATE TABLE vid
+(
+  id   SERIAL   NOT NULL
+    CONSTRAINT vid_pkey
+    PRIMARY KEY,
+  name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE competitions
+(
+  id        SERIAL NOT NULL
+    CONSTRAINT competitions_pkey
+    PRIMARY KEY,
+  name      VARCHAR(300),
+  startdate DATE,
+  enddate   DATE,
+  country3  VARCHAR(3),
+  country2  VARCHAR(2),
+  classcode VARCHAR(10),
+  flagcode  VARCHAR(2)
+);
+
+CREATE TABLE participant
+(
+  id             SERIAL NOT NULL
+    CONSTRAINT participant_pkey
+    PRIMARY KEY,
+  name           VARCHAR(50),
+  name_short_eng VARCHAR(10),
+  name_eng       VARCHAR(50)
+);
+
+CREATE TABLE countries
+(
+  id           SERIAL   NOT NULL
+    CONSTRAINT countrys_pkey
+    PRIMARY KEY,
+  name_eng     VARCHAR(100) NOT NULL,
+  name         VARCHAR(100) NOT NULL,
+  alpha2       VARCHAR(2),
+  name_short   VARCHAR(3),
+  continent_id INTEGER
+);
+
+CREATE TABLE categories
+(
+  id             SERIAL NOT NULL
+    CONSTRAINT categories_pkey
+    PRIMARY KEY,
+  name           VARCHAR(200),
+  name_short     VARCHAR(10),
+  name_eng       VARCHAR(200),
+  name_eng_short VARCHAR(10)
+);
+
 CREATE TABLE races
 (
-  id             SERIAL PRIMARY KEY NOT NULL,
+  id             SERIAL    NOT NULL
+    CONSTRAINT races_pkey
+    PRIMARY KEY,
   id_race_type   INTEGER,
   id_category    INTEGER,
-  place          CHAR(200),
-  date_time      TIMESTAMP          NOT NULL,
-  id_competition INTEGER            NOT NULL,
-  coments        CHAR(300),
+  place          VARCHAR(200),
+  date_time      TIMESTAMP NOT NULL,
+  id_competition INTEGER   NOT NULL,
+  coments        VARCHAR(300),
   distance       REAL
 );
-CREATE TABLE result_status
+
+CREATE TABLE race_type
 (
-  id         SERIAL PRIMARY KEY NOT NULL,
-  name_short CHAR(10)           NOT NULL,
-  name       CHAR(50)
+  id             SERIAL NOT NULL
+    CONSTRAINT race_type_pkey
+    PRIMARY KEY,
+  name           VARCHAR(50),
+  id_vid         INTEGER,
+  name_eng       VARCHAR(100),
+  name_short_eng VARCHAR(7)
 );
+
 CREATE TABLE results
 (
-  id               SERIAL PRIMARY KEY NOT NULL,
-  id_race          INTEGER            NOT NULL,
+  id               SERIAL  NOT NULL
+    CONSTRAINT results_pkey
+    PRIMARY KEY,
+  id_race          INTEGER NOT NULL,
   bib              INTEGER,
   rank             INTEGER,
   id_people        BIGINT,
-  fio              CHAR(100),
+  fio              VARCHAR(100),
   id_subject       INTEGER,
   id_team          INTEGER,
   result           TIMESTAMP,
   id_result_status INTEGER,
-  irm              CHAR(100),
   points           INTEGER
 );
-CREATE TABLE rf_fo
+
+CREATE TABLE result_status
 (
-  id         SERIAL PRIMARY KEY NOT NULL,
-  name_short CHAR(10)           NOT NULL,
-  name       CHAR(100)
+  id             SERIAL NOT NULL
+    CONSTRAINT result_status_pkey
+    PRIMARY KEY,
+  name_short     VARCHAR(10),
+  name           VARCHAR(50),
+  name_short_eng VARCHAR(3),
+  name_eng       VARCHAR(50)
 );
-CREATE TABLE rf_subjects
+
+CREATE TABLE continents
 (
-  id       SERIAL PRIMARY KEY NOT NULL,
-  name     CHAR(100)          NOT NULL,
-  rf_fo_id SMALLINT
+  id             SERIAL   NOT NULL
+    CONSTRAINT continents_pkey
+    PRIMARY KEY,
+  name           VARCHAR(10) NOT NULL,
+  name_short_eng VARCHAR(3)  NOT NULL,
+  name_short     VARCHAR(3)
 );
-CREATE TABLE teams
+
+CREATE TABLE uci
 (
-  id           SERIAL PRIMARY KEY NOT NULL,
-  name         CHAR(100)          NOT NULL,
-  name_short   CHAR(10),
-  countries_id INTEGER,
-  format       CHAR(50)
+  id         SERIAL   NOT NULL
+    CONSTRAINT uci_pkey
+    PRIMARY KEY,
+  name       VARCHAR(50) NOT NULL,
+  name_short VARCHAR(5),
+  vid_id     INTEGER
 );
+
 CREATE TABLE teams_uci
 (
   team_id INTEGER NOT NULL,
   uci_id  INTEGER NOT NULL,
-  CONSTRAINT teams_uci_pkey PRIMARY KEY (uci_id, team_id)
+  CONSTRAINT teams_uci_pkey
+  PRIMARY KEY (uci_id, team_id)
 );
-CREATE TABLE titles
+
+CREATE TABLE competitions_back
 (
-  id         SERIAL PRIMARY KEY NOT NULL,
-  name_short CHAR(50)           NOT NULL,
-  name       CHAR(100)
+  id            SERIAL    NOT NULL
+    CONSTRAINT competitions_back_pkey
+    PRIMARY KEY,
+  name          VARCHAR(300) NOT NULL,
+  id_rf_subject INTEGER,
+  place         VARCHAR(300),
+  date_begin    DATE,
+  date_end      DATE,
+  id_country    INTEGER DEFAULT 643,
+  id_vid        INTEGER
 );
-CREATE TABLE uci
-(
-  id         SERIAL PRIMARY KEY NOT NULL,
-  name       CHAR(50)           NOT NULL,
-  name_short CHAR(5),
-  vid_id     INTEGER
-);
-CREATE TABLE vid
-(
-  id   SERIAL PRIMARY KEY NOT NULL,
-  name CHAR(50)           NOT NULL
-);
+

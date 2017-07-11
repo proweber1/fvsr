@@ -1,4 +1,7 @@
-INSERT INTO public.result_status (id, name_short, name) VALUES (2, 'н/ф       ', 'не финишировал                                    ');
-INSERT INTO public.result_status (id, name_short, name) VALUES (1, 'н/с       ', 'не стартовал                                      ');
-INSERT INTO public.result_status (id, name_short, name) VALUES (3, 'з         ', 'замечание                                         ');
-INSERT INTO public.result_status (id, name_short, name) VALUES (4, 'дскв      ', 'дисквалификация                                   ');
+INSERT INTO public.result_status (id, name_short, name, name_short_eng, name_eng) VALUES (1, 'н/с       ', 'не стартовал                                      ', 'DNS', 'Did not start                                     ');
+INSERT INTO public.result_status (id, name_short, name, name_short_eng, name_eng) VALUES (2, 'н/ф       ', 'не финишировал                                    ', 'DNF', 'Did not finish                                    ');
+INSERT INTO public.result_status (id, name_short, name, name_short_eng, name_eng) VALUES (4, 'дскв      ', 'дисквалификация                                   ', 'DSQ', 'Disqualified                                      ');
+INSERT INTO public.result_status (id, name_short, name, name_short_eng, name_eng) VALUES (3, 'к         ', 'круговой                                          ', 'LAP', 'Lapped                                            ');
+INSERT INTO public.result_status (id, name_short, name, name_short_eng, name_eng) VALUES (6, 'п         ', 'понижение                                         ', 'REL', 'Relegated                                         ');
+INSERT INTO public.result_status (id, name_short, name, name_short_eng, name_eng) VALUES (5, 'слт       ', 'cверх лимита времени                              ', 'OTL', 'Over Time Limit                                   ');
+INSERT INTO public.result_status (id, name_short, name, name_short_eng, name_eng) VALUES (7, 'ск        ', 'сверх круговые                                    ', 'OVL', 'Overlapped                                        ');
