@@ -5,8 +5,10 @@
     <ul class="nav nav-pills">
 
         {% for item in vid %}
-        <li class="{{ loop.first ? 'active' : null }}">
-            <a href="">{{ item.name | trim }}</a>
+        <li class="{{ (request.getRequestURI() contains item.id) ? 'active' : null }}">
+            <a href="{{ href('/dictionaries/teams/'+ item.id +'') }}">
+                {{ item.name | trim }}
+            </a>
         </li>
         {% endfor %}
 

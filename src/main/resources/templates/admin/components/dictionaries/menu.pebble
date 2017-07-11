@@ -35,6 +35,6 @@
         <a href="{{ href('/dictionaries/uci') }}">Классификация UCI</a>
     </li>
     <li class="{{ URI contains '/dictionaries/teams' ? 'active' : null }}">
-        <a href="{{ href('/dictionaries/teams') }}">Команды</a>
+        <a href="{{ href('/dictionaries/teams/1') }}">Команды</a>
     </li>
 </ul>
