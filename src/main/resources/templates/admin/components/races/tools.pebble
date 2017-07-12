@@ -1,0 +1,6 @@
+<span class="races__tools pull-right">
+    <a href="{{ href('/races/create') }}" class="btn btn-success disabled">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        Добавить
+    </a>
+</span>
