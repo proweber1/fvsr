@@ -7,7 +7,6 @@
         <th class="w50">№</th>
         <th>Обозначение</th>
         <th>Название</th>
-        <th class="text-nowrap">Обозначение (Eng)</th>
         <th class="text-nowrap">Название (Eng)</th>
     </tr>
     </thead>
@@ -17,7 +16,6 @@
         <td class="w50">{{ (loop.index + 1) }}</td>
         <td>{{ dictionary.nameShortEng }}</td>
         <td>{{ dictionary.name }}</td>
-        <td>{{ dictionary.nameShortEng }}</td>
         <td>{{ dictionary.nameEng }}</td>
     </tr>
     {% else %}
