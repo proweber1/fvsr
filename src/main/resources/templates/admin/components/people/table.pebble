@@ -16,9 +16,9 @@ and sortParam.startsWith(param + ",") %}
     </a>
 {% endmacro %}
 
-{% macro position(title, titleShort, param) %}
+{% macro position(title, nameShort, param) %}
     <span title="{{ title }}"
-          class="{{ param ? null : 'hidden' }}">{{ titleShort }}</span>
+          class="{{ param ? null : 'hidden' }}">{{ nameShort }}</span>
 {% endmacro %}
 
 <div class="people-table">
@@ -77,7 +77,7 @@ and sortParam.startsWith(param + ",") %}
                 </td>
                 <td>{{ person.lastnameEng }} {{ person.firstnameEng }}</td>
                 <td>{{ person.birthdate | date('dd.MM.yyyy') }}</td>
-                <td class="text-center">{{ person.gender ? 'М' : 'Ж' }}</td>
+                <td class="text-center">{{ person.gender ? 'Ж' : 'М' }}</td>
 
                 <td>{{ person.federalSubject.name | default('-') }}</td>
                 <td title="{{ person.team.name }}">{{ person.team.shortName | default('-') }}</td>
