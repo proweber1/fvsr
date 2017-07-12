@@ -2,6 +2,7 @@ package pro.metrus.fvsr.specifications;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.domain.Specifications;
 import pro.metrus.fvsr.domains.Person;
@@ -124,6 +125,12 @@ public class PeopleFilterSpecification {
     @NotNull
     @Contract(pure = true)
     private static Specification<Person> gender(final PeopleFilter filter) {
-        return (root, cq, cb) -> cb.equal(root.get("gender"), filter.isGender());
+        return (root, cq, cb) -> {
+            final Boolean gender = filter.getGender();
+            if (Objects.isNull(gender)) {
+                return null;
+            }
+            return cb.equal(root.get("gender"), gender);
+        };
     }
 }
