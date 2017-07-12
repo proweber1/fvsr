@@ -12,11 +12,11 @@
                     </select>
                 </div>
                 <div class="">
-                    <label for="birthdate">День рождение</label>
+                    <label for="birthdate">Дата рождение</label>
                     <div class="flex">
-                        <input class="form-control input-sm datepicker mr5"
+                        <input class="form-control input-sm datepicker mr5" disabled
                                name="birthdate_from" type="text" placeholder="от" id="birthdate"> -
-                        <input class="form-control input-sm datepicker ml5"
+                        <input class="form-control input-sm datepicker ml5" disabled
                                name="birthdate_to" type="text" placeholder="до">
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                 <div class="col-sm-12">
                     <label>Субъект РФ</label>
                     <select class="form-control input-sm" multiple
-                            name="subject_id" type="text">
+                            name="federalSubjectId" type="text">
                         <option value="" selected>Объект не выбран</option>
                         {% for subject in federalSubjects %}
                         <option value="{{subject.id}}">{{ subject.name }}</option>
@@ -39,7 +39,7 @@
                 <div class="col-sm-12">
                     <label>Команда</label>
                     <select class="form-control input-sm"
-                            name="teams_id" type="text">
+                            name="teamId" type="text">
                         <option value="" selected>Команда не выбрана</option>
                         {% for team in teams %}
                         <option value="{{team.id}}">{{ team.name }}</option>
@@ -49,9 +49,9 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-12">
-                    <label>Звание</label>
+                    <label>Спорт.звание</label>
                     <select class="form-control input-sm" multiple
-                            name="titles_id" type="text">
+                            name="titleId" type="text">
                         <option value="" selected>Заголовок не выбран</option>
                         {% for title in titles %}
                         <option value="{{title.id}}">{{ title.name }}</option>
@@ -100,7 +100,7 @@
                         <div class="col-md-12 col-sm-6">
                             <div class="app-checkbox">
                                 <label>
-                                    <input name="team_member" type="checkbox"> Члены команды
+                                    <input name="teamMember" type="checkbox"> Участник команды
                                     <span></span>
                                 </label>
                             </div>

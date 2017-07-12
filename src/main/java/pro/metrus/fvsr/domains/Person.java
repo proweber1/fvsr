@@ -23,7 +23,7 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private long uci;
+    private String uci;
 
     @Column(name = "federation_num")
     private int federationNum;

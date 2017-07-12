@@ -14,11 +14,11 @@
                 <div class="form-group">
                     <div class="col-sm-4 mw180">
                         <label>UCI</label>
-                        <input class="form-control input-sm" type="text" name="id" value="{{id}}">
+                        <input class="form-control input-sm" type="text" name="uci" value="{{uci}}">
                     </div>
                     <div class="col-sm-4 mw180 mt10xs">
                         <label>Фамилия</label>
-                        <input class="form-control input-sm" type="text" name="surnameRus" value="{{surname}}">
+                        <input class="form-control input-sm" type="text" name="surname" value="{{surname}}">
                     </div>
                     <div class="col-sm-4 mw180 mt10xs">
                         <label>Имя</label>

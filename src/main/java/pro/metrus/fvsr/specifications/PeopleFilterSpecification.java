@@ -45,11 +45,12 @@ public class PeopleFilterSpecification {
                 .and(booleanPredicate("techincalDelegate", filter.isTechnical()))
                 .and(booleanPredicate("track", filter.isTrack()))
                 .and(numberIsNotNull("id", filter.getId()))
+                .and(likeCondition("uci", filter.getUci()))
                 .and(numberIsNotNull("oldId", filter.getOldId()))
-                .and(likeCondition("lastname", filter.getSurname()))
-                .and(likeCondition("firstname", filter.getFirstname()))
-                .and(likeCondition("lastnameRus", filter.getSurnameRus()))
-                .and(likeCondition("firstnameRus", filter.getFirstnameRus()))
+                .or(likeCondition("lastname", filter.getSurname()))
+                .or(likeCondition("lastnameEng", filter.getSurname()))
+                .or(likeCondition("firstname", filter.getFirstname()))
+                .or(likeCondition("firstnameEng", filter.getFirstname()))
                 .and(personRelationById("team", filter.getTeamId()))
                 .and(personRelationById("federalSubject", filter.getFederalSubjectId()))
                 .and(personRelationById("title", filter.getTitleId()));
@@ -99,6 +100,7 @@ public class PeopleFilterSpecification {
             }
 
             final String pattern = String.format(LIKE_SEARCH_PATTERN, value.toUpperCase());
+            System.out.println(columnName);
             return cb.like(cb.upper(root.get(columnName)), pattern);
         };
     }

@@ -75,6 +75,11 @@ public class PeopleFilter {
     private String id;
 
     /**
+     * Uci спортсмена
+     */
+    private String uci;
+
+    /**
      * Старый ID спортсмена
      */
     private String oldId;

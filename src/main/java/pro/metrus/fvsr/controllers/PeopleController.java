@@ -73,7 +73,7 @@ public class PeopleController {
 
     @ModelAttribute("federalSubjects")
     public List<FederalSubject> federalSubjects() {
-        return federalSubjectRepository.findAll();
+        return federalSubjectRepository.findAllByOrderByNameAsc();
     }
 
     /**
