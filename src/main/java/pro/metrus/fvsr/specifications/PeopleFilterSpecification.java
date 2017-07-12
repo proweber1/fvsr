@@ -101,7 +101,7 @@ public class PeopleFilterSpecification {
             }
 
             final String pattern = String.format(LIKE_SEARCH_PATTERN, value.toUpperCase());
-            final Expression<String> stringExpression = cb.toString(root.get(columnName));
+            final Expression<String> stringExpression = root.get(columnName).as(String.class);
             return cb.like(cb.upper(stringExpression), pattern);
         };
     }
