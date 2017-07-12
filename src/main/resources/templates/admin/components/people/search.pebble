@@ -1,3 +1,10 @@
+{% macro field(param) %}
+
+{% set fieldValue = request.getParameter(param) %}
+
+    <input class="form-control input-sm" type="text" name="{{ param }}" value="{{ fieldValue }}">
+{% endmacro %}
+
 <div class="search__people">
     <a href="#search__block" class="btn btn-info btn-toggle">
         <i class="fa fa-search" aria-hidden="true"></i> Поиск
@@ -14,7 +21,7 @@
                 <div class="form-group">
                     <div class="col-sm-4 mw180">
                         <label>UCI</label>
-                        <input class="form-control input-sm" type="text" name="uci" value="{{uci}}">
+                        {{ field(param="uci") }}
                     </div>
                     <div class="col-sm-4 mw180 mt10xs">
                         <label>Фамилия</label>
