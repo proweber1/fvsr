@@ -16,6 +16,11 @@ and sortParam.startsWith(param + ",") %}
     </a>
 {% endmacro %}
 
+{% macro position(title, titleShort, param) %}
+    <span title="{{ title }}"
+          class="{{ param ? null : 'hidden' }}">{{ titleShort }}</span>
+{% endmacro %}
+
 <div class="people-table">
 
     {% include "admin/components/pagination/info" with { "pages": people } %}
@@ -57,28 +62,17 @@ and sortParam.startsWith(param + ",") %}
                     {{ person.patronymic }}
 
                     <div class="list__positions">
-                        <span title="Велосипедист"
-                              class="{{ person.rider ? null : 'hidden' }}">вел</span>
-                        <span title="Комиссар"
-                              class="{{ person.commissaire ? null : 'hidden' }}">ком</span>
-                        <span title="Классификатор"
-                              class="{{ person.classifier ? null : 'hidden' }}">кл</span>
-                        <span title="Технический делегат"
-                              class="{{ person.techincalDelegate ? null : 'hidden' }}">тд</span>
-                        <span title="Федерация"
-                              class="{{ person.federation ? null : 'hidden' }}">фед</span>
-                        <span title="Участник команды"
-                              class="{{ person.teamMember ? null : 'hidden' }}">ук</span>
-                        <span title="Другая роль"
-                              class="{{ person.otherRole ? null : 'hidden' }}">др</span>
-                        <span title="Трек"
-                              class="{{ person.road ? null : 'hidden' }}">Т</span>
-                        <span title="Шоссе"
-                              class="{{ person.track ? null : 'hidden' }}">Ш</span>
-                        <span title="Маунтибайк"
-                              class="{{ person.mb ? null : 'hidden' }}">МБ</span>
-                        <span title="BMX"
-                              class="{{ person.bmx ? null : 'hidden' }}">BMX</span>
+                        {{ position("Велосипедист", "вел", person.rider) }}
+                        {{ position("Комиссар", "ком", person.commissaire) }}
+                        {{ position("Классификатор", "кл", person.classifier) }}
+                        {{ position("Технический делегат", "тд", person.techincalDelegate) }}
+                        {{ position("Федерация", "фед", person.federation) }}
+                        {{ position("Участник команды", "ук", person.teamMember) }}
+                        {{ position("Другая роль", "др", person.otherRole) }}
+                        {{ position("Трек", "Т", person.road) }}
+                        {{ position("Шоссе", "Ш", person.track) }}
+                        {{ position("Маунтибайк", "МБ", person.mb) }}
+                        {{ position("BMX", "BMX", person.bmx) }}
                     </div>
                 </td>
                 <td>{{ person.lastnameEng }} {{ person.firstnameEng }}</td>
