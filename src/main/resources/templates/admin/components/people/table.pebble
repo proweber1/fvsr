@@ -41,6 +41,7 @@ and sortParam.startsWith(param + ",") %}
                         {{ sort("ДР", "birthdate") }}
                     </th>
                     <th class="text-center">Пол</th>
+                    <th>Характеристики</th>
                     <th>
                         {{ sort("Субъект РФ", "federalSubject.name") }}
                     </th>
@@ -60,7 +61,11 @@ and sortParam.startsWith(param + ",") %}
                     {{ person.lastname | default(person.lastnameEng) }}
                     {{ person.firstname | default(person.firstnameEng) }}
                     {{ person.patronymic }}
-
+                </td>
+                <td>{{ person.lastnameEng }} {{ person.firstnameEng }}</td>
+                <td>{{ person.birthdate | date('dd.MM.yyyy') }}</td>
+                <td class="text-center">{{ person.gender ? 'Ж' : 'М' }}</td>
+                <td class="text-left">
                     <div class="list__positions">
                         {{ position("Велосипедист", "вел", person.rider) }}
                         {{ position("Комиссар", "ком", person.commissaire) }}
@@ -75,10 +80,6 @@ and sortParam.startsWith(param + ",") %}
                         {{ position("BMX", "BMX", person.bmx) }}
                     </div>
                 </td>
-                <td>{{ person.lastnameEng }} {{ person.firstnameEng }}</td>
-                <td>{{ person.birthdate | date('dd.MM.yyyy') }}</td>
-                <td class="text-center">{{ person.gender ? 'Ж' : 'М' }}</td>
-
                 <td>{{ person.federalSubject.name | default('-') }}</td>
                 <td title="{{ person.team.name }}">{{ person.team.shortName | default('-') }}</td>
                 <td>{{ person.title.name | default('-') }}</td>
