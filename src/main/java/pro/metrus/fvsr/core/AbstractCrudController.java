@@ -64,6 +64,11 @@ public abstract class AbstractCrudController<T, ID extends Number> {
      * Репозиторий для управления данными
      */
     private final DefaultOrderableByIdRepository<T, ID> repository;
+
+    /**
+     * Название папки которое будет использоваться для того чтобы
+     * загружать шаблоны
+     */
     private final String templatePathName;
 
     /**
@@ -74,9 +79,18 @@ public abstract class AbstractCrudController<T, ID extends Number> {
             final Class<T> entityClass,
             final DefaultOrderableByIdRepository<T, ID> repository
     ) {
-        this(entityClass, repository, null);
+        this(entityClass, repository, entityClass.getSimpleName().toLowerCase());
     }
 
+    /**
+     * Этот конструктор используется для того чтобы создавать
+     * контроллеры со специфичной именнованой частью для поиска
+     * шаблонов
+     *
+     * @param entityClass Класс сущности
+     * @param repository Класс репозиторий
+     * @param templatePathName Имя папки для поиска шаблонов
+     */
     public AbstractCrudController(
             final Class<T> entityClass,
             final DefaultOrderableByIdRepository<T, ID> repository,
@@ -213,10 +227,6 @@ public abstract class AbstractCrudController<T, ID extends Number> {
     private String getTemplateName(final String viewName) {
         Objects.requireNonNull(viewName, "View name cannot be null!");
 
-        final String pathName = Objects.isNull(templatePathName)
-                ? entityClass.getSimpleName().toLowerCase()
-                : templatePathName;
-
-        return String.format("admin/pages/%s/%s", pathName, viewName);
+        return String.format("admin/pages/%s/%s", templatePathName, viewName);
     }
 }
