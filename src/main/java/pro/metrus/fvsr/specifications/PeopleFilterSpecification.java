@@ -8,6 +8,7 @@ import org.springframework.data.jpa.domain.Specifications;
 import pro.metrus.fvsr.domains.Person;
 import pro.metrus.fvsr.forms.PeopleFilter;
 
+import javax.persistence.criteria.Expression;
 import java.util.Objects;
 import static java.util.Objects.requireNonNull;
 
@@ -100,8 +101,8 @@ public class PeopleFilterSpecification {
             }
 
             final String pattern = String.format(LIKE_SEARCH_PATTERN, value.toUpperCase());
-            System.out.println(columnName);
-            return cb.like(cb.upper(root.get(columnName)), pattern);
+            final Expression<String> stringExpression = cb.toString(root.get(columnName));
+            return cb.like(cb.upper(stringExpression), pattern);
         };
     }
 
