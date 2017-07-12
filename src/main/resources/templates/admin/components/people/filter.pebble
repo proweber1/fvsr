@@ -52,9 +52,9 @@
                     <label>Спорт.звание</label>
                     <select class="form-control input-sm" multiple
                             name="titleId" type="text">
-                        <option value="" selected>Заголовок не выбран</option>
+                        <option value="" selected>Спорт.звание не выбрано</option>
                         {% for title in titles %}
-                        <option value="{{title.id}}">{{ title.name }}</option>
+                        <option value="{{title.id}}">{{ title.shortName }}</option>
                         {% endfor %}
                     </select>
                 </div>

@@ -37,7 +37,7 @@ and sortParam.startsWith(param + ",") %}
                     <th title="Фамилия и имя на английском">
                         {{ sort("ФИ (Eng)", "lastnameEng") }}
                     </th>
-                    <th title="День рождение">
+                    <th title="Дата рождение">
                         {{ sort("ДР", "birthdate") }}
                     </th>
                     <th class="text-center">Пол</th>
