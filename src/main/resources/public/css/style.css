@@ -11498,7 +11498,7 @@ th {
   max-width: 100%;
   margin-bottom: 18px; }
 
-@media (min-width: 1400px) {
+@media (min-width: 1300px) {
   .table {
     white-space: nowrap; }
 }
@@ -11509,19 +11509,28 @@ th {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  width: 1%;
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #dbe0e4; }
 
-.table > thead > tr > th:last-child,
-.table > tbody > tr > th:last-child,
-.table > tfoot > tr > th:last-child,
-.table > thead > tr > td:last-child,
-.table > tbody > tr > td:last-child,
-.table > tfoot > tr > td:last-child {
-  width: auto; }
+@media(min-width: 1300px) {
+  .table > thead > tr > th,
+  .table > tbody > tr > th,
+  .table > tfoot > tr > th,
+  .table > thead > tr > td,
+  .table > tbody > tr > td,
+  .table > tfoot > tr > td {
+    width: 1%; }
+
+  .table > thead > tr > th:last-child,
+  .table > tbody > tr > th:last-child,
+  .table > tfoot > tr > th:last-child,
+  .table > thead > tr > td:last-child,
+  .table > tbody > tr > td:last-child,
+  .table > tfoot > tr > td:last-child {
+    width: auto; }
+}
 
 .table > thead > tr > th {
   vertical-align: bottom;

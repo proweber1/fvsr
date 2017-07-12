@@ -64,6 +64,7 @@ public abstract class AbstractCrudController<T, ID extends Number> {
      * Репозиторий для управления данными
      */
     private final DefaultOrderableByIdRepository<T, ID> repository;
+    private final String templatePathName;
 
     /**
      * @param entityClass Класс сущности
@@ -73,8 +74,17 @@ public abstract class AbstractCrudController<T, ID extends Number> {
             final Class<T> entityClass,
             final DefaultOrderableByIdRepository<T, ID> repository
     ) {
+        this(entityClass, repository, null);
+    }
+
+    public AbstractCrudController(
+            final Class<T> entityClass,
+            final DefaultOrderableByIdRepository<T, ID> repository,
+            final String templatePathName
+    ) {
         this.entityClass = entityClass;
         this.repository = repository;
+        this.templatePathName = templatePathName;
     }
 
     /**
@@ -203,6 +213,10 @@ public abstract class AbstractCrudController<T, ID extends Number> {
     private String getTemplateName(final String viewName) {
         Objects.requireNonNull(viewName, "View name cannot be null!");
 
-        return String.format("%s-%s", entityClass.getSimpleName().toLowerCase(), viewName);
+        final String pathName = Objects.isNull(templatePathName)
+                ? entityClass.getSimpleName().toLowerCase()
+                : templatePathName;
+
+        return String.format("admin/pages/%s/%s", pathName, viewName);
     }
 }
