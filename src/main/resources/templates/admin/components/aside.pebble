@@ -1,6 +1,5 @@
 <aside id="sidebar_left" class="nano nano-light affix">
 
-    <!--Navbar Branding-->
     <div class="navbar-branding">
         <a href="/" class="navbar-brand">
             <span class="text-white">
@@ -10,12 +9,10 @@
         <i class="fa fa-bars" id="toggle_sidemenu_l" aria-hidden="true"></i>
     </div>
 
-    <!-- Start: Sidebar Left Content-->
     <div class="sidebar-left-content nano-content">
-        <!-- Start: Sidebar Header-->
+
         <header class="sidebar-header">
 
-            <!-- Sidebar Widget - Author-->
             <div class="sidebar-widget author-widget">
                 <div class="media">
                     <a href="/" class="media-left">
@@ -39,46 +36,52 @@
 
         </header>
 
-        <!-- Start: Sidebar Menu-->
         <ul class="nav sidebar-menu">
+            {% set URI = request.getRequestURI() %}
+
             <li class="sidebar-label pt30">Меню</li>
-            <li class="{{ request.GetRequestURI() == '/' ? 'active' : null }}">
+            <li class="{{ URI == '/' ? 'active' : null }}">
                 <a href="/">
                     <span class="fa fa-home" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Личный кабинет"></span>
+
                     <span class="sidebar-title">Личный кабинет</span>
                 </a>
             </li>
-            <li class="{{ request.GetRequestURI() == '/dictionaries' ? 'active' : null }}">
+            <li class="{{ URI contains '/dictionaries' ? 'active' : null }}">
                 <a href="{{ href('/dictionaries') }}">
                     <span class="fa fa-book" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Справочники"></span>
+
                     <span class="sidebar-title">Справочники</span>
                 </a>
             </li>
-            <li class="{{ request.GetRequestURI() == '/people' ? 'active' : null }}">
+            <li class="{{ URI contains '/people' ? 'active' : null }}">
                 <a href="{{ href('/people') }}">
                     <span class="fa fa-users" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Люди"></span>
+
                     <span class="sidebar-title">Люди</span>
                 </a>
             </li>
-            <li class="{{ request.GetRequestURI() == '/competitions' ? 'active' : null }}">
+            <li class="{{ URI contains '/competitions' ? 'active' : null }}">
                 <a href="{{ href('/competitions') }}">
                     <span class="fa fa-futbol-o" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Соревнования"></span>
+
                     <span class="sidebar-title">Соревнования</span>
                 </a>
             </li>
-            <li class="{{ request.GetRequestURI() == '/races' ? 'active' : null }}">
+            <li class="{{ URI contains '/races' ? 'active' : null }}">
                 <a href="{{ href('/races') }}">
                     <span class="fa fa-bicycle" aria-hidden="true"
                           data-toggle="tooltip" data-placement="right"
                           data-original-title="Список заездов"></span>
+
                     <span class="sidebar-title">Список заездов</span>
                 </a>
             </li>

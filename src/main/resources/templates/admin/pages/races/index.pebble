@@ -1,14 +1,14 @@
 {% extends "layouts/admin" %}
 
 {% block content %}
-
 <div class="row">
 
     <div class="col-md-12">
 
         <div class="panel">
             <div class="panel-body">
-                <p>Контент</p>
+                {% include "fragments/race-table" %}
+                {% include "admin/components/pagination/list" with {"pages": items } %}
             </div>
         </div>
     </div>

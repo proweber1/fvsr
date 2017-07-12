@@ -52,7 +52,7 @@ public class TeamsController {
     public String vid(final Model ui) {
         ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
 
-        return "race-types";
+        return "admin/pages/races/race-types";
     }
 
     /**
@@ -66,6 +66,6 @@ public class TeamsController {
         ui.addAttribute("raceTypes", raceTypesRepository.findAllByOrderByVidIdAsc());
         ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
 
-        return "race-view";
+        return "admin/pages/races/race-view";
     }
 }
