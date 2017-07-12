@@ -18,7 +18,7 @@
                     </div>
                     <div class="col-sm-4 mw180 mt10xs">
                         <label>Фамилия</label>
-                        <input class="form-control input-sm" type="text" name="lastname" value="{{surname}}">
+                        <input class="form-control input-sm" type="text" name="surnameRus" value="{{surname}}">
                     </div>
                     <div class="col-sm-4 mw180 mt10xs">
                         <label>Имя</label>

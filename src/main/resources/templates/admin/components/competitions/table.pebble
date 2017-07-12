@@ -9,8 +9,8 @@
                     <th class="text-center w50">Даты</th>
                     <th class="text-center">Вид</th>
                     <th>Название</th>
-                    <th>Место</th>
-                    <th class="text-nowrap">Страна/Субъект</th>
+                    <th class="text-nowrap">Страна</th>
+                    <th>Обозначение</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,12 +46,10 @@
                         </a>
                     </h3>
                 </td>
-                <td class="text-nowrap">{{ competition.place | default('Не указано') }}</td>
                 <td>
-                    {{ competition.country.nameRus | trim }}
-                    {{ (competition.country is not null) and (competition.subject is not null) ? ',' : 'Не указано' }}
-                    {{ competition.subject.name | trim }}
+                    {{ competition.country3 | trim | default('Не указано') }}
                 </td>
+                <td class="text-nowrap">{{ competition.classcode | default('Не указано') }}</td>
             </tr>
             {% else %}
             <tr>
