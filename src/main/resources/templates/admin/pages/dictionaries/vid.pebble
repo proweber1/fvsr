@@ -12,7 +12,7 @@
     <tbody>
     {% for vid in dictionaries %}
     <tr>
-        <td class="w50">{{ number + (loop.index + 1) }}</td>
+        <td class="w50">{{ (loop.index + 1) }}</td>
         <td>{{ vid.name | trim }}</td>
         <td>{{ vid.parent.name | trim }}</td>
     </tr>

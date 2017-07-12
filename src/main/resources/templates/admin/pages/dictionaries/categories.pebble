@@ -7,15 +7,15 @@
         <th class="w50">№</th>
         <th>Обозначение</th>
         <th>Название</th>
-        <th>Обозначение (Eng)</th>
-        <th>Название (Eng)</th>
+        <th class="text-nowrap">Обозначение (Eng)</th>
+        <th class="text-nowrap">Название (Eng)</th>
     </tr>
     </thead>
     <tbody>
 
     {% for item in dictionaries %}
     <tr>
-        <td class="w50">{{ number + (loop.index + 1) }}</td>
+        <td class="w50">{{ (loop.index + 1) }}</td>
         <td>{{ item.shortName }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.nameShortEng }}</td>

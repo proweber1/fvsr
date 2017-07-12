@@ -15,6 +15,7 @@ import pro.metrus.fvsr.repositories.RaceTypesRepository;
 import pro.metrus.fvsr.repositories.RacesRepository;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Controller which work with races
@@ -49,7 +50,7 @@ public class RacesController extends AbstractCrudController<Race, Long> {
             final CategoriesRepository categoriesRepository,
             final CompetitionsRepository competitionsRepository
     ) {
-        super(Race.class, racesRepository);
+        super(Race.class, racesRepository, "races");
 
         this.raceTypesRepository = raceTypesRepository;
         this.categoriesRepository = categoriesRepository;

@@ -1,0 +1,22 @@
+{% extends "layouts/admin" %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="panel">
+            <div class="panel-heading">
+                <span class="panel-title">
+                    Список заездов
+                </span>
+
+                {% include "admin/components/races/tools" %}
+            </div>
+            <div class="panel-body">
+                {% include "admin/components/races/table" %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

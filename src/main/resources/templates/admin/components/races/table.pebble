@@ -1,0 +1,42 @@
+{% include "admin/components/pagination/info" with { "pages": items } %}
+
+<div class="races__table">
+    <div class="over-x-auto">
+        <table class="table table-striped mbn">
+            <thead>
+                <tr class="ws-no">
+                    <th>№</th>
+                    <th>Время</th>
+                    <th>Место</th>
+                    <th>Тип</th>
+                    <th>Категория</th>
+                    <th>Дистанция</th>
+                    <th>Соревнование</th>
+                </tr>
+                </thead>
+            <tbody>
+
+            {% for race in items %}
+            <tr>
+                <td>{{ (loop + 1) }}</td>
+                <td>{{ race.dateTime }}</td>
+                <td>{{ race.place }}</td>
+                <td>{{ race.raceType.name }}</td>
+                <td>{{ race.category.name }}</td>
+                <td>{{ race.distance }}</td>
+                <td>{{ race.competitions.name }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="7">Список пуст</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt15">
+    {% include "admin/components/pagination/info" with { "pages": items } %}
+    {% include "admin/components/pagination/list" with { "pages": items } %}
+</div>
