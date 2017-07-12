@@ -16,7 +16,7 @@ public class PeopleFilter {
     /**
      * Этот параметр указывает на пол спортсмена
      */
-    private boolean gender;
+    private Boolean gender;
 
     /**
      * Этот флаг указывает на то, что спорстмен имеет
