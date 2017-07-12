@@ -11500,7 +11500,7 @@ th {
 
 @media (min-width: 1400px) {
   .table {
-    max-width: 1200px; }
+    white-space: nowrap; }
 }
 
 .table > thead > tr > th,
@@ -11509,10 +11509,19 @@ th {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
+  width: 1%;
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #dbe0e4; }
+
+.table > thead > tr > th:last-child,
+.table > tbody > tr > th:last-child,
+.table > tfoot > tr > th:last-child,
+.table > thead > tr > td:last-child,
+.table > tbody > tr > td:last-child,
+.table > tfoot > tr > td:last-child {
+  width: auto; }
 
 .table > thead > tr > th {
   vertical-align: bottom;

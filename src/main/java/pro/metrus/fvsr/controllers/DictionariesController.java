@@ -1,8 +1,6 @@
 package pro.metrus.fvsr.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pro.metrus.fvsr.domains.*;
 import pro.metrus.fvsr.repositories.*;
+
+import java.util.List;
 
 /**
  *
@@ -72,12 +72,11 @@ public class DictionariesController {
      * This action showing all dictionaries in system
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing dictionaries
      */
     @GetMapping
-    public String dictionaries(final Model ui, final Pageable pageable) {
-        ui.addAttribute("dictionaries", titleRepository.findAllByOrderByIdAsc(pageable));
+    public String dictionaries(final Model ui) {
+        ui.addAttribute("dictionaries", titleRepository.findAllByOrderByIdAsc());
 
         return "admin/pages/dictionaries/titles";
     }
@@ -86,12 +85,11 @@ public class DictionariesController {
      * This action showing all countries
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing countries
      */
     @GetMapping("/countries")
-    public String countries(final Model ui, final Pageable pageable) {
-        Page<Country> all = countryRepository.findAllByOrderByNameAsc(pageable);
+    public String countries(final Model ui) {
+        List<Country> all = countryRepository.findAllByOrderByNameAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -102,12 +100,11 @@ public class DictionariesController {
      * This action showing all vid`s
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing vid
      */
     @GetMapping("/vid")
-    public String vid(final Model ui, final Pageable pageable) {
-        Page<Vid> all = vidRepository.findAllByOrderByIdAsc(pageable);
+    public String vid(final Model ui) {
+        List<Vid> all = vidRepository.findAllByOrderByIdAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -118,12 +115,11 @@ public class DictionariesController {
      * This action showing all categories
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing categories
      */
     @GetMapping("/categories")
-    public String categories(final Model ui, final Pageable pageable) {
-        Page<Category> all = categoriesRepository.findAllByOrderByShortNameAsc(pageable);
+    public String categories(final Model ui) {
+        List<Category> all = categoriesRepository.findAllByOrderByShortNameAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -134,12 +130,11 @@ public class DictionariesController {
      * This action showing all races types
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing races types
      */
     @GetMapping("/races-types")
-    public String racesTypes(final Model ui, final Pageable pageable) {
-        Page<RaceType> all = raceTypesRepository.findAllByOrderByVidIdAsc(pageable);
+    public String racesTypes(final Model ui) {
+        List<RaceType> all = raceTypesRepository.findAllByOrderByVidIdAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -150,12 +145,11 @@ public class DictionariesController {
      * This action showing all participants
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing participants
      */
     @GetMapping("/participants")
-    public String participants(final Model ui, final Pageable pageable) {
-        Page<Participant> all = participantRepository.findAllByOrderByIdAsc(pageable);
+    public String participants(final Model ui) {
+        List<Participant> all = participantRepository.findAllByOrderByIdAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -166,12 +160,11 @@ public class DictionariesController {
      * This action showing all result statuses
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing result statuses
      */
     @GetMapping("/result-statuses")
-    public String resultStatuses(final Model ui, final Pageable pageable) {
-        Page<ResultStatus> all = resultStatusRepository.findAllByOrderByIdAsc(pageable);
+    public String resultStatuses(final Model ui) {
+        List<ResultStatus> all = resultStatusRepository.findAllByOrderByIdAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -182,12 +175,11 @@ public class DictionariesController {
      * This action showing all continents
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing continents
      */
     @GetMapping("/continents")
-    public String continents(final Model ui, final Pageable pageable) {
-        Page<Continent> all = continentsRepository.findAllByOrderByShortNameAsc(pageable);
+    public String continents(final Model ui) {
+        List<Continent> all = continentsRepository.findAllByOrderByShortNameAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -198,12 +190,11 @@ public class DictionariesController {
      * This action showing all federal subjects
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing federal subjects
      */
     @GetMapping("/subjects")
-    public String subjects(final Model ui, final Pageable pageable) {
-        Page<FederalSubject> all = federalSubjectRepository.findAllByOrderByIdAsc(pageable);
+    public String subjects(final Model ui) {
+        List<FederalSubject> all = federalSubjectRepository.findAllByOrderByIdAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -214,12 +205,11 @@ public class DictionariesController {
      * This action showing all districts
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing districts
      */
     @GetMapping("/districts")
-    public String districts(final Model ui, final Pageable pageable) {
-        Page<FederalDistrict> all = federalDistrictRepository.findAllByOrderByIdAsc(pageable);
+    public String districts(final Model ui) {
+        List<FederalDistrict> all = federalDistrictRepository.findAllByOrderByIdAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -230,12 +220,11 @@ public class DictionariesController {
      * This action showing all uci
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing uci
      */
     @GetMapping("/uci")
-    public String uci(final Model ui, final Pageable pageable) {
-        Page<Uci> all = uciRepository.findAllByOrderByIdAsc(pageable);
+    public String uci(final Model ui) {
+        List<Uci> all = uciRepository.findAllByOrderByIdAsc();
 
         ui.addAttribute("dictionaries", all);
 
@@ -246,12 +235,11 @@ public class DictionariesController {
      * This action showing all teams
      *
      * @param ui Spring ui model
-     * @param pageable Spring pageable bean
      * @return template for showing teams
      */
     @GetMapping("/teams/{vidId}")
-    public String teams(final Model ui, final Pageable pageable, @PathVariable("vidId") final short vidId) {
-        Page<Team> all = teamRepository.findAllByUcisVidIdOrderByShortNameAsc(pageable, vidId);
+    public String teams(final Model ui, @PathVariable("vidId") final short vidId) {
+        List<Team> all = teamRepository.findAllByUcisVidIdOrderByShortNameAsc(vidId);
 
         ui.addAttribute("vid", vidRepository.findAllByOrderByIdAsc());
         ui.addAttribute("dictionaries", all);

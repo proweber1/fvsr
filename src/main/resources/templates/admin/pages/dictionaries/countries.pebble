@@ -3,18 +3,18 @@
 {% block table %}
 <table class="table table-striped">
     <thead>
-        <th class="w50">№</th>
+        <th>№</th>
         <th>ISO</th>
         <th>Название</th>
         <th>Континент</th>
-        <th>Обозначение (Eng)</th>
-        <th>Название (Eng)</th>
+        <th class="text-nowrap">Обозначение (Eng)</th>
+        <th class="text-nowrap">Название (Eng)</th>
     </thead>
     <tbody>
 
     {% for country in dictionaries %}
     <tr>
-        <td class="w50">{{ number + (loop.index + 1) }}</td>
+        <td class="w50">{{ (loop.index + 1) }}</td>
         <td>{{ country.id }}</td>
         <td>{{ country.nameRus }}</td>
         <td>{{ country.continent.name }}</td>

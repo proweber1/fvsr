@@ -12,7 +12,7 @@
     <tbody>
     {% for title in dictionaries %}
     <tr>
-        <td class="w50">{{ number + (loop.index + 1) }}</td>
+        <td class="w50">{{ (loop.index + 1) }}</td>
         <td>{{ title.shortName }}</td>
         <td>{{ title.name }}</td>
     </tr>

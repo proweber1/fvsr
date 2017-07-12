@@ -15,6 +15,15 @@ public interface TeamRepository
 
     List<Team> findAllByOrderByShortNameAsc();
 
+    /**
+     * Find all teams by specify uci id
+     *
+     * @param ucisId   Specify uci id, must be positive integer
+     *                 if this param is negative then throw IllegalArgumentException
+     * @return Spring page
+     */
+    List<Team> findAllByUcisVidIdOrderByShortNameAsc(final short ucisId);
+
     Page<Team> findAllByOrderByShortNameAsc(final Pageable pageable);
 
     /**
