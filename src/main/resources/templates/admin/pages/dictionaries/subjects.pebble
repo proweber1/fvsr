@@ -5,7 +5,8 @@
     <thead>
     <tr>
         <th class="w50">№</th>
-        <th>ФО - сокращение</th>
+        <th>Код</th>
+        <th>ФО</th>
         <th>Название</th>
     </tr>
     </thead>
@@ -13,6 +14,7 @@
     {% for subject in dictionaries %}
     <tr>
         <td class="w50">{{ (loop.index + 1) }}</td>
+        <td>{{ subject.federalDistrict.shortName }}</td>
         <td>{{ subject.federalDistrict.name }}</td>
         <td>{{ subject.name }}</td>
     </tr>

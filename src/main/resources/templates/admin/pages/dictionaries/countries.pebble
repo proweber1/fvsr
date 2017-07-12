@@ -8,6 +8,7 @@
         <th>Название</th>
         <th>Континент</th>
         <th class="text-nowrap">Обозначение (Eng)</th>
+        <th class="text-nowrap">Обозначение (Eng)</th>
         <th class="text-nowrap">Название (Eng)</th>
     </thead>
     <tbody>
@@ -18,6 +19,7 @@
         <td>{{ country.id }}</td>
         <td>{{ country.nameRus }}</td>
         <td>{{ country.continent.name }}</td>
+        <td>{{ country.alpha2 }}</td>
         <td>{{ country.country3 }}</td>
         <td>{{ country.name }}</td>
     </tr>

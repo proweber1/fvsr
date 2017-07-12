@@ -33,7 +33,6 @@
                     <input id="sidebar-search" type="text" placeholder="Search..." class="form-control">
                 </div>
             </div>
-
         </header>
 
         <ul class="nav sidebar-menu">
