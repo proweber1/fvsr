@@ -7,8 +7,8 @@
                     <select class="form-control input-sm w75"
                             name="gender" type="text" id="gender">
                         <option value="">Все</option>
-                        <option value="true">Муж.</option>
-                        <option value="false">Жен.</option>
+                        <option value="false">Муж.</option>
+                        <option value="true">Жен.</option>
                     </select>
                 </div>
                 <div class="">
